@@ -1,0 +1,369 @@
+// Legal Risk Management Platform - Prisma Schema
+// Stack: Next.js 14, PostgreSQL, Prisma ORM
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================================================
+// AUTHENTICATION & USER MANAGEMENT
+// ============================================================================
+
+enum UserRole {
+  CLIENT
+  ADMIN
+  LEGAL_EXPERT
+}
+
+model User {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  name          String?
+  password      String?  // Hash bcrypt
+  emailVerified DateTime?
+  image         String?
+  role          UserRole @default(CLIENT)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relaciones principales
+  businessProfile  BusinessProfile?
+  riskAssessments  RiskAssessment[]
+  protocols        UserProtocol[]
+  sharedProtocols  Protocol[] // Protocolos que comparte a la comunidad
+  accounts         Account[]
+  sessions         Session[]
+
+  @@index([email])
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// ============================================================================
+// BUSINESS PROFILE
+// ============================================================================
+
+enum BusinessType {
+  LEGAL_FIRM
+  HEALTHCARE
+  CONSTRUCTION
+  FINANCE
+  E_COMMERCE
+  TECHNOLOGY
+  REAL_ESTATE
+  EDUCATION
+  MANUFACTURING
+  RETAIL
+  HOSPITALITY
+  TRANSPORTATION
+  CONSULTING
+  MEDIA
+  AGRICULTURE
+  OTHER
+}
+
+enum CompanySize {
+  MICRO          // 1-10 employees
+  SMALL          // 11-50 employees
+  MEDIUM         // 51-250 employees
+  LARGE          // 251-1000 employees
+  ENTERPRISE     // 1000+ employees
+}
+
+enum RevenueRange {
+  LESS_THAN_100K
+  BETWEEN_100K_500K
+  BETWEEN_500K_1M
+  BETWEEN_1M_5M
+  BETWEEN_5M_10M
+  MORE_THAN_10M
+}
+
+model BusinessProfile {
+  id              String        @id @default(cuid())
+  userId          String        @unique
+  businessType    BusinessType
+  subIndustry     String?       // Sub-rubro específico
+  jurisdiction    String        // País/Región
+  companySize     CompanySize
+  revenueRange    RevenueRange?
+  employeeCount   Int?
+
+  // Características del negocio (JSON para flexibilidad)
+  businessActivities Json?      // Checklist de actividades
+  riskExposure      Json?       // Áreas de exposición inicial
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  user            User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  riskAssessments RiskAssessment[]
+
+  @@index([businessType])
+  @@index([jurisdiction])
+}
+
+// ============================================================================
+// RISK MANAGEMENT
+// ============================================================================
+
+enum RiskProbability {
+  VERY_LOW   // 1
+  LOW        // 2
+  MEDIUM     // 3
+  HIGH       // 4
+  VERY_HIGH  // 5
+}
+
+enum RiskImpact {
+  NEGLIGIBLE    // 1
+  LOW           // 2
+  MODERATE      // 3
+  HIGH          // 4
+  CATASTROPHIC  // 5
+}
+
+model RiskCategory {
+  id           String   @id @default(cuid())
+  name         String   @unique // "Laboral", "Contractual", "Protección de Datos"
+  description  String?
+  color        String?  // Para UI (hex color)
+  icon         String?  // Icon name
+  order        Int      @default(0) // Para ordenamiento
+  isActive     Boolean  @default(true)
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  riskScenarios RiskScenario[]
+  protocols     Protocol[]
+
+  @@index([isActive])
+}
+
+model RiskScenario {
+  id              String          @id @default(cuid())
+  title           String
+  description     String
+  categoryId      String
+  probability     RiskProbability
+  impact          RiskImpact
+  riskScore       Int             // Calculado: probabilidad * impacto (1-25)
+
+  // Metadata para AI
+  triggers        String[]        // Eventos que disparan este riesgo
+  consequences    String[]        // Impactos potenciales
+
+  // Aplicabilidad
+  businessTypes   BusinessType[]
+  jurisdictions   String[]
+
+  isActive        Boolean         @default(true)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  category        RiskCategory    @relation(fields: [categoryId], references: [id])
+  protocols       Protocol[]
+
+  @@index([categoryId])
+  @@index([riskScore])
+  @@index([isActive])
+}
+
+// ============================================================================
+// PROTOCOLS
+// ============================================================================
+
+enum ProtocolType {
+  SYSTEM      // Generado por AI
+  COMMUNITY   // Compartido por usuarios
+  CUSTOM      // Personalizado del usuario
+}
+
+enum ProtocolStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  ARCHIVED
+}
+
+model Protocol {
+  id                String       @id @default(cuid())
+  title             String
+  description       String
+  content           Json         // Estructura flexible de pasos/controles
+
+  // Origen del protocolo
+  type              ProtocolType
+  authorId          String?      // Si es community/custom
+  sourceProtocolId  String?      // Si es fork de otro
+
+  // Metadata
+  categoryId        String?
+  businessTypes     BusinessType[]
+  jurisdictions     String[]
+
+  // Sistema comunitario
+  upvotes           Int          @default(0)
+  downvotes         Int          @default(0)
+  isVerified        Boolean      @default(false)
+  isPublic          Boolean      @default(false)
+
+  // Estadísticas
+  usageCount        Int          @default(0)
+
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
+
+  category          RiskCategory? @relation(fields: [categoryId], references: [id])
+  author            User?         @relation(fields: [authorId], references: [id])
+  sourceProtocol    Protocol?     @relation("ProtocolForks", fields: [sourceProtocolId], references: [id])
+  forkedProtocols   Protocol[]    @relation("ProtocolForks")
+  riskScenarios     RiskScenario[]
+  userProtocols     UserProtocol[]
+
+  @@index([type])
+  @@index([isPublic])
+  @@index([categoryId])
+  @@index([authorId])
+}
+
+model UserProtocol {
+  id             String         @id @default(cuid())
+  userId         String
+  protocolId     String
+  status         ProtocolStatus @default(PENDING)
+  assignedAt     DateTime       @default(now())
+  startedAt      DateTime?
+  completedAt    DateTime?
+
+  // Implementación específica del usuario
+  customizations Json?          // Modificaciones al protocolo base
+  notes          String?
+  progress       Int            @default(0) // Porcentaje 0-100
+
+  user           User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  protocol       Protocol       @relation(fields: [protocolId], references: [id])
+
+  @@unique([userId, protocolId])
+  @@index([userId])
+  @@index([status])
+}
+
+// ============================================================================
+// RISK ASSESSMENTS
+// ============================================================================
+
+enum AssessmentStatus {
+  DRAFT
+  IN_PROGRESS
+  COMPLETED
+  ARCHIVED
+}
+
+enum QuestionType {
+  MULTIPLE_CHOICE
+  SCALE
+  TEXT
+  CHECKLIST
+  BOOLEAN
+}
+
+model RiskAssessment {
+  id               String           @id @default(cuid())
+  userId           String
+  profileId        String
+  title            String
+  status           AssessmentStatus @default(DRAFT)
+
+  // Resultados
+  overallRiskScore Int?
+  riskMatrix       Json?            // Matriz 5x5 con posiciones
+  recommendations  Json?            // Recomendaciones generadas
+
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  completedAt      DateTime?
+
+  user             User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  profile          BusinessProfile  @relation(fields: [profileId], references: [id])
+  answers          AssessmentAnswer[]
+
+  @@index([userId])
+  @@index([status])
+}
+
+model AssessmentQuestion {
+  id            String       @id @default(cuid())
+  category      String       // "Operaciones", "Legal", "Compliance", etc.
+  question      String
+  type          QuestionType
+  options       Json?        // Opciones para multiple choice/scale
+  weight        Int          @default(1) // Peso en cálculo de riesgo
+  businessTypes BusinessType[]
+
+  order         Int          @default(0)
+  isActive      Boolean      @default(true)
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  answers       AssessmentAnswer[]
+
+  @@index([category])
+  @@index([isActive])
+}
+
+model AssessmentAnswer {
+  id           String             @id @default(cuid())
+  assessmentId String
+  questionId   String
+  response     Json               // Respuesta en formato flexible
+  riskValue    Int?               // Valor de riesgo calculado
+
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
+
+  assessment   RiskAssessment     @relation(fields: [assessmentId], references: [id], onDelete: Cascade)
+  question     AssessmentQuestion @relation(fields: [questionId], references: [id])
+
+  @@unique([assessmentId, questionId])
+  @@index([assessmentId])
+}
