@@ -1,32 +1,49 @@
-// lib/deepseek.ts
-import { DeepSeekAPI } from 'deepseek-sdk';
-
-const deepseek = new DeepSeekAPI({
-  apiKey: process.env.DEEPSEEK_API_KEY,
-  model: 'deepseek-r1', // Especializado en razonamiento legal
-  temperature: 0.1, // Baja para consistencia legal
-  maxTokens: 4000
-});
+// tools/legal_data_generator.ts
 
 export class LegalDataGenerator {
+  private apiKey: string;
+  private baseURL: string = 'https://api.deepseek.com/v1';
+
+  constructor() {
+    this.apiKey = process.env.DEEPSEEK_API_KEY || '';
+    if (!this.apiKey) {
+      throw new Error('DEEPSEEK_API_KEY no está configurado en .env');
+    }
+  }
+
   async generateLegalData(sector: string, jurisdiction: string) {
     const prompt = this.buildLegalPrompt(sector, jurisdiction);
-    
-    const response = await deepseek.chat.completions.create({
-      messages: [
-        {
-          role: "system",
-          content: "Eres un experto en derecho argentino con especialización en compliance y gestión de riesgos legales. Proporciona análisis precisos y estructurados basados en legislación vigente."
-        },
-        {
-          role: "user", 
-          content: prompt
-        }
-      ],
-      temperature: 0.1
+
+    const response = await fetch(`${this.baseURL}/chat/completions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.apiKey}`,
+      },
+      body: JSON.stringify({
+        model: 'deepseek-chat', // Modelo compatible con OpenAI
+        messages: [
+          {
+            role: 'system',
+            content: 'Eres un experto en derecho argentino con especialización en compliance y gestión de riesgos legales. Proporciona análisis precisos y estructurados basados en legislación vigente.',
+          },
+          {
+            role: 'user',
+            content: prompt,
+          },
+        ],
+        temperature: 0.1,
+        max_tokens: 4000,
+      }),
     });
-    
-    return this.parseResponse(response.choices[0].message.content);
+
+    if (!response.ok) {
+      const error = await response.text();
+      throw new Error(`DeepSeek API error: ${response.status} - ${error}`);
+    }
+
+    const data = await response.json();
+    return this.parseResponse(data.choices[0].message.content);
   }
 
   private buildLegalPrompt(sector: string, jurisdiction: string): string {

@@ -1,17 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
+import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 
 export async function POST(req: NextRequest) {
   try {
-    const session = await getServerSession(authOptions);
-
-    if (!session?.user?.id) {
-      return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
-    }
-
+    const session = await auth();
     const data = await req.json();
+
+    // Si no hay sesión, guardamos los datos en localStorage del cliente
+    // y retornamos success para que el flujo continúe
+    if (!session?.user?.id) {
+      // El usuario completará el registro después
+      return NextResponse.json(
+        {
+          success: true,
+          requiresAuth: true,
+          wizardData: data,
+        },
+        { status: 200 }
+      );
+    }
 
     const {
       businessType,

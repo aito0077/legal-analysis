@@ -22,26 +22,29 @@ export default function SignInPage() {
     setLoading(true);
 
     try {
+      const formData = new FormData();
+      formData.append('email', email);
+      formData.append('password', password);
+
       const result = await signIn('credentials', {
         email,
         password,
-        redirect: false,
+        redirectTo: callbackUrl,
       });
 
-      if (result?.error) {
+      // Si signIn no redirige, hubo un error
+      if (!result) {
         setError('Credenciales inválidas');
-      } else {
-        router.push(callbackUrl);
+        setLoading(false);
       }
     } catch (error) {
       setError('Error al iniciar sesión');
-    } finally {
       setLoading(false);
     }
   };
 
   const handleGoogleSignIn = () => {
-    signIn('google', { callbackUrl });
+    signIn('google', { redirectTo: callbackUrl });
   };
 
   return (

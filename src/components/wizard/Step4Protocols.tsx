@@ -125,7 +125,18 @@ export default function Step4Protocols({ data, onBack }: Props) {
 
       const result = await response.json();
 
-      // Redirect to dashboard
+      // Si requiere autenticación, guardamos en localStorage y redirigimos a signup
+      if (result.requiresAuth) {
+        localStorage.setItem('wizardData', JSON.stringify({
+          ...data,
+          selectedProtocols,
+          riskScore,
+        }));
+        router.push('/auth/signup?from=wizard');
+        return;
+      }
+
+      // Si ya está autenticado, redirigir al dashboard
       router.push(`/dashboard?profileId=${result.profileId}`);
     } catch (err) {
       setError('Error al completar el proceso. Por favor intenta nuevamente.');

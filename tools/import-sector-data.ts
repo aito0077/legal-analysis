@@ -1,5 +1,5 @@
 // scripts/import-sector-data.ts
-import { LegalDataGenerator } from '../lib/deepseek';
+import { LegalDataGenerator } from './legal_data_generator';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();

@@ -1,13 +1,15 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Shield } from 'lucide-react';
 import { signIn } from 'next-auth/react';
 
 export default function SignUpPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const fromWizard = searchParams.get('from') === 'wizard';
 
   const [formData, setFormData] = useState({
     name: '',
@@ -64,18 +66,45 @@ export default function SignUpPage() {
       }
 
       // Iniciar sesión automáticamente después del registro
-      const result = await signIn('credentials', {
+      const signInResult = await signIn('credentials', {
         email: formData.email,
         password: formData.password,
         redirect: false,
       });
 
-      if (result?.error) {
+      if (signInResult?.error) {
         setError('Cuenta creada pero error al iniciar sesión');
-        router.push('/auth/signin');
-      } else {
-        router.push('/wizard');
+        setLoading(false);
+        return;
       }
+
+      // Si viene del wizard, completar el proceso con los datos guardados
+      if (fromWizard) {
+        const wizardDataStr = localStorage.getItem('wizardData');
+        if (wizardDataStr) {
+          try {
+            const wizardData = JSON.parse(wizardDataStr);
+
+            const completeResponse = await fetch('/api/wizard/complete-after-signup', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(wizardData),
+            });
+
+            if (completeResponse.ok) {
+              const result = await completeResponse.json();
+              localStorage.removeItem('wizardData');
+              router.push(`/dashboard?profileId=${result.profileId}`);
+              return;
+            }
+          } catch (err) {
+            console.error('Error completing wizard:', err);
+          }
+        }
+      }
+
+      // Redirigir al wizard o dashboard
+      router.push(fromWizard ? '/dashboard' : '/wizard');
     } catch (error) {
       setError('Error al crear cuenta');
       setLoading(false);
@@ -83,7 +112,7 @@ export default function SignUpPage() {
   };
 
   const handleGoogleSignUp = () => {
-    signIn('google', { callbackUrl: '/wizard' });
+    signIn('google', { redirectTo: '/wizard' });
   };
 
   return (

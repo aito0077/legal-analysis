@@ -54,12 +54,12 @@ const companySizes = [
 ];
 
 const revenueRanges = [
-  { value: 'RANGE_0_100K', label: 'Menos de $100,000' },
-  { value: 'RANGE_100K_500K', label: '$100,000 - $500,000' },
-  { value: 'RANGE_500K_1M', label: '$500,000 - $1M' },
-  { value: 'RANGE_1M_5M', label: '$1M - $5M' },
-  { value: 'RANGE_5M_10M', label: '$5M - $10M' },
-  { value: 'RANGE_10M_PLUS', label: 'Más de $10M' },
+  { value: 'LESS_THAN_100K', label: 'Menos de $100,000' },
+  { value: 'BETWEEN_100K_500K', label: '$100,000 - $500,000' },
+  { value: 'BETWEEN_500K_1M', label: '$500,000 - $1M' },
+  { value: 'BETWEEN_1M_5M', label: '$1M - $5M' },
+  { value: 'BETWEEN_5M_10M', label: '$5M - $10M' },
+  { value: 'MORE_THAN_10M', label: 'Más de $10M' },
 ];
 
 const businessTypeLabels: Record<string, string> = {
