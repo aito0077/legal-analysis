@@ -3,16 +3,13 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import { signOut } from 'next-auth/react';
+import DashboardLayout from '@/components/dashboard/DashboardLayout';
 import {
-  Shield,
   AlertTriangle,
   CheckCircle2,
   FileText,
   TrendingUp,
   Users,
-  Settings,
-  LogOut,
   Loader2,
 } from 'lucide-react';
 
@@ -93,10 +90,6 @@ export default function DashboardPage() {
     return { label: 'Muy Bajo', color: 'green' };
   };
 
-  const handleLogout = async () => {
-    await signOut({ redirect: true, callbackUrl: '/' });
-  };
-
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -132,38 +125,8 @@ export default function DashboardPage() {
   const riskScorePercentage = hasData ? Math.round((summary.averageInherentRisk / 25) * 100) : 0;
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Shield className="h-8 w-8 text-blue-600" />
-              <span className="text-2xl font-bold text-gray-900">LegalRisk</span>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="text-right">
-                <p className="text-sm font-medium text-gray-900">{user.name || 'Usuario'}</p>
-                <p className="text-xs text-gray-500">
-                  {user.profileType === 'PROFESSIONAL' ? 'Profesional' : 'Empresa'}
-                </p>
-              </div>
-              <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
-                <Settings className="h-5 w-5 text-gray-600" />
-              </button>
-              <button
-                onClick={handleLogout}
-                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-              >
-                <LogOut className="h-5 w-5 text-gray-600" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
+    <DashboardLayout>
+      <div className="container mx-auto px-4 py-8">
         {/* Welcome Banner */}
         <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white mb-8">
           <h1 className="text-3xl font-bold mb-2">¡Bienvenido, {user.name}!</h1>
@@ -463,7 +426,7 @@ export default function DashboardPage() {
             </div>
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </DashboardLayout>
   );
 }
