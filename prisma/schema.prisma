@@ -20,26 +20,39 @@ enum UserRole {
   LEGAL_EXPERT
 }
 
+enum ProfileType {
+  PROFESSIONAL
+  BUSINESS
+}
+
 model User {
-  id            String   @id @default(cuid())
-  email         String   @unique
+  id            String       @id @default(cuid())
+  email         String       @unique
   name          String?
-  password      String?  // Hash bcrypt
+  password      String? // Hash bcrypt
   emailVerified DateTime?
   image         String?
-  role          UserRole @default(CLIENT)
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  role          UserRole     @default(CLIENT)
+  profileType   ProfileType? // Determina el tipo de perfil
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
 
-  // Relaciones principales
-  businessProfile  BusinessProfile?
-  riskAssessments  RiskAssessment[]
-  protocols        UserProtocol[]
-  sharedProtocols  Protocol[] // Protocolos que comparte a la comunidad
-  accounts         Account[]
-  sessions         Session[]
+  // Relaciones principales - Dual Persona
+  professionalProfile ProfessionalProfile?
+  businessProfile     BusinessProfile?
+
+  // Risk Management
+  riskRegisters RiskRegister[]
+
+  // Existentes
+  riskAssessments RiskAssessment[]
+  protocols       UserProtocol[]
+  sharedProtocols Protocol[] // Protocolos que comparte a la comunidad
+  accounts        Account[]
+  sessions        Session[]
 
   @@index([email])
+  @@index([profileType])
 }
 
 model Account {
@@ -78,6 +91,64 @@ model VerificationToken {
 }
 
 // ============================================================================
+// PROFESSIONAL PROFILE (Para profesionales independientes)
+// ============================================================================
+
+enum Profession {
+  LAWYER
+  DOCTOR
+  DENTIST
+  ARCHITECT
+  ENGINEER
+  CIVIL_ENGINEER
+  ACCOUNTANT
+  CONSULTANT
+  NOTARY
+  PSYCHOLOGIST
+  PHARMACIST
+  VETERINARIAN
+  OTHER
+}
+
+enum WorkEnvironment {
+  SOLO_PRACTICE // Consultorio/estudio unipersonal
+  SHARED_OFFICE // Oficina compartida
+  SMALL_PARTNERSHIP // Sociedad pequeña (2-5)
+  MEDIUM_FIRM // Estudio mediano (6-20)
+  LARGE_FIRM // Estudio grande (20+)
+}
+
+model ProfessionalProfile {
+  id     String @id @default(cuid())
+  userId String @unique
+
+  // Professional info
+  profession      Profession
+  specialty       String?
+  licenseNumber   String?
+  yearsExperience Int?
+  jurisdiction    String
+
+  // Practice details
+  practiceAreas   String[] // "Derecho Civil", "Derecho Laboral"
+  clientTypes     String[] // "Individuos", "PyMEs", "Corporaciones"
+  workEnvironment WorkEnvironment?
+
+  // Risk context
+  professionalInsurance Boolean @default(false)
+  insuranceCoverage     Float?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user            User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  riskAssessments RiskAssessment[] @relation(name: "ProfessionalAssessments")
+
+  @@index([profession])
+  @@index([jurisdiction])
+}
+
+// ============================================================================
 // BUSINESS PROFILE
 // ============================================================================
 
@@ -101,11 +172,11 @@ enum BusinessType {
 }
 
 enum CompanySize {
-  MICRO          // 1-10 employees
-  SMALL          // 11-50 employees
-  MEDIUM         // 51-250 employees
-  LARGE          // 251-1000 employees
-  ENTERPRISE     // 1000+ employees
+  MICRO // 1-10 employees
+  SMALL // 11-50 employees
+  MEDIUM // 51-250 employees
+  LARGE // 251-1000 employees
+  ENTERPRISE // 1000+ employees
 }
 
 enum RevenueRange {
@@ -118,24 +189,24 @@ enum RevenueRange {
 }
 
 model BusinessProfile {
-  id              String        @id @default(cuid())
-  userId          String        @unique
-  businessType    BusinessType
-  subIndustry     String?       // Sub-rubro específico
-  jurisdiction    String        // País/Región
-  companySize     CompanySize
-  revenueRange    RevenueRange?
-  employeeCount   Int?
+  id            String        @id @default(cuid())
+  userId        String        @unique
+  businessType  BusinessType
+  subIndustry   String? // Sub-rubro específico
+  jurisdiction  String // País/Región
+  companySize   CompanySize
+  revenueRange  RevenueRange?
+  employeeCount Int?
 
   // Características del negocio (JSON para flexibilidad)
-  businessActivities Json?      // Checklist de actividades
-  riskExposure      Json?       // Áreas de exposición inicial
+  businessActivities Json? // Checklist de actividades
+  riskExposure       Json? // Áreas de exposición inicial
 
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  user            User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  riskAssessments RiskAssessment[]
+  user            User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  riskAssessments RiskAssessment[] @relation(name: "BusinessAssessments")
 
   @@index([businessType])
   @@index([jurisdiction])
@@ -146,32 +217,32 @@ model BusinessProfile {
 // ============================================================================
 
 enum RiskProbability {
-  VERY_LOW   // 1
-  LOW        // 2
-  MEDIUM     // 3
-  HIGH       // 4
-  VERY_HIGH  // 5
+  VERY_LOW // 1
+  LOW // 2
+  MEDIUM // 3
+  HIGH // 4
+  VERY_HIGH // 5
 }
 
 enum RiskImpact {
-  NEGLIGIBLE    // 1
-  LOW           // 2
-  MODERATE      // 3
-  HIGH          // 4
-  CATASTROPHIC  // 5
+  NEGLIGIBLE // 1
+  LOW // 2
+  MODERATE // 3
+  HIGH // 4
+  CATASTROPHIC // 5
 }
 
 model RiskCategory {
-  id           String   @id @default(cuid())
-  name         String   @unique // "Laboral", "Contractual", "Protección de Datos"
-  description  String?
-  color        String?  // Para UI (hex color)
-  icon         String?  // Icon name
-  order        Int      @default(0) // Para ordenamiento
-  isActive     Boolean  @default(true)
+  id          String  @id @default(cuid())
+  name        String  @unique // "Laboral", "Contractual", "Protección de Datos"
+  description String?
+  color       String? // Para UI (hex color)
+  icon        String? // Icon name
+  order       Int     @default(0) // Para ordenamiento
+  isActive    Boolean @default(true)
 
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   riskScenarios RiskScenario[]
   protocols     Protocol[]
@@ -180,28 +251,29 @@ model RiskCategory {
 }
 
 model RiskScenario {
-  id              String          @id @default(cuid())
-  title           String
-  description     String
-  categoryId      String
-  probability     RiskProbability
-  impact          RiskImpact
-  riskScore       Int             // Calculado: probabilidad * impacto (1-25)
+  id          String          @id @default(cuid())
+  title       String
+  description String
+  categoryId  String
+  probability RiskProbability
+  impact      RiskImpact
+  riskScore   Int // Calculado: probabilidad * impacto (1-25)
 
   // Metadata para AI
-  triggers        String[]        // Eventos que disparan este riesgo
-  consequences    String[]        // Impactos potenciales
+  triggers     String[] // Eventos que disparan este riesgo
+  consequences String[] // Impactos potenciales
 
   // Aplicabilidad
-  businessTypes   BusinessType[]
-  jurisdictions   String[]
+  businessTypes BusinessType[]
+  jurisdictions String[]
 
-  isActive        Boolean         @default(true)
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  category        RiskCategory    @relation(fields: [categoryId], references: [id])
-  protocols       Protocol[]
+  category   RiskCategory @relation(fields: [categoryId], references: [id])
+  protocols  Protocol[]
+  riskEvents RiskEvent[] // Eventos creados desde este escenario
 
   @@index([categoryId])
   @@index([riskScore])
@@ -213,9 +285,9 @@ model RiskScenario {
 // ============================================================================
 
 enum ProtocolType {
-  SYSTEM      // Generado por AI
-  COMMUNITY   // Compartido por usuarios
-  CUSTOM      // Personalizado del usuario
+  SYSTEM // Generado por AI
+  COMMUNITY // Compartido por usuarios
+  CUSTOM // Personalizado del usuario
 }
 
 enum ProtocolStatus {
@@ -226,39 +298,40 @@ enum ProtocolStatus {
 }
 
 model Protocol {
-  id                String       @id @default(cuid())
-  title             String
-  description       String
-  content           Json         // Estructura flexible de pasos/controles
+  id          String @id @default(cuid())
+  title       String
+  description String
+  content     Json // Estructura flexible de pasos/controles
 
   // Origen del protocolo
-  type              ProtocolType
-  authorId          String?      // Si es community/custom
-  sourceProtocolId  String?      // Si es fork de otro
+  type             ProtocolType
+  authorId         String? // Si es community/custom
+  sourceProtocolId String? // Si es fork de otro
 
   // Metadata
-  categoryId        String?
-  businessTypes     BusinessType[]
-  jurisdictions     String[]
+  categoryId    String?
+  businessTypes BusinessType[]
+  jurisdictions String[]
 
   // Sistema comunitario
-  upvotes           Int          @default(0)
-  downvotes         Int          @default(0)
-  isVerified        Boolean      @default(false)
-  isPublic          Boolean      @default(false)
+  upvotes    Int     @default(0)
+  downvotes  Int     @default(0)
+  isVerified Boolean @default(false)
+  isPublic   Boolean @default(false)
 
   // Estadísticas
-  usageCount        Int          @default(0)
+  usageCount Int @default(0)
 
-  createdAt         DateTime     @default(now())
-  updatedAt         DateTime     @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  category          RiskCategory? @relation(fields: [categoryId], references: [id])
-  author            User?         @relation(fields: [authorId], references: [id])
-  sourceProtocol    Protocol?     @relation("ProtocolForks", fields: [sourceProtocolId], references: [id])
-  forkedProtocols   Protocol[]    @relation("ProtocolForks")
-  riskScenarios     RiskScenario[]
-  userProtocols     UserProtocol[]
+  category        RiskCategory?  @relation(fields: [categoryId], references: [id])
+  author          User?          @relation(fields: [authorId], references: [id])
+  sourceProtocol  Protocol?      @relation("ProtocolForks", fields: [sourceProtocolId], references: [id])
+  forkedProtocols Protocol[]     @relation("ProtocolForks")
+  riskScenarios   RiskScenario[]
+  userProtocols   UserProtocol[]
+  riskControls    RiskControl[] // Controles implementados desde este protocolo
 
   @@index([type])
   @@index([isPublic])
@@ -267,21 +340,21 @@ model Protocol {
 }
 
 model UserProtocol {
-  id             String         @id @default(cuid())
-  userId         String
-  protocolId     String
-  status         ProtocolStatus @default(PENDING)
-  assignedAt     DateTime       @default(now())
-  startedAt      DateTime?
-  completedAt    DateTime?
+  id          String         @id @default(cuid())
+  userId      String
+  protocolId  String
+  status      ProtocolStatus @default(PENDING)
+  assignedAt  DateTime       @default(now())
+  startedAt   DateTime?
+  completedAt DateTime?
 
   // Implementación específica del usuario
-  customizations Json?          // Modificaciones al protocolo base
+  customizations Json? // Modificaciones al protocolo base
   notes          String?
-  progress       Int            @default(0) // Porcentaje 0-100
+  progress       Int     @default(0) // Porcentaje 0-100
 
-  user           User           @relation(fields: [userId], references: [id], onDelete: Cascade)
-  protocol       Protocol       @relation(fields: [protocolId], references: [id])
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  protocol Protocol @relation(fields: [protocolId], references: [id])
 
   @@unique([userId, protocolId])
   @@index([userId])
@@ -308,62 +381,441 @@ enum QuestionType {
 }
 
 model RiskAssessment {
-  id               String           @id @default(cuid())
-  userId           String
-  profileId        String
-  title            String
-  status           AssessmentStatus @default(DRAFT)
+  id          String           @id @default(cuid())
+  userId      String
+  profileType ProfileType // PROFESSIONAL o BUSINESS
+  title       String
+  status      AssessmentStatus @default(DRAFT)
+
+  // Profile IDs (solo uno será válido según profileType)
+  professionalProfileId String? // Si profileType == PROFESSIONAL
+  businessProfileId     String? // Si profileType == BUSINESS
 
   // Resultados
   overallRiskScore Int?
-  riskMatrix       Json?            // Matriz 5x5 con posiciones
-  recommendations  Json?            // Recomendaciones generadas
+  riskMatrix       Json? // Matriz 5x5 con posiciones
+  recommendations  Json? // Recomendaciones generadas
 
-  createdAt        DateTime         @default(now())
-  updatedAt        DateTime         @updatedAt
-  completedAt      DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  completedAt DateTime?
 
-  user             User             @relation(fields: [userId], references: [id], onDelete: Cascade)
-  profile          BusinessProfile  @relation(fields: [profileId], references: [id])
-  answers          AssessmentAnswer[]
+  user                User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  professionalProfile ProfessionalProfile? @relation(name: "ProfessionalAssessments", fields: [professionalProfileId], references: [id])
+  businessProfile     BusinessProfile?     @relation(name: "BusinessAssessments", fields: [businessProfileId], references: [id])
+  answers             AssessmentAnswer[]
 
   @@index([userId])
   @@index([status])
+  @@index([profileType])
 }
 
 model AssessmentQuestion {
-  id            String       @id @default(cuid())
-  category      String       // "Operaciones", "Legal", "Compliance", etc.
+  id            String         @id @default(cuid())
+  category      String // "Operaciones", "Legal", "Compliance", etc.
   question      String
   type          QuestionType
-  options       Json?        // Opciones para multiple choice/scale
-  weight        Int          @default(1) // Peso en cálculo de riesgo
+  options       Json? // Opciones para multiple choice/scale
+  weight        Int            @default(1) // Peso en cálculo de riesgo
   businessTypes BusinessType[]
 
-  order         Int          @default(0)
-  isActive      Boolean      @default(true)
-  createdAt     DateTime     @default(now())
-  updatedAt     DateTime     @updatedAt
+  order     Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  answers       AssessmentAnswer[]
+  answers AssessmentAnswer[]
 
   @@index([category])
   @@index([isActive])
 }
 
 model AssessmentAnswer {
-  id           String             @id @default(cuid())
+  id           String @id @default(cuid())
   assessmentId String
   questionId   String
-  response     Json               // Respuesta en formato flexible
-  riskValue    Int?               // Valor de riesgo calculado
+  response     Json // Respuesta en formato flexible
+  riskValue    Int? // Valor de riesgo calculado
 
-  createdAt    DateTime           @default(now())
-  updatedAt    DateTime           @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  assessment   RiskAssessment     @relation(fields: [assessmentId], references: [id], onDelete: Cascade)
-  question     AssessmentQuestion @relation(fields: [questionId], references: [id])
+  assessment RiskAssessment     @relation(fields: [assessmentId], references: [id], onDelete: Cascade)
+  question   AssessmentQuestion @relation(fields: [questionId], references: [id])
 
   @@unique([assessmentId, questionId])
   @@index([assessmentId])
+}
+
+// ============================================================================
+// RISK MANAGEMENT - NEW MODELS (ISO 31000)
+// ============================================================================
+
+// ENUMS for Risk Management
+
+enum RegisterStatus {
+  DRAFT
+  ACTIVE
+  ARCHIVED
+}
+
+enum RiskSourceType {
+  WIZARD_ASSESSMENT // Del wizard inicial
+  SCENARIO_LIBRARY // Del catálogo de escenarios
+  USER_IDENTIFIED // Agregado manualmente
+  AI_SUGGESTED // Sugerido por DeepSeek
+}
+
+enum RiskLikelihood {
+  RARE // 1 - < 5% probability
+  UNLIKELY // 2 - 5-25%
+  POSSIBLE // 3 - 25-50%
+  LIKELY // 4 - 50-75%
+  ALMOST_CERTAIN // 5 - > 75%
+}
+
+enum RiskImpactLevel {
+  INSIGNIFICANT // 1
+  MINOR // 2
+  MODERATE // 3
+  MAJOR // 4
+  CATASTROPHIC // 5
+}
+
+enum RiskTreatmentStrategy {
+  AVOID // Evitar la actividad que genera el riesgo
+  REDUCE // Mitigar con controles
+  TRANSFER // Transferir (seguros, outsourcing)
+  ACCEPT // Aceptar el riesgo
+}
+
+enum RiskEventStatus {
+  IDENTIFIED // Identificado, no analizado
+  ANALYZED // Analizado (likelihood/impact)
+  EVALUATED // Evaluado y priorizado
+  TREATING // En tratamiento
+  MONITORING // Bajo monitoreo
+  CLOSED // Cerrado/mitigado
+}
+
+enum RiskPriority {
+  CRITICAL // Inherent risk 15-25
+  HIGH // Inherent risk 10-14
+  MEDIUM // Inherent risk 5-9
+  LOW // Inherent risk 1-4
+}
+
+enum ControlType {
+  PREVENTIVE // Previene que ocurra
+  DETECTIVE // Detecta cuando ocurre
+  CORRECTIVE // Corrige después de que ocurre
+  DIRECTIVE // Dirige comportamiento
+}
+
+enum ControlCategory {
+  ADMINISTRATIVE // Políticas, procedimientos
+  TECHNICAL // Software, sistemas
+  PHYSICAL // Infraestructura física
+  LEGAL // Contratos, seguros
+}
+
+enum ControlStrength {
+  WEAK // Reduce riesgo 1 nivel
+  MODERATE // Reduce riesgo 2 niveles
+  STRONG // Reduce riesgo 3+ niveles
+}
+
+enum ControlStatus {
+  PLANNED // Planificado
+  IN_PROGRESS // En implementación
+  IMPLEMENTED // Implementado
+  OPERATIONAL // Operacional y efectivo
+  INEFFECTIVE // No está funcionando
+  DEACTIVATED // Desactivado
+}
+
+enum ReviewFrequency {
+  WEEKLY
+  MONTHLY
+  QUARTERLY
+  SEMIANNUALLY
+  ANNUALLY
+}
+
+enum TreatmentStatus {
+  DRAFT
+  APPROVED
+  IN_PROGRESS
+  COMPLETED
+  ON_HOLD
+  CANCELLED
+}
+
+// 1. RISK REGISTER (Central hub)
+model RiskRegister {
+  id          String      @id @default(cuid())
+  userId      String
+  profileId   String // ProfessionalProfile o BusinessProfile
+  profileType ProfileType
+
+  // Metadata
+  title        String // "Registro de Riesgos - Mi Consultorio"
+  description  String?
+  jurisdiction String
+
+  // Status
+  status         RegisterStatus @default(ACTIVE)
+  lastReviewedAt DateTime?
+  nextReviewDate DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  riskEvents  RiskEvent[]
+  riskReviews RiskReview[]
+
+  @@index([userId, status])
+  @@index([profileType])
+}
+
+// 2. RISK EVENT (Riesgo identificado específico)
+model RiskEvent {
+  id         String @id @default(cuid())
+  registerId String
+
+  // Identificación
+  title       String // "Demanda por mala praxis"
+  description String
+  category    String // Laboral, Contractual, Regulatorio, etc.
+
+  // Source
+  sourceType   RiskSourceType
+  scenarioId   String? // Si proviene de RiskScenario del catálogo
+  identifiedBy String // User name or "System"
+
+  // Analysis (Likelihood × Impact)
+  likelihood   RiskLikelihood
+  impact       RiskImpactLevel
+  inherentRisk Int // likelihood × impact (1-25)
+
+  // Treatment
+  treatmentStrategy  RiskTreatmentStrategy?
+  residualLikelihood RiskLikelihood?
+  residualImpact     RiskImpactLevel?
+  residualRisk       Int? // After controls
+
+  // Context
+  triggers       String[] // Eventos que disparan el riesgo
+  consequences   String[] // Consecuencias potenciales
+  affectedAssets String[] // Qué está en riesgo
+
+  // Status
+  status   RiskEventStatus @default(IDENTIFIED)
+  priority RiskPriority
+  owner    String? // Responsable del riesgo
+
+  // Dates
+  identifiedAt         DateTime  @default(now())
+  targetResolutionDate DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  register      RiskRegister   @relation(fields: [registerId], references: [id], onDelete: Cascade)
+  scenario      RiskScenario?  @relation(fields: [scenarioId], references: [id])
+  controls      RiskControl[]
+  treatmentPlan TreatmentPlan?
+
+  @@index([registerId, status])
+  @@index([priority])
+  @@index([sourceType])
+}
+
+// 3. RISK CONTROLS (Controles específicos)
+model RiskControl {
+  id          String @id @default(cuid())
+  riskEventId String
+
+  // Control details
+  title       String
+  description String
+  type        ControlType
+  category    ControlCategory
+
+  // Source
+  protocolId String? // Si proviene de un Protocol del catálogo
+  isCustom   Boolean @default(false)
+
+  // Effectiveness
+  controlStrength ControlStrength
+
+  // Implementation
+  status             ControlStatus    @default(PLANNED)
+  owner              String?
+  implementationDate DateTime?
+  reviewFrequency    ReviewFrequency?
+
+  // Cost-benefit
+  estimatedCost   Float?
+  estimatedEffort String? // "Low", "Medium", "High"
+
+  // Evidence
+  evidence Json? // Documents, certifications, etc.
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  riskEvent RiskEvent       @relation(fields: [riskEventId], references: [id], onDelete: Cascade)
+  protocol  Protocol?       @relation(fields: [protocolId], references: [id])
+  reviews   ControlReview[]
+
+  @@index([riskEventId, status])
+  @@index([type])
+}
+
+// 4. TREATMENT PLAN (Plan de tratamiento)
+model TreatmentPlan {
+  id          String @id @default(cuid())
+  riskEventId String @unique
+
+  // Strategy
+  strategy      RiskTreatmentStrategy
+  justification String?
+
+  // Implementation
+  actions     Json // Array of actions with deadlines
+  totalBudget Float?
+  timeline    String? // "3 months", "6 months"
+
+  // Targets
+  targetLikelihood RiskLikelihood?
+  targetImpact     RiskImpactLevel?
+  targetRisk       Int?
+
+  // Tracking
+  status   TreatmentStatus @default(DRAFT)
+  progress Int             @default(0) // 0-100
+
+  approvedBy  String?
+  approvedAt  DateTime?
+  startedAt   DateTime?
+  completedAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  riskEvent RiskEvent @relation(fields: [riskEventId], references: [id], onDelete: Cascade)
+
+  @@index([status])
+}
+
+// 5. CONTROL REVIEW (Revisión de controles)
+model ControlReview {
+  id        String @id @default(cuid())
+  controlId String
+
+  // Review details
+  reviewDate DateTime
+  reviewer   String
+
+  // Assessment
+  isEffective     Boolean
+  effectiveness   Int? // 0-100 score
+  findings        String?
+  recommendations String?
+
+  // Evidence
+  evidence Json?
+
+  // Next review
+  nextReviewDate DateTime?
+
+  createdAt DateTime @default(now())
+
+  control RiskControl @relation(fields: [controlId], references: [id], onDelete: Cascade)
+
+  @@index([controlId, reviewDate])
+}
+
+// 6. RISK REVIEW (Revisión del registro)
+model RiskReview {
+  id         String @id @default(cuid())
+  registerId String
+
+  reviewDate DateTime
+  reviewer   String
+
+  // Summary
+  totalRisks    Int
+  criticalRisks Int
+  highRisks     Int
+  averageRisk   Float
+
+  // Changes
+  newRisks    Int // Riesgos nuevos desde última revisión
+  closedRisks Int
+
+  // Findings
+  findings    String?
+  actionItems Json?
+
+  // Next review
+  nextReviewDate DateTime
+
+  createdAt DateTime @default(now())
+
+  register RiskRegister @relation(fields: [registerId], references: [id], onDelete: Cascade)
+
+  @@index([registerId, reviewDate])
+}
+
+// ============================================================================
+// WIZARD CONFIGURATION DATA (Administrable)
+// ============================================================================
+
+// Actividades específicas por profesión o tipo de negocio
+model Activity {
+  id          String  @id @default(cuid())
+  code        String  @unique // "atencion_pacientes", "contratos_compraventa"
+  label       String // "Atención de pacientes"
+  description String?
+
+  // Aplicabilidad
+  professions   Profession[] // Si aplica a profesiones
+  businessTypes BusinessType[] // Si aplica a tipos de negocio
+
+  // Metadata
+  category String? // "Operaciones", "Legal", "Financiero"
+  order    Int     @default(0)
+  isActive Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([isActive])
+}
+
+// Áreas de exposición al riesgo por profesión o tipo de negocio
+model RiskArea {
+  id          String  @id @default(cuid())
+  code        String  @unique // "mala_praxis", "incumplimiento_contractual"
+  label       String // "Responsabilidad profesional (mala praxis)"
+  description String? // Descripción detallada
+
+  // Aplicabilidad
+  professions   Profession[] // Si aplica a profesiones
+  businessTypes BusinessType[] // Si aplica a tipos de negocio
+
+  // Metadata
+  severity String? // "HIGH", "MEDIUM", "LOW"
+  examples String[] // Ejemplos concretos de riesgos
+  order    Int     @default(0)
+  isActive Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([isActive])
+  @@index([severity])
 }

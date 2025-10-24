@@ -13,10 +13,20 @@ export async function POST(req: NextRequest) {
     const data = await req.json();
 
     const {
+      profileType,
+      // Professional fields
+      profession,
+      specialty,
+      yearsExperience,
+      practiceAreas,
+      workEnvironment,
+      professionalInsurance,
+      // Business fields
       businessType,
-      jurisdiction,
       companySize,
       revenueRange,
+      // Common
+      jurisdiction,
       businessActivities,
       riskExposure,
       assessmentAnswers,
@@ -24,24 +34,54 @@ export async function POST(req: NextRequest) {
       riskScore,
     } = data;
 
-    // Create Business Profile
-    const businessProfile = await prisma.businessProfile.create({
-      data: {
-        userId: session.user.id,
-        businessType: businessType as any,
-        companySize: companySize as any,
-        jurisdiction,
-        revenueRange: revenueRange as any,
-        businessActivities: businessActivities || [],
-        riskExposure: riskExposure || [],
-      },
+    let profileId: string;
+    let profileName: string;
+
+    // Update user with profileType
+    await prisma.user.update({
+      where: { id: session.user.id },
+      data: { profileType: profileType as any },
     });
+
+    // Create profile based on type
+    if (profileType === 'PROFESSIONAL') {
+      const professionalProfile = await prisma.professionalProfile.create({
+        data: {
+          userId: session.user.id,
+          profession: profession as any,
+          specialty,
+          yearsExperience,
+          jurisdiction,
+          practiceAreas: practiceAreas || [],
+          workEnvironment: workEnvironment as any,
+          professionalInsurance: professionalInsurance || false,
+        },
+      });
+      profileId = professionalProfile.id;
+      profileName = `${profession} - ${session.user.name || 'Mi Práctica'}`;
+    } else {
+      // BUSINESS
+      const businessProfile = await prisma.businessProfile.create({
+        data: {
+          userId: session.user.id,
+          businessType: businessType as any,
+          companySize: companySize as any,
+          jurisdiction,
+          revenueRange: revenueRange as any,
+          businessActivities: businessActivities || [],
+          riskExposure: riskExposure || [],
+        },
+      });
+      profileId = businessProfile.id;
+      profileName = `${businessType} - ${session.user.name || 'Mi Empresa'}`;
+    }
 
     // Create Risk Assessment
     const assessment = await prisma.riskAssessment.create({
       data: {
         userId: session.user.id,
-        profileId: businessProfile.id,
+        profileId,
+        profileType: profileType as any,
         title: 'Evaluación Inicial',
         status: 'COMPLETED',
         overallRiskScore: riskScore || 0,
@@ -51,17 +91,28 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    // Save assessment answers (skip for now to avoid schema issues)
-    // We'll implement this when we have actual questions in the database
+    // Create Risk Register
+    const riskRegister = await prisma.riskRegister.create({
+      data: {
+        userId: session.user.id,
+        profileId,
+        profileType: profileType as any,
+        title: `Registro de Riesgos - ${profileName}`,
+        jurisdiction,
+        status: 'ACTIVE',
+      },
+    });
 
-    // Create placeholder protocols (skip for now)
-    // We'll implement this when we have actual Protocol records
+    // TODO (Sprint 2): Create RiskEvents based on assessment
+    // This will be implemented when we have risk identification logic
 
     return NextResponse.json(
       {
         success: true,
-        profileId: businessProfile.id,
+        profileType,
+        profileId,
         assessmentId: assessment.id,
+        riskRegisterId: riskRegister.id,
         riskScore,
       },
       { status: 201 }
@@ -69,7 +120,7 @@ export async function POST(req: NextRequest) {
   } catch (error) {
     console.error('Error completing wizard after signup:', error);
     return NextResponse.json(
-      { error: 'Error al completar el proceso' },
+      { error: 'Error al completar el proceso', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
   }

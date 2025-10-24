@@ -22,6 +22,11 @@ export async function POST(req: NextRequest) {
     }
 
     const {
+      profileType,
+      profession,
+      specialty,
+      yearsExperience,
+      workEnvironment,
       businessType,
       jurisdiction,
       companySize,
@@ -33,66 +38,119 @@ export async function POST(req: NextRequest) {
       riskScore,
     } = data;
 
-    // Create Business Profile
-    const businessProfile = await prisma.businessProfile.create({
-      data: {
-        userId: session.user.id,
-        businessType: businessType as any,
-        companySize: companySize as any,
-        jurisdiction,
-        revenueRange: revenueRange as any,
-        businessActivities: businessActivities || [],
-        riskExposure: riskExposure || [],
-      },
+    let profile;
+    let profileId;
+
+    // Check if user already has a profile
+    const existingProfessional = await prisma.professionalProfile.findUnique({
+      where: { userId: session.user.id },
+    });
+    const existingBusiness = await prisma.businessProfile.findUnique({
+      where: { userId: session.user.id },
+    });
+
+    if (existingProfessional || existingBusiness) {
+      // User already completed wizard, redirect to dashboard
+      return NextResponse.json(
+        {
+          success: true,
+          alreadyCompleted: true,
+          profileId: existingProfessional?.id || existingBusiness?.id,
+          profileType: existingProfessional ? 'PROFESSIONAL' : 'BUSINESS',
+          message: 'Ya has completado el wizard. Redirigiendo al dashboard...',
+        },
+        { status: 200 }
+      );
+    }
+
+    // Create profile based on profileType
+    if (profileType === 'PROFESSIONAL') {
+      // Create Professional Profile
+      profile = await prisma.professionalProfile.create({
+        data: {
+          userId: session.user.id,
+          profession: profession as any,
+          specialty: specialty || null,
+          yearsExperience: yearsExperience || null,
+          jurisdiction: jurisdiction || 'AR',
+          workEnvironment: workEnvironment as any || null,
+          professionalInsurance: false, // Can be updated later
+        },
+      });
+      profileId = profile.id;
+    } else {
+      // Create Business Profile
+      profile = await prisma.businessProfile.create({
+        data: {
+          userId: session.user.id,
+          businessType: businessType as any,
+          companySize: companySize as any,
+          jurisdiction: jurisdiction || 'AR',
+          revenueRange: revenueRange as any || null,
+          businessActivities: businessActivities || [],
+          riskExposure: riskExposure || [],
+        },
+      });
+      profileId = profile.id;
+    }
+
+    // Update user profileType
+    await prisma.user.update({
+      where: { id: session.user.id },
+      data: { profileType: profileType as any },
     });
 
     // Create Risk Assessment
     const assessment = await prisma.riskAssessment.create({
       data: {
-        profileId: businessProfile.id,
+        userId: session.user.id,
+        profileType: profileType as any,
+        // Set the appropriate profile ID based on profileType
+        professionalProfileId: profileType === 'PROFESSIONAL' ? profileId : null,
+        businessProfileId: profileType === 'BUSINESS' ? profileId : null,
+        title: `Evaluación Inicial - ${new Date().toLocaleDateString('es-AR')}`,
         overallRiskScore: riskScore || 0,
         riskMatrix: {}, // Can be populated later with detailed matrix
         recommendations: selectedProtocols || [],
       },
     });
 
-    // Save assessment answers
-    if (assessmentAnswers) {
-      const answerPromises = Object.entries(assessmentAnswers).map(([questionId, answer]) => {
-        // For demo purposes, we'll create a simple answer record
-        // In production, you'd link to actual AssessmentQuestion records
-        return prisma.assessmentAnswer.create({
-          data: {
-            assessmentId: assessment.id,
-            questionId: questionId, // In production, this should be a valid question ID
-            answer: JSON.stringify(answer),
-          },
-        });
-      });
+    // TODO: Save assessment answers
+    // Currently skipped because we need to create AssessmentQuestion records first
+    // if (assessmentAnswers) {
+    //   const answerPromises = Object.entries(assessmentAnswers).map(([questionId, answer]) => {
+    //     return prisma.assessmentAnswer.create({
+    //       data: {
+    //         assessmentId: assessment.id,
+    //         questionId: questionId,
+    //         response: answer,
+    //       },
+    //     });
+    //   });
+    //   await Promise.all(answerPromises);
+    // }
 
-      await Promise.all(answerPromises);
-    }
-
-    // Assign selected protocols to user
-    // For demo, we'll create placeholder protocol assignments
-    // In production, you'd have actual Protocol records to link to
-    const protocolPromises = selectedProtocols.map((protocolId: string) => {
-      return prisma.userProtocol.create({
-        data: {
-          userId: session.user.id,
-          protocolId: protocolId, // In production, link to actual Protocol
-          status: 'PENDING',
-          progress: 0,
-        },
-      });
-    });
-
-    await Promise.all(protocolPromises);
+    // TODO: Assign selected protocols to user
+    // Currently skipped because we need to create Protocol records first
+    // if (selectedProtocols && selectedProtocols.length > 0) {
+    //   const protocolPromises = selectedProtocols.map((protocolId: string) => {
+    //     return prisma.userProtocol.create({
+    //       data: {
+    //         userId: session.user.id,
+    //         protocolId: protocolId,
+    //         status: 'PENDING',
+    //         progress: 0,
+    //       },
+    //     });
+    //   });
+    //   await Promise.all(protocolPromises);
+    // }
 
     return NextResponse.json(
       {
         success: true,
-        profileId: businessProfile.id,
+        profileId: profileId,
+        profileType: profileType,
         assessmentId: assessment.id,
         riskScore,
       },

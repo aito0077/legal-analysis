@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ArrowLeft } from 'lucide-react';
 
 type Step1Data = {
   businessType?: string;
@@ -13,6 +13,7 @@ type Step1Data = {
 type Props = {
   data: Step1Data;
   onNext: (data: Step1Data) => void;
+  onBack?: () => void;
 };
 
 const businessTypes = [
@@ -81,7 +82,7 @@ const businessTypeLabels: Record<string, string> = {
   OTHER: 'Otro',
 };
 
-export default function Step1BusinessInfo({ data, onNext }: Props) {
+export default function Step1BusinessInfo({ data, onNext, onBack }: Props) {
   const [formData, setFormData] = useState<Step1Data>({
     businessType: data.businessType || '',
     jurisdiction: data.jurisdiction || '',
@@ -199,7 +200,17 @@ export default function Step1BusinessInfo({ data, onNext }: Props) {
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-end pt-6 border-t border-gray-200">
+      <div className="flex justify-between pt-6 border-t border-gray-200">
+        {onBack && (
+          <button
+            type="button"
+            onClick={onBack}
+            className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors flex items-center gap-2"
+          >
+            <ArrowLeft className="h-5 w-5" />
+            Atrás
+          </button>
+        )}
         <button
           type="submit"
           disabled={!isValid}

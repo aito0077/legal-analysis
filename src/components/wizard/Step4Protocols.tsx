@@ -136,7 +136,13 @@ export default function Step4Protocols({ data, onBack }: Props) {
         return;
       }
 
-      // Si ya está autenticado, redirigir al dashboard
+      // Si el usuario ya completó el wizard, redirigir al dashboard
+      if (result.alreadyCompleted) {
+        router.push(`/dashboard?profileId=${result.profileId}`);
+        return;
+      }
+
+      // Si se completó exitosamente, redirigir al dashboard
       router.push(`/dashboard?profileId=${result.profileId}`);
     } catch (err) {
       setError('Error al completar el proceso. Por favor intenta nuevamente.');

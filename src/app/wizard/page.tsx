@@ -1,18 +1,33 @@
 'use client';
 
 import { useState } from 'react';
-import { Shield, Building2, FileText, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import { Shield, Building2, FileText, AlertTriangle, CheckCircle2, User } from 'lucide-react';
+import Step0ProfileType from '@/components/wizard/Step0ProfileType';
 import Step1BusinessInfo from '@/components/wizard/Step1BusinessInfo';
+import Step1ProfessionalInfo from '@/components/wizard/Step1ProfessionalInfo';
 import Step2Activities from '@/components/wizard/Step2Activities';
 import Step3Assessment from '@/components/wizard/Step3Assessment';
 import Step4Protocols from '@/components/wizard/Step4Protocols';
 
 type WizardData = {
-  // Step 1
+  // Step 0
+  profileType?: 'PROFESSIONAL' | 'BUSINESS';
+
+  // Step 1 - Professional
+  profession?: string;
+  specialty?: string;
+  yearsExperience?: number;
+  practiceAreas?: string[];
+  workEnvironment?: string;
+  professionalInsurance?: boolean;
+
+  // Step 1 - Business
   businessType?: string;
-  jurisdiction?: string;
   companySize?: string;
   revenueRange?: string;
+
+  // Common
+  jurisdiction?: string;
 
   // Step 2
   businessActivities?: string[];
@@ -23,13 +38,20 @@ type WizardData = {
 
   // Step 4
   selectedProtocols?: string[];
+  riskScore?: number;
 };
 
 const steps = [
   {
+    id: 0,
+    title: 'Tipo de Perfil',
+    description: 'Profesional o Empresa',
+    icon: User,
+  },
+  {
     id: 1,
     title: 'Información Básica',
-    description: 'Cuéntanos sobre tu negocio',
+    description: 'Tu perfil de riesgo',
     icon: Building2,
   },
   {
@@ -53,7 +75,7 @@ const steps = [
 ];
 
 export default function WizardPage() {
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(0);
   const [wizardData, setWizardData] = useState<WizardData>({});
 
   const handleNext = (data: Partial<WizardData>) => {
@@ -64,15 +86,29 @@ export default function WizardPage() {
   };
 
   const handleBack = () => {
-    if (currentStep > 1) {
+    if (currentStep > 0) {
       setCurrentStep(currentStep - 1);
     }
   };
 
   const renderStep = () => {
     switch (currentStep) {
+      case 0:
+        return <Step0ProfileType data={wizardData} onNext={handleNext} />;
       case 1:
-        return <Step1BusinessInfo data={wizardData} onNext={handleNext} />;
+        // Routing condicional según profileType
+        if (wizardData.profileType === 'PROFESSIONAL') {
+          return (
+            <Step1ProfessionalInfo
+              data={wizardData}
+              onNext={handleNext}
+              onBack={handleBack}
+            />
+          );
+        } else if (wizardData.profileType === 'BUSINESS') {
+          return <Step1BusinessInfo data={wizardData} onNext={handleNext} onBack={handleBack} />;
+        }
+        return null;
       case 2:
         return <Step2Activities data={wizardData} onNext={handleNext} onBack={handleBack} />;
       case 3:
