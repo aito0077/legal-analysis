@@ -146,7 +146,7 @@ export async function POST(req: NextRequest) {
       triggers,
       consequences,
       affectedAssets,
-      sourceType = 'MANUAL_ENTRY',
+      sourceType = 'USER_IDENTIFIED',
     } = data;
 
     // Validate required fields

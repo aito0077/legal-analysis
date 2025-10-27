@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { Sparkles, Loader2, AlertCircle, Plus, TrendingUp, Shield } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Sparkles, Loader2, AlertCircle, Plus, TrendingUp, Shield, RefreshCw } from 'lucide-react';
 
 type SuggestedRisk = {
   title: string;
@@ -26,11 +26,48 @@ const priorityColors: Record<string, string> = {
   LOW: 'bg-blue-100 text-blue-700 border-blue-300',
 };
 
+const CACHE_KEY = 'ai-risk-suggestions-cache';
+const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+
+type CacheData = {
+  suggestions: SuggestedRisk[];
+  timestamp: number;
+};
+
 export default function AISuggestionsPanel({ onAddRisk }: AISuggestionsPanelProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [suggestions, setSuggestions] = useState<SuggestedRisk[]>([]);
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
+
+  // Load cached suggestions on mount
+  useEffect(() => {
+    const loadCachedSuggestions = () => {
+      try {
+        const cached = localStorage.getItem(CACHE_KEY);
+        if (cached) {
+          const data: CacheData = JSON.parse(cached);
+          const now = Date.now();
+          const age = now - data.timestamp;
+
+          // Only use cache if it's less than 24 hours old
+          if (age < CACHE_DURATION) {
+            setSuggestions(data.suggestions);
+            setLastUpdated(new Date(data.timestamp));
+          } else {
+            // Cache expired, remove it
+            localStorage.removeItem(CACHE_KEY);
+          }
+        }
+      } catch (err) {
+        console.error('Error loading cached suggestions:', err);
+        localStorage.removeItem(CACHE_KEY);
+      }
+    };
+
+    loadCachedSuggestions();
+  }, []);
 
   const calculatePriority = (likelihood: string, impact: string): string => {
     const likelihoodMap: Record<string, number> = {
@@ -73,7 +110,18 @@ export default function AISuggestionsPanel({ onAddRisk }: AISuggestionsPanelProp
       }
 
       const data = await response.json();
+      const now = Date.now();
+
+      // Save to cache
+      const cacheData: CacheData = {
+        suggestions: data.suggestions,
+        timestamp: now,
+      };
+      localStorage.setItem(CACHE_KEY, JSON.stringify(cacheData));
+
+      // Update state
       setSuggestions(data.suggestions);
+      setLastUpdated(new Date(now));
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error desconocido');
     } finally {
@@ -99,6 +147,17 @@ export default function AISuggestionsPanel({ onAddRisk }: AISuggestionsPanelProp
           <p className="text-sm text-gray-600 mt-1">
             DeepSeek analiza tu perfil y recomienda riesgos relevantes
           </p>
+          {lastUpdated && (
+            <p className="text-xs text-gray-500 mt-1">
+              Última actualización: {lastUpdated.toLocaleDateString('es-AR', {
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+              })}
+            </p>
+          )}
         </div>
         <button
           onClick={handleGenerateSuggestions}
@@ -109,6 +168,11 @@ export default function AISuggestionsPanel({ onAddRisk }: AISuggestionsPanelProp
             <>
               <Loader2 className="h-4 w-4 animate-spin" />
               Analizando...
+            </>
+          ) : suggestions.length > 0 ? (
+            <>
+              <RefreshCw className="h-4 w-4" />
+              Regenerar Sugerencias
             </>
           ) : (
             <>
@@ -127,6 +191,16 @@ export default function AISuggestionsPanel({ onAddRisk }: AISuggestionsPanelProp
             <p className="font-medium">Error al generar sugerencias</p>
             <p className="text-sm mt-1">{error}</p>
           </div>
+        </div>
+      )}
+
+      {/* Cache Info */}
+      {suggestions.length > 0 && lastUpdated && (
+        <div className="bg-blue-50 border border-blue-200 text-blue-800 px-4 py-3 rounded-lg mb-4 text-sm">
+          <p>
+            <strong>💡 Sugerencias guardadas:</strong> Estas recomendaciones están guardadas localmente.
+            Puedes regenerarlas si deseas obtener nuevas sugerencias basadas en cambios en tu perfil.
+          </p>
         </div>
       )}
 

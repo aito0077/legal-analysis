@@ -114,54 +114,9 @@ export default function DashboardPage() {
 
   const handleAddAISuggestedRisk = async (risk: any) => {
     try {
-      // First, get or create the risk register
-      const registerResponse = await fetch('/api/risk-register');
-      let registerId: string;
-
-      if (registerResponse.ok) {
-        const registerData = await registerResponse.json();
-        registerId = registerData.id;
-      } else {
-        // Create register if it doesn't exist
-        const createRegisterResponse = await fetch('/api/risk-register', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            title: 'Registro de Riesgos',
-            jurisdiction: dashboardData?.profile?.jurisdiction || 'Argentina',
-          }),
-        });
-
-        if (!createRegisterResponse.ok) {
-          throw new Error('Error al crear registro de riesgos');
-        }
-
-        const newRegister = await createRegisterResponse.json();
-        registerId = newRegister.id;
-      }
-
-      // Calculate likelihood and impact numeric values from strings
-      const likelihoodMap: Record<string, number> = {
-        RARE: 1,
-        UNLIKELY: 2,
-        POSSIBLE: 3,
-        LIKELY: 4,
-        ALMOST_CERTAIN: 5,
-      };
-      const impactMap: Record<string, number> = {
-        INSIGNIFICANT: 1,
-        MINOR: 2,
-        MODERATE: 3,
-        MAJOR: 4,
-        CATASTROPHIC: 5,
-      };
-
-      const likelihoodValue = likelihoodMap[risk.likelihood] || 3;
-      const impactValue = impactMap[risk.impact] || 3;
-      const inherentRisk = likelihoodValue * impactValue;
-
-      // Create the risk event
-      const createRiskResponse = await fetch(`/api/risk-register/${registerId}/risks`, {
+      // Create the risk using the /api/risks endpoint
+      // This endpoint handles register creation automatically
+      const createRiskResponse = await fetch('/api/risks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -170,16 +125,16 @@ export default function DashboardPage() {
           category: risk.category,
           likelihood: risk.likelihood,
           impact: risk.impact,
-          inherentRisk,
           triggers: risk.triggers || [],
           consequences: risk.consequences || [],
           affectedAssets: risk.affectedAssets || [],
-          status: 'IDENTIFIED',
+          sourceType: 'AI_SUGGESTED',
         }),
       });
 
       if (!createRiskResponse.ok) {
-        throw new Error('Error al crear riesgo');
+        const errorData = await createRiskResponse.json();
+        throw new Error(errorData.error || 'Error al crear riesgo');
       }
 
       // Refresh dashboard data

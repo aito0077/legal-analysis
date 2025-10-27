@@ -150,9 +150,30 @@ export class DeepSeekClient {
     const response = await this.complete(prompt, fullSystemPrompt);
 
     try {
-      // Try to extract JSON from the response (in case there's extra text)
-      const jsonMatch = response.match(/\{[\s\S]*\}/);
-      const jsonString = jsonMatch ? jsonMatch[0] : response;
+      // First, try to extract JSON from markdown code blocks
+      let jsonString = response;
+
+      // Check for markdown code blocks with json tag
+      const markdownMatch = response.match(/```(?:json)?\s*([\s\S]*?)```/);
+      if (markdownMatch) {
+        jsonString = markdownMatch[1].trim();
+      } else {
+        // Try to extract JSON object or array
+        const objectMatch = response.match(/\{[\s\S]*\}/);
+        const arrayMatch = response.match(/\[[\s\S]*\]/);
+
+        // Use whichever match appears first in the string
+        if (objectMatch && arrayMatch) {
+          const objectIndex = response.indexOf(objectMatch[0]);
+          const arrayIndex = response.indexOf(arrayMatch[0]);
+          jsonString = objectIndex < arrayIndex ? objectMatch[0] : arrayMatch[0];
+        } else if (objectMatch) {
+          jsonString = objectMatch[0];
+        } else if (arrayMatch) {
+          jsonString = arrayMatch[0];
+        }
+      }
+
       return JSON.parse(jsonString) as T;
     } catch (error) {
       console.error('Failed to parse JSON response:', response);
