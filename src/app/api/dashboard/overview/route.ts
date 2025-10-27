@@ -101,6 +101,38 @@ export async function GET(req: NextRequest) {
       0
     );
 
+    // Get protocol statistics
+    const userProtocols = await prisma.userProtocol.findMany({
+      where: { userId: session.user.id },
+      include: {
+        protocol: true,
+      },
+    });
+
+    const protocolStats = {
+      total: userProtocols.length,
+      pending: userProtocols.filter((p) => p.status === 'PENDING').length,
+      inProgress: userProtocols.filter((p) => p.status === 'IN_PROGRESS').length,
+      completed: userProtocols.filter((p) => p.status === 'COMPLETED').length,
+      archived: userProtocols.filter((p) => p.status === 'ARCHIVED').length,
+      averageProgress: userProtocols.length > 0
+        ? Math.round(userProtocols.reduce((sum, p) => sum + p.progress, 0) / userProtocols.length)
+        : 0,
+    };
+
+    // Get protocols in progress (top 3)
+    const protocolsInProgress = userProtocols
+      .filter((p) => p.status === 'IN_PROGRESS')
+      .sort((a, b) => b.progress - a.progress)
+      .slice(0, 3)
+      .map((p) => ({
+        id: p.id,
+        title: p.protocol.title,
+        progress: p.progress,
+        status: p.status,
+        startedAt: p.startedAt,
+      }));
+
     return NextResponse.json({
       user: {
         name: user.name,
@@ -132,6 +164,8 @@ export async function GET(req: NextRequest) {
           : 0,
       },
       topPriorityRisks,
+      protocolStats,
+      protocolsInProgress,
     });
   } catch (error) {
     console.error('Error fetching dashboard overview:', error);

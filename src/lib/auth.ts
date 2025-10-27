@@ -6,7 +6,8 @@ import { prisma } from "./prisma";
 import { compare } from "bcryptjs";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  adapter: PrismaAdapter(prisma),
+  // Don't use adapter with CredentialsProvider in NextAuth v5
+  // adapter: PrismaAdapter(prisma),
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID || "",
@@ -20,6 +21,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
+          console.log('[auth] Missing credentials');
           return null;
         }
 
@@ -30,15 +32,18 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         });
 
         if (!user || !user.password) {
+          console.log('[auth] User not found or no password');
           return null;
         }
 
         const isPasswordValid = await compare(credentials.password as string, user.password);
 
         if (!isPasswordValid) {
+          console.log('[auth] Invalid password');
           return null;
         }
 
+        console.log('[auth] Authentication successful for:', user.email);
         return {
           id: user.id,
           email: user.email,

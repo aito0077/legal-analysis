@@ -11,6 +11,10 @@ import {
   TrendingUp,
   Users,
   Loader2,
+  PlayCircle,
+  ArrowRight,
+  Plus,
+  Shield,
 } from 'lucide-react';
 
 type DashboardData = {
@@ -43,6 +47,21 @@ type DashboardData = {
     controlImplementationRate: number;
   };
   topPriorityRisks?: any[];
+  protocolStats?: {
+    total: number;
+    pending: number;
+    inProgress: number;
+    completed: number;
+    archived: number;
+    averageProgress: number;
+  };
+  protocolsInProgress?: Array<{
+    id: string;
+    title: string;
+    progress: number;
+    status: string;
+    startedAt: Date | null;
+  }>;
 };
 
 export default function DashboardPage() {
@@ -119,7 +138,7 @@ export default function DashboardPage() {
     );
   }
 
-  const { user, profile, hasRegister, summary, topPriorityRisks } = dashboardData;
+  const { user, profile, hasRegister, summary, topPriorityRisks, protocolStats, protocolsInProgress } = dashboardData;
   const hasData = hasRegister !== false && summary;
   const riskLevel = hasData ? getRiskLevel(summary.averageInherentRisk) : { label: 'N/A', color: 'gray' };
   const riskScorePercentage = hasData ? Math.round((summary.averageInherentRisk / 25) * 100) : 0;
@@ -424,6 +443,132 @@ export default function DashboardPage() {
                 Parte del ecosistema: laws-crm, legal-marketplace, risk-analysis
               </p>
             </div>
+          </div>
+        </div>
+
+        {/* Protocols Section */}
+        {protocolStats && protocolStats.total > 0 && (
+          <div className="mt-8">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold text-gray-900">Protocolos de Cumplimiento</h2>
+              <button
+                onClick={() => router.push('/dashboard/protocols')}
+                className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+              >
+                Ver Todos
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </div>
+
+            {/* Protocol Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
+              <div className="bg-white rounded-lg shadow p-4">
+                <p className="text-sm text-gray-600 mb-1">Total</p>
+                <p className="text-2xl font-bold text-gray-900">{protocolStats.total}</p>
+              </div>
+              <div className="bg-yellow-50 rounded-lg shadow p-4">
+                <p className="text-sm text-yellow-700 mb-1">Pendientes</p>
+                <p className="text-2xl font-bold text-yellow-900">{protocolStats.pending}</p>
+              </div>
+              <div className="bg-blue-50 rounded-lg shadow p-4">
+                <p className="text-sm text-blue-700 mb-1">En Progreso</p>
+                <p className="text-2xl font-bold text-blue-900">{protocolStats.inProgress}</p>
+              </div>
+              <div className="bg-green-50 rounded-lg shadow p-4">
+                <p className="text-sm text-green-700 mb-1">Completados</p>
+                <p className="text-2xl font-bold text-green-900">{protocolStats.completed}</p>
+              </div>
+              <div className="bg-indigo-50 rounded-lg shadow p-4">
+                <p className="text-sm text-indigo-700 mb-1">Progreso Promedio</p>
+                <p className="text-2xl font-bold text-indigo-900">{protocolStats.averageProgress}%</p>
+              </div>
+            </div>
+
+            {/* Protocols in Progress */}
+            {protocolsInProgress && protocolsInProgress.length > 0 && (
+              <div className="bg-white rounded-xl shadow-md p-6">
+                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <PlayCircle className="h-5 w-5 text-blue-600" />
+                  Protocolos en Progreso
+                </h3>
+                <div className="space-y-4">
+                  {protocolsInProgress.map((protocol) => (
+                    <div
+                      key={protocol.id}
+                      onClick={() => router.push(`/dashboard/protocols/${protocol.id}`)}
+                      className="border border-gray-200 rounded-lg p-4 hover:border-blue-300 transition-colors cursor-pointer"
+                    >
+                      <div className="flex items-start justify-between mb-3">
+                        <h4 className="font-semibold text-gray-900">{protocol.title}</h4>
+                        <span className="text-sm font-medium text-blue-600">{protocol.progress}%</span>
+                      </div>
+                      <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
+                        <div
+                          className="bg-blue-600 h-2 rounded-full transition-all"
+                          style={{ width: `${protocol.progress}%` }}
+                        />
+                      </div>
+                      {protocol.startedAt && (
+                        <p className="text-xs text-gray-500">
+                          Iniciado: {new Date(protocol.startedAt).toLocaleDateString('es-AR')}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Quick Actions */}
+        <div className="mt-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Acciones Rápidas</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <button
+              onClick={() => router.push('/dashboard/risks')}
+              className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow text-left border-2 border-transparent hover:border-blue-300"
+            >
+              <div className="flex items-center gap-4 mb-3">
+                <div className="p-3 bg-red-100 rounded-lg">
+                  <AlertTriangle className="h-6 w-6 text-red-600" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900">Registrar Nuevo Riesgo</h3>
+              </div>
+              <p className="text-sm text-gray-600">
+                Identifica y documenta un nuevo riesgo legal para tu organización
+              </p>
+            </button>
+
+            <button
+              onClick={() => router.push('/dashboard/protocols')}
+              className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow text-left border-2 border-transparent hover:border-blue-300"
+            >
+              <div className="flex items-center gap-4 mb-3">
+                <div className="p-3 bg-blue-100 rounded-lg">
+                  <FileText className="h-6 w-6 text-blue-600" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900">Ver Protocolos</h3>
+              </div>
+              <p className="text-sm text-gray-600">
+                Revisa y completa tus protocolos de cumplimiento pendientes
+              </p>
+            </button>
+
+            <button
+              onClick={() => router.push('/dashboard/reports')}
+              className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow text-left border-2 border-transparent hover:border-blue-300"
+            >
+              <div className="flex items-center gap-4 mb-3">
+                <div className="p-3 bg-green-100 rounded-lg">
+                  <TrendingUp className="h-6 w-6 text-green-600" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900">Generar Reporte</h3>
+              </div>
+              <p className="text-sm text-gray-600">
+                Crea reportes ejecutivos sobre tu perfil de riesgo actual
+              </p>
+            </button>
           </div>
         </div>
       </div>

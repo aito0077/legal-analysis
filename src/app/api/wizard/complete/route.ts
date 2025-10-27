@@ -232,21 +232,42 @@ export async function POST(req: NextRequest) {
     //   await Promise.all(answerPromises);
     // }
 
-    // TODO: Assign selected protocols to user
-    // Currently skipped because we need to create Protocol records first
-    // if (selectedProtocols && selectedProtocols.length > 0) {
-    //   const protocolPromises = selectedProtocols.map((protocolId: string) => {
-    //     return prisma.userProtocol.create({
-    //       data: {
-    //         userId: session.user.id,
-    //         protocolId: protocolId,
-    //         status: 'PENDING',
-    //         progress: 0,
-    //       },
-    //     });
-    //   });
-    //   await Promise.all(protocolPromises);
-    // }
+    // Assign selected protocols to user
+    if (selectedProtocols && selectedProtocols.length > 0) {
+      // Get actual Protocol records by title matching the codes
+      const protocols = await prisma.protocol.findMany({
+        where: {
+          title: {
+            in: selectedProtocols.map((code: string) => {
+              // Map codes to titles
+              const titleMap: Record<string, string> = {
+                contratos_modelo: 'Contratos Modelo Personalizados',
+                politica_privacidad: 'Política de Privacidad y LGPD/GDPR',
+                manual_empleados: 'Manual del Empleado',
+                protocolo_crisis: 'Protocolo de Gestión de Crisis Legal',
+                checklist_compliance: 'Checklist de Cumplimiento Trimestral',
+                terminos_condiciones: 'Términos y Condiciones de Servicio',
+              };
+              return titleMap[code] || code;
+            }),
+          },
+        },
+      });
+
+      if (protocols.length > 0) {
+        const protocolPromises = protocols.map((protocol) => {
+          return prisma.userProtocol.create({
+            data: {
+              userId: session.user.id,
+              protocolId: protocol.id,
+              status: 'PENDING',
+              progress: 0,
+            },
+          });
+        });
+        await Promise.all(protocolPromises);
+      }
+    }
 
     return NextResponse.json(
       {
