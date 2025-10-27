@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
+import AISuggestionsPanel from '@/components/ai/AISuggestionsPanel';
+import AIAssistantWidget from '@/components/ai/AIAssistantWidget';
 import {
   AlertTriangle,
   CheckCircle2,
@@ -70,6 +72,7 @@ export default function DashboardPage() {
   const [dashboardData, setDashboardData] = useState<DashboardData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [showAISuggestions, setShowAISuggestions] = useState(true);
 
   useEffect(() => {
     if (status === 'unauthenticated') {
@@ -107,6 +110,87 @@ export default function DashboardPage() {
     if (score >= 10) return { label: 'Medio', color: 'yellow' };
     if (score >= 5) return { label: 'Bajo', color: 'blue' };
     return { label: 'Muy Bajo', color: 'green' };
+  };
+
+  const handleAddAISuggestedRisk = async (risk: any) => {
+    try {
+      // First, get or create the risk register
+      const registerResponse = await fetch('/api/risk-register');
+      let registerId: string;
+
+      if (registerResponse.ok) {
+        const registerData = await registerResponse.json();
+        registerId = registerData.id;
+      } else {
+        // Create register if it doesn't exist
+        const createRegisterResponse = await fetch('/api/risk-register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            title: 'Registro de Riesgos',
+            jurisdiction: dashboardData?.profile?.jurisdiction || 'Argentina',
+          }),
+        });
+
+        if (!createRegisterResponse.ok) {
+          throw new Error('Error al crear registro de riesgos');
+        }
+
+        const newRegister = await createRegisterResponse.json();
+        registerId = newRegister.id;
+      }
+
+      // Calculate likelihood and impact numeric values from strings
+      const likelihoodMap: Record<string, number> = {
+        RARE: 1,
+        UNLIKELY: 2,
+        POSSIBLE: 3,
+        LIKELY: 4,
+        ALMOST_CERTAIN: 5,
+      };
+      const impactMap: Record<string, number> = {
+        INSIGNIFICANT: 1,
+        MINOR: 2,
+        MODERATE: 3,
+        MAJOR: 4,
+        CATASTROPHIC: 5,
+      };
+
+      const likelihoodValue = likelihoodMap[risk.likelihood] || 3;
+      const impactValue = impactMap[risk.impact] || 3;
+      const inherentRisk = likelihoodValue * impactValue;
+
+      // Create the risk event
+      const createRiskResponse = await fetch(`/api/risk-register/${registerId}/risks`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: risk.title,
+          description: risk.description,
+          category: risk.category,
+          likelihood: risk.likelihood,
+          impact: risk.impact,
+          inherentRisk,
+          triggers: risk.triggers || [],
+          consequences: risk.consequences || [],
+          affectedAssets: risk.affectedAssets || [],
+          status: 'IDENTIFIED',
+        }),
+      });
+
+      if (!createRiskResponse.ok) {
+        throw new Error('Error al crear riesgo');
+      }
+
+      // Refresh dashboard data
+      await fetchDashboardData();
+
+      // Show success message
+      alert('¡Riesgo agregado exitosamente! 🎉');
+    } catch (error) {
+      console.error('Error adding risk:', error);
+      alert('Error al agregar el riesgo. Por favor intenta nuevamente.');
+    }
   };
 
   if (loading) {
@@ -155,6 +239,13 @@ export default function DashboardPage() {
               : 'Has completado tu evaluación inicial. En Sprint 2 comenzaremos a identificar y analizar riesgos específicos.'}
           </p>
         </div>
+
+        {/* AI Suggestions Panel */}
+        {showAISuggestions && process.env.NEXT_PUBLIC_AI_ENABLED !== 'false' && (
+          <div className="mb-8">
+            <AISuggestionsPanel onAddRisk={handleAddAISuggestedRisk} />
+          </div>
+        )}
 
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
@@ -572,6 +663,9 @@ export default function DashboardPage() {
           </div>
         </div>
       </div>
+
+      {/* AI Assistant Widget - Global floating chat */}
+      {process.env.NEXT_PUBLIC_AI_ENABLED !== 'false' && <AIAssistantWidget />}
     </DashboardLayout>
   );
 }

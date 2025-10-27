@@ -5,6 +5,8 @@ import { useRouter, useParams } from 'next/navigation';
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
 import NewControlModal from '@/components/controls/NewControlModal';
 import ControlsList from '@/components/controls/ControlsList';
+import TreatmentPlanModal from '@/components/treatment/TreatmentPlanModal';
+import TreatmentPlanCard from '@/components/treatment/TreatmentPlanCard';
 import {
   AlertTriangle,
   ArrowLeft,
@@ -15,6 +17,8 @@ import {
   Calendar,
   User,
   Tag,
+  Target,
+  FileText,
 } from 'lucide-react';
 
 type RiskDetail = {
@@ -54,9 +58,12 @@ export default function RiskDetailPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [showNewControlModal, setShowNewControlModal] = useState(false);
+  const [treatmentPlan, setTreatmentPlan] = useState<any | null>(null);
+  const [showTreatmentPlanModal, setShowTreatmentPlanModal] = useState(false);
 
   useEffect(() => {
     fetchRisk();
+    fetchTreatmentPlan();
   }, [riskId]);
 
   const fetchRisk = async () => {
@@ -75,6 +82,23 @@ export default function RiskDetailPage() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const fetchTreatmentPlan = async () => {
+    try {
+      const response = await fetch(`/api/risks/${riskId}/treatment`);
+      if (response.ok) {
+        const data = await response.json();
+        setTreatmentPlan(data.treatmentPlan);
+      }
+    } catch (err) {
+      console.error('Error fetching treatment plan:', err);
+    }
+  };
+
+  const handleTreatmentPlanUpdate = () => {
+    fetchTreatmentPlan();
+    fetchRisk(); // Also refresh risk to update status
   };
 
   const getPriorityConfig = (priority: string) => {
@@ -278,6 +302,53 @@ export default function RiskDetailPage() {
           </div>
         </div>
 
+        {/* Treatment Plan Section */}
+        <div className="bg-white rounded-lg shadow p-6 mb-6">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+                <Target className="h-7 w-7" />
+                Plan de Tratamiento
+              </h2>
+              <p className="text-gray-600 mt-1">
+                {treatmentPlan
+                  ? 'Estrategia y acciones para mitigar el riesgo'
+                  : 'Crea un plan para tratar este riesgo'}
+              </p>
+            </div>
+            {!treatmentPlan && (
+              <button
+                onClick={() => setShowTreatmentPlanModal(true)}
+                className="flex items-center gap-2 px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+              >
+                <FileText className="h-5 w-5" />
+                Crear Plan de Tratamiento
+              </button>
+            )}
+          </div>
+
+          {treatmentPlan ? (
+            <TreatmentPlanCard
+              plan={treatmentPlan}
+              riskId={riskId}
+              onUpdate={handleTreatmentPlanUpdate}
+            />
+          ) : (
+            <div className="bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+              <Target className="h-12 w-12 text-gray-400 mx-auto mb-3" />
+              <p className="text-gray-600 mb-4">
+                No hay un plan de tratamiento definido para este riesgo.
+              </p>
+              <button
+                onClick={() => setShowTreatmentPlanModal(true)}
+                className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+              >
+                Crear Plan de Tratamiento
+              </button>
+            </div>
+          )}
+        </div>
+
         {/* Controls Section */}
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex items-center justify-between mb-6">
@@ -308,6 +379,21 @@ export default function RiskDetailPage() {
         onSuccess={fetchRisk}
         riskId={riskId}
       />
+
+      {/* Treatment Plan Modal */}
+      {risk && (
+        <TreatmentPlanModal
+          isOpen={showTreatmentPlanModal}
+          onClose={() => setShowTreatmentPlanModal(false)}
+          onSuccess={handleTreatmentPlanUpdate}
+          riskId={riskId}
+          currentRisk={{
+            inherentRisk: risk.inherentRisk,
+            likelihood: risk.likelihood,
+            impact: risk.impact,
+          }}
+        />
+      )}
     </DashboardLayout>
   );
 }
