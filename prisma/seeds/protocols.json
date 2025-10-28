@@ -1,0 +1,693 @@
+[
+  {
+    "title": "Protocolo para Implementación de Contratos Modelo Corporativos",
+    "description": "Protocolo integral para el desarrollo, validación e implementación de contratos modelo adaptados a diferentes tipos de negocio, garantizando cumplimiento legal y protección corporativa en jurisdicción argentina.",
+    "content": {
+      "steps": [
+        {
+          "order": 1,
+          "title": "Análisis de Requerimientos y Contexto Empresarial",
+          "description": "Identificar necesidades específicas por tipo de negocio, analizar relaciones contractuales recurrentes y definir cláusulas esenciales según actividad económica.",
+          "requiredDocuments": [
+            "Estatuto Social",
+            "Objeto social actualizado",
+            "Registro de contratos anteriores",
+            "Análisis de riesgos por área"
+          ],
+          "estimatedTime": "1-2 semanas",
+          "responsibleRole": "Legal Manager / Business Analyst"
+        },
+        {
+          "order": 2,
+          "title": "Diseño de Estructura Contractual Base",
+          "description": "Elaborar plantilla base con cláusulas estándar: identificación de partes, objeto, plazo, precio, confidencialidad, propiedad intelectual y responsabilidad.",
+          "requiredDocuments": [
+            "Modelo de contrato base",
+            "Checklist de cláusulas obligatorias",
+            "Matriz de riesgos contractuales"
+          ],
+          "estimatedTime": "2-3 semanas",
+          "responsibleRole": "Legal Counsel / External Lawyer"
+        },
+        {
+          "order": 3,
+          "title": "Adaptación por Tipo de Negocio",
+          "description": "Personalizar contratos según actividad: consultoría (honorarios), software (licencias), ecommerce (términos y condiciones), manufactura (suministro), etc.",
+          "requiredDocuments": [
+            "Especificaciones por vertical",
+            "Requisitos regulatorios específicos",
+            "Condiciones comerciales por producto"
+          ],
+          "estimatedTime": "2-3 semanas",
+          "responsibleRole": "Legal Specialist / Product Manager"
+        },
+        {
+          "order": 4,
+          "title": "Revisión de Cumplimiento Normativo",
+          "description": "Verificar adecuación a Ley de Defensa del Consumidor, protección de datos personales, normas laborales y sectoriales aplicables.",
+          "requiredDocuments": [
+            "Dictamen de cumplimiento",
+            "Checklist regulatorio",
+            "Análisis de jurisprudencia aplicable"
+          ],
+          "estimatedTime": "1-2 semanas",
+          "responsibleRole": "Compliance Officer / Legal Manager"
+        },
+        {
+          "order": 5,
+          "title": "Validación Interna y Aprobación",
+          "description": "Circular modelos entre áreas involucradas (comercial, operaciones, finanzas) para feedback y aprobación final por dirección.",
+          "requiredDocuments": [
+            "Acta de aprobación",
+            "Comentarios por área",
+            "Versión final consolidada"
+          ],
+          "estimatedTime": "1 semana",
+          "responsibleRole": "CEO / Legal Director"
+        },
+        {
+          "order": 6,
+          "title": "Capacitación e Implementación",
+          "description": "Entrenar equipos comerciales y operativos en uso correcto de contratos, procesos de firma y gestión documental.",
+          "requiredDocuments": [
+            "Manual de uso",
+            "Presentación de capacitación",
+            "Procedimiento de firma digital"
+          ],
+          "estimatedTime": "1 semana",
+          "responsibleRole": "HR Manager / Legal Team"
+        },
+        {
+          "order": 7,
+          "title": "Sistema de Control y Actualización",
+          "description": "Establecer revisiones periódicas, mecanismos de modificación y registro de desviaciones al modelo estándar.",
+          "requiredDocuments": [
+            "Calendario de revisiones",
+            "Procedimiento de modificaciones",
+            "Registro de excepciones"
+          ],
+          "estimatedTime": "1 semana",
+          "responsibleRole": "Legal Manager / Quality Assurance"
+        }
+      ],
+      "objectives": [
+        "Estandarizar relaciones contractuales reduciendo riesgos legales",
+        "Optimizar tiempos de negociación y firma de contratos",
+        "Garantizar cumplimiento normativo en todas las operaciones",
+        "Proteger propiedad intelectual y activos corporativos",
+        "Facilitar escalabilidad operativa con modelos pre-aprobados"
+      ],
+      "scope": "Aplicable a todos los contratos comerciales, de prestación de servicios, licencias, distribución y colaboración empresarial en jurisdicción argentina, para los tipos de negocio especificados.",
+      "references": [
+        "Código Civil y Comercial de la Nación (Ley 26.994)",
+        "Ley de Defensa del Consumidor 24.240",
+        "Ley de Contrato de Trabajo 20.744",
+        "Ley de Sociedades Comerciales 19.550",
+        "Ley de Firma Digital 25.506",
+        "Decreto Reglamentario 260/2021 Contratos Digitales"
+      ]
+    },
+    "estimatedImplementationDays": 45,
+    "complexity": "HIGH",
+    "type": "OFFICIAL",
+    "category": "Contractual",
+    "priority": "HIGH",
+    "businessTypes": [
+      "CONSULTORIA",
+      "DESARROLLO_SOFTWARE",
+      "ECOMMERCE",
+      "SERVICIOS_PROFESIONALES",
+      "MANUFACTURA",
+      "RETAIL",
+      "FINTECH",
+      "SALUD",
+      "EDUCACION"
+    ],
+    "jurisdictions": [
+      "Argentina",
+      "Buenos Aires",
+      "CABA"
+    ]
+  },
+  {
+    "title": "Protocolo de Política de Privacidad y Protección de Datos Personales",
+    "description": "Protocolo integral para el cumplimiento normativo en protección de datos personales según legislación argentina, incluyendo registro de bases de datos, políticas internas y procedimientos de seguridad.",
+    "content": {
+      "steps": [
+        {
+          "order": 1,
+          "title": "Inventario y Mapeo de Datos Personales",
+          "description": "Identificar y documentar todos los flujos de datos personales dentro de la organización, categorizando por tipo de dato, finalidad del tratamiento, bases legales y terceros involucrados.",
+          "requiredDocuments": [
+            "Matriz de Flujos de Datos",
+            "Inventario de Bases de Datos",
+            "Diagrama de Procesos"
+          ],
+          "estimatedTime": "2-3 semanas",
+          "responsibleRole": "Data Protection Officer / Compliance Manager"
+        },
+        {
+          "order": 2,
+          "title": "Registro de Bases de Datos ante AAIP",
+          "description": "Inscripción obligatoria de todas las bases de datos que contengan información personal ante la Agencia de Acceso a la Información Pública, conforme a la Ley 25.326.",
+          "requiredDocuments": [
+            "Formulario AAIP-DNPD-001",
+            "Declaración Jurada",
+            "Documentación Societaria"
+          ],
+          "estimatedTime": "1-2 semanas",
+          "responsibleRole": "Legal Manager / Data Protection Officer"
+        },
+        {
+          "order": 3,
+          "title": "Elaboración de Política de Privacidad",
+          "description": "Redacción de política de privacidad completa que incluya información sobre finalidades del tratamiento, derechos del titular, medidas de seguridad y procedimientos de ejercicio de derechos ARCO.",
+          "requiredDocuments": [
+            "Borrador de Política de Privacidad",
+            "Cláusulas Informativas",
+            "Procedimiento ARCO"
+          ],
+          "estimatedTime": "2-3 semanas",
+          "responsibleRole": "Legal Manager / Compliance Specialist"
+        },
+        {
+          "order": 4,
+          "title": "Implementación de Medidas de Seguridad",
+          "description": "Establecer medidas técnicas y organizativas apropiadas para garantizar la seguridad de los datos, incluyendo controles de acceso, cifrado y procedimientos de respuesta a incidentes.",
+          "requiredDocuments": [
+            "Política de Seguridad de la Información",
+            "Procedimiento de Incidentes",
+            "Plan de Continuidad"
+          ],
+          "estimatedTime": "3-4 semanas",
+          "responsibleRole": "IT Security Manager / Data Protection Officer"
+        },
+        {
+          "order": 5,
+          "title": "Capacitación del Personal",
+          "description": "Programa de capacitación obligatoria para todo el personal que intervenga en el tratamiento de datos personales, enfocado en obligaciones legales y buenas prácticas.",
+          "requiredDocuments": [
+            "Plan de Capacitación",
+            "Material Didáctico",
+            "Registros de Asistencia"
+          ],
+          "estimatedTime": "1-2 semanas",
+          "responsibleRole": "HR Manager / Data Protection Officer"
+        },
+        {
+          "order": 6,
+          "title": "Implementación de Procedimiento ARCO",
+          "description": "Establecer canal formal para el ejercicio de derechos de Acceso, Rectificación, Cancelación y Oposición por parte de los titulares de datos.",
+          "requiredDocuments": [
+            "Formulario de Solicitud ARCO",
+            "Procedimiento Interno",
+            "Registro de Solicitudes"
+          ],
+          "estimatedTime": "1-2 semanas",
+          "responsibleRole": "Legal Manager / Customer Service Manager"
+        },
+        {
+          "order": 7,
+          "title": "Auditoría y Monitoreo Continuo",
+          "description": "Implementar sistema de auditoría periódica para verificar el cumplimiento normativo y actualizar procedimientos según cambios regulatorios.",
+          "requiredDocuments": [
+            "Plan de Auditoría",
+            "Checklist de Cumplimiento",
+            "Informe de Resultados"
+          ],
+          "estimatedTime": "Continuo",
+          "responsibleRole": "Internal Auditor / Data Protection Officer"
+        }
+      ],
+      "objectives": [
+        "Garantizar el cumplimiento de la Ley 25.326 de Protección de Datos Personales",
+        "Establecer procedimientos claros para el tratamiento seguro de datos",
+        "Proteger los derechos de los titulares de datos personales",
+        "Minimizar riesgos legales y reputacionales",
+        "Implementar cultura organizacional de privacidad y protección de datos"
+      ],
+      "scope": "Aplica a todos los procesos de tratamiento de datos personales realizados por la organización, incluyendo recolección, almacenamiento, uso, transferencia y eliminación de datos de clientes, empleados y terceros.",
+      "references": [
+        "Ley 25.326 - Protección de Datos Personales",
+        "Decreto 1558/2001 - Reglamentación Ley 25.326",
+        "Resolución AAIP 4/2019 - Medidas de Seguridad",
+        "Resolución AAIP 47/2018 - Registro de Bases de Datos",
+        "Código Civil y Comercial de la Nación - Arts. 52 y 53"
+      ]
+    },
+    "estimatedImplementationDays": 45,
+    "complexity": "HIGH",
+    "type": "OFFICIAL",
+    "category": "Datos",
+    "priority": "CRITICAL",
+    "businessTypes": [
+      "CONSULTORIA",
+      "DESARROLLO_SOFTWARE",
+      "ECOMMERCE",
+      "SERVICIOS_PROFESIONALES",
+      "MANUFACTURA",
+      "RETAIL",
+      "FINTECH",
+      "SALUD",
+      "EDUCACION"
+    ],
+    "jurisdictions": [
+      "Argentina",
+      "Buenos Aires",
+      "CABA"
+    ]
+  },
+  {
+    "title": "Protocolo para Elaboración e Implementación de Manual del Empleado",
+    "description": "Protocolo completo para la creación, aprobación e implementación del Manual del Empleado conforme a la legislación laboral argentina. Incluye todas las etapas desde el diseño hasta la capacitación y registro legal.",
+    "content": {
+      "steps": [
+        {
+          "order": 1,
+          "title": "Análisis Legal y Diagnóstico Inicial",
+          "description": "Revisión exhaustiva de la normativa laboral aplicable y análisis de la situación actual de la empresa. Identificación de políticas existentes y necesidades específicas según el rubro de actividad.",
+          "requiredDocuments": [
+            "Estatuto Social",
+            "Convenios Colectivos aplicables",
+            "Contratos de trabajo modelo",
+            "Reglamentos internos vigentes"
+          ],
+          "estimatedTime": "1-2 semanas",
+          "responsibleRole": "Legal Manager / Asesor Legal Externo"
+        },
+        {
+          "order": 2,
+          "title": "Diseño de Contenidos y Estructura",
+          "description": "Elaboración del índice y contenido detallado del manual. Definición de políticas específicas: código de conducta, horarios, licencias, beneficios, régimen disciplinario, seguridad e higiene.",
+          "requiredDocuments": [
+            "Borrador de estructura",
+            "Políticas específicas por área",
+            "Organigrama actualizado"
+          ],
+          "estimatedTime": "2-3 semanas",
+          "responsibleRole": "Legal Manager / RRHH Manager"
+        },
+        {
+          "order": 3,
+          "title": "Revisión Legal Específica",
+          "description": "Análisis de compatibilidad del contenido con la normativa laboral vigente. Verificación de cumplimiento con leyes específicas y convenios colectivos de trabajo aplicables.",
+          "requiredDocuments": [
+            "Borrador completo del manual",
+            "Checklist de cumplimiento legal",
+            "Opinión legal formal"
+          ],
+          "estimatedTime": "1 semana",
+          "responsibleRole": "Legal Manager / Abogado Laboralista"
+        },
+        {
+          "order": 4,
+          "title": "Aprobación Interna y Registración",
+          "description": "Presentación del manual ante la dirección para aprobación formal. Registración ante el Ministerio de Trabajo cuando corresponda según la jurisdicción.",
+          "requiredDocuments": [
+            "Manual finalizado",
+            "Acta de aprobación directiva",
+            "Formularios de registro oficiales"
+          ],
+          "estimatedTime": "1-2 semanas",
+          "responsibleRole": "CEO / Legal Manager"
+        },
+        {
+          "order": 5,
+          "title": "Comunicación y Capacitación",
+          "description": "Implementación de plan de comunicación a todos los empleados. Realización de sesiones de capacitación sobre el contenido del manual y firma de acuse de recibo.",
+          "requiredDocuments": [
+            "Plan de comunicación",
+            "Material de capacitación",
+            "Formularios de acuse de recibo"
+          ],
+          "estimatedTime": "2 semanas",
+          "responsibleRole": "RRHH Manager / Training Manager"
+        },
+        {
+          "order": 6,
+          "title": "Distribución y Archivo",
+          "description": "Distribución física y/o digital del manual a todos los empleados. Creación de sistema de archivo de acuses de recibo firmados.",
+          "requiredDocuments": [
+            "Copias del manual",
+            "Acuses de recibo firmados",
+            "Registro de distribución"
+          ],
+          "estimatedTime": "1 semana",
+          "responsibleRole": "RRHH Coordinator / Office Manager"
+        },
+        {
+          "order": 7,
+          "title": "Implementación y Seguimiento",
+          "description": "Puesta en marcha efectiva del manual. Establecimiento de mecanismos de consulta y seguimiento de su aplicación práctica.",
+          "requiredDocuments": [
+            "Procedimiento de consultas",
+            "Registro de incidencias",
+            "Reporte de implementación"
+          ],
+          "estimatedTime": "2 semanas",
+          "responsibleRole": "RRHH Manager / Legal Manager"
+        },
+        {
+          "order": 8,
+          "title": "Revisión Periódica y Actualización",
+          "description": "Establecimiento de calendario para revisiones periódicas del manual. Actualización según cambios normativos o necesidades empresariales.",
+          "requiredDocuments": [
+            "Calendario de revisiones",
+            "Reporte de actualizaciones",
+            "Comunicados de cambios"
+          ],
+          "estimatedTime": "Continua",
+          "responsibleRole": "Legal Manager / RRHH Manager"
+        }
+      ],
+      "objectives": [
+        "Establecer normas claras de conducta y procedimientos internos",
+        "Cumplir con obligaciones legales en materia de reglamentación laboral",
+        "Prevenir conflictos laborales y judicializaciones",
+        "Uniformizar criterios de gestión del personal",
+        "Proteger los derechos de empleadores y empleados"
+      ],
+      "scope": "Aplica a todas las áreas de la empresa y a todos los niveles jerárquicos. Cubre relaciones laborales, condiciones de trabajo, derechos y obligaciones, políticas específicas y procedimientos disciplinarios.",
+      "references": [
+        "Ley 20.744 - Ley de Contrato de Trabajo",
+        "Ley 24.557 - Riesgos del Trabajo",
+        "Ley 25.877 - Negociación Colectiva",
+        "Decreto 254/98 - Reglamentación LCT",
+        "Resolución MTEySS 1.912/06 - Registro de Manuales",
+        "Ley 27.541 - Solidaridad y Reactivación Productiva"
+      ]
+    },
+    "estimatedImplementationDays": 45,
+    "complexity": "HIGH",
+    "type": "OFFICIAL",
+    "category": "Laboral",
+    "priority": "HIGH",
+    "businessTypes": [
+      "CONSULTORIA",
+      "DESARROLLO_SOFTWARE",
+      "ECOMMERCE",
+      "SERVICIOS_PROFESIONALES",
+      "MANUFACTURA",
+      "RETAIL",
+      "FINTECH",
+      "SALUD",
+      "EDUCACION"
+    ],
+    "jurisdictions": [
+      "Argentina",
+      "Buenos Aires",
+      "CABA"
+    ]
+  },
+  {
+    "title": "Protocolo de Términos y Condiciones de Servicio para Plataformas Digitales",
+    "description": "Protocolo legal integral para la elaboración y validación de términos y condiciones de servicio adaptados a la normativa argentina, contemplando protección de datos, comercio electrónico y derechos del consumidor.",
+    "content": {
+      "steps": [
+        {
+          "order": 1,
+          "title": "Análisis del Modelo de Negocio y Servicios",
+          "description": "Identificar y documentar todos los servicios ofrecidos, características del negocio, procesos operativos y tipos de usuarios. Definir claramente el alcance de los servicios y las limitaciones.",
+          "requiredDocuments": [
+            "Descripción detallada de servicios",
+            "Modelo de ingresos",
+            "Flujos de usuario"
+          ],
+          "estimatedTime": "3-5 días",
+          "responsibleRole": "CEO / Product Manager"
+        },
+        {
+          "order": 2,
+          "title": "Evaluación de Requisitos Legales Específicos",
+          "description": "Analizar obligaciones según el tipo de negocio: protección de datos personales (Ley 25.326), comercio electrónico (Ley 24.240), servicios financieros (BCRA), salud (Ley 26.529), etc.",
+          "requiredDocuments": [
+            "Clasificación del negocio",
+            "Alcance geográfico",
+            "Tipos de datos procesados"
+          ],
+          "estimatedTime": "5-7 días",
+          "responsibleRole": "Legal Manager / Abogado Externo"
+        },
+        {
+          "order": 3,
+          "title": "Redacción de Cláusulas Esenciales",
+          "description": "Elaborar cláusulas sobre: aceptación de términos, modificación de servicios, responsabilidades del usuario, propiedad intelectual, limitación de responsabilidad, suspensión y terminación.",
+          "requiredDocuments": [
+            "Borrador de cláusulas",
+            "Políticas internas",
+            "Términos de referencia"
+          ],
+          "estimatedTime": "7-10 días",
+          "responsibleRole": "Legal Manager"
+        },
+        {
+          "order": 4,
+          "title": "Incorporación de Protección de Datos Personales",
+          "description": "Incluir cláusulas específicas sobre tratamiento de datos personales, derechos ARCO, finalidad del tratamiento, transferencias internacionales y base legal conforme Ley 25.326.",
+          "requiredDocuments": [
+            "Inventario de datos",
+            "Base legal de tratamiento",
+            "Política de privacidad"
+          ],
+          "estimatedTime": "5-7 días",
+          "responsibleRole": "Data Protection Officer / Legal Manager"
+        },
+        {
+          "order": 5,
+          "title": "Ajuste a Normativa de Defensa del Consumidor",
+          "description": "Incorporar garantías legales, derecho de arrepentimiento (cuando aplique), procedimiento de reclamos, información precontractual obligatoria según Ley 24.240.",
+          "requiredDocuments": [
+            "Procedimiento de reclamos",
+            "Información precontractual",
+            "Garantías ofrecidas"
+          ],
+          "estimatedTime": "4-6 días",
+          "responsibleRole": "Legal Manager / Compliance Officer"
+        },
+        {
+          "order": 6,
+          "title": "Revisión de Compatibilidad con Plataforma",
+          "description": "Verificar que los términos sean técnicamente implementables en la plataforma, incluyendo mecanismos de aceptación, notificaciones y gestión de modificaciones.",
+          "requiredDocuments": [
+            "Especificaciones técnicas",
+            "Flujos de aceptación",
+            "Sistema de notificaciones"
+          ],
+          "estimatedTime": "3-5 días",
+          "responsibleRole": "CTO / Desarrollo"
+        },
+        {
+          "order": 7,
+          "title": "Validación Legal y Aprobación Final",
+          "description": "Revisión exhaustiva por parte legal externa, verificación de cumplimiento normativo y aprobación final por la dirección de la empresa.",
+          "requiredDocuments": [
+            "Dictamen legal externo",
+            "Acta de aprobación",
+            "Versión final"
+          ],
+          "estimatedTime": "5-7 días",
+          "responsibleRole": "CEO / Legal Manager"
+        },
+        {
+          "order": 8,
+          "title": "Implementación y Comunicación",
+          "description": "Publicación en plataforma, configuración de mecanismos de aceptación, capacitación al equipo y comunicación a usuarios existentes sobre actualizaciones.",
+          "requiredDocuments": [
+            "Plan de implementación",
+            "Comunicados a usuarios",
+            "Guías internas"
+          ],
+          "estimatedTime": "3-5 días",
+          "responsibleRole": "Product Manager / Marketing"
+        }
+      ],
+      "objectives": [
+        "Establecer marco contractual claro y exigible",
+        "Cumplir con normativa argentina aplicable",
+        "Minimizar riesgos legales y litigios",
+        "Proteger propiedad intelectual y datos",
+        "Garantizar transparencia con usuarios"
+      ],
+      "scope": "Aplicable a todos los servicios digitales ofrecidos por la empresa, incluyendo sitios web, aplicaciones móviles y plataformas SaaS, para usuarios en territorio argentino.",
+      "references": [
+        "Ley 25.326 - Protección de Datos Personales",
+        "Ley 24.240 - Defensa del Consumidor",
+        "Ley 25.506 - Firma Digital",
+        "Código Civil y Comercial de la Nación",
+        "Ley 26.529 - Derechos del Paciente",
+        "Resolución 4/2019 - Agencia de Acceso a la Información Pública"
+      ]
+    },
+    "estimatedImplementationDays": 45,
+    "complexity": "HIGH",
+    "type": "OFFICIAL",
+    "category": "Contractual",
+    "priority": "HIGH",
+    "businessTypes": [
+      "CONSULTORIA",
+      "DESARROLLO_SOFTWARE",
+      "ECOMMERCE",
+      "SERVICIOS_PROFESIONALES",
+      "MANUFACTURA",
+      "RETAIL",
+      "FINTECH",
+      "SALUD",
+      "EDUCACION"
+    ],
+    "jurisdictions": [
+      "Argentina",
+      "Buenos Aires",
+      "CABA"
+    ]
+  },
+  {
+    "title": "Protocolo Integral de Facturación y Cumplimiento Fiscal Argentino",
+    "description": "Protocolo completo para la gestión de facturación electrónica, cumplimiento de obligaciones fiscales y presentación de declaraciones juradas en jurisdicciones argentinas. Incluye procedimientos para AFIP, AGIP y ARBA.",
+    "content": {
+      "steps": [
+        {
+          "order": 1,
+          "title": "Inscripción en Registros Fiscales",
+          "description": "Completar la inscripción en AFIP como responsable inscripto, obtener CUIT y registrar actividades. Inscribirse en AGIP para CABA y ARBA para provincia de Buenos Aires según corresponda.",
+          "requiredDocuments": [
+            "Formulario 460/F para AFIP",
+            "Constancia de CUIT",
+            "Documentación societaria",
+            "Constancia de domicilio fiscal"
+          ],
+          "estimatedTime": "3-5 días hábiles",
+          "responsibleRole": "Contador / Asesor Fiscal"
+        },
+        {
+          "order": 2,
+          "title": "Configuración Sistema Facturación Electrónica",
+          "description": "Implementar sistema de facturación electrónica homologado por AFIP. Configurar puntos de venta, tipos de comprobantes y alícuotas de IVA según actividades.",
+          "requiredDocuments": [
+            "Credencial fiscal AFIP",
+            "Certificado digital",
+            "Configuración sistema facturación",
+            "Alta en web services AFIP"
+          ],
+          "estimatedTime": "1-2 semanas",
+          "responsibleRole": "IT Manager / Contador"
+        },
+        {
+          "order": 3,
+          "title": "Emisión Comprobantes Fiscales",
+          "description": "Emitir facturas electrónicas con requisitos formales: CAE, datos del cliente, importes, IVA discriminado. Cumplir con plazos de emisión según RG AFIP 4291/2018.",
+          "requiredDocuments": [
+            "Plantillas de facturas",
+            "Listado de clientes",
+            "Tabla de alícuotas IVA",
+            "Procedimiento de emisión"
+          ],
+          "estimatedTime": "Continuo",
+          "responsibleRole": "Administrativo Contable / CEO"
+        },
+        {
+          "order": 4,
+          "title": "Registro Contable y Libros Oficiales",
+          "description": "Llevar registros contables según Ley 19.550. Completar libros de IVA ventas y compras, libro diario e inventarios y balances según RG AFIP 4104.",
+          "requiredDocuments": [
+            "Libro IVA Ventas",
+            "Libro IVA Compras",
+            "Registro de bienes de uso",
+            "Inventarios periódicos"
+          ],
+          "estimatedTime": "Mensual",
+          "responsibleRole": "Contador / Administrativo"
+        },
+        {
+          "order": 5,
+          "title": "Presentación Declaraciones Juradas",
+          "description": "Preparar y presentar declaraciones juradas mensuales: IVA, Ganancias, Bienes Personales. Cumplir vencimientos según calendario fiscal AFIP.",
+          "requiredDocuments": [
+            "DDJJ IVA F.689",
+            "DDJJ Ganancias F.720",
+            "DDJJ Bienes Personales F.720",
+            "SIRCAR para CABA"
+          ],
+          "estimatedTime": "5 días mensuales",
+          "responsibleRole": "Contador / Asesor Fiscal"
+        },
+        {
+          "order": 6,
+          "title": "Pagos y Retenciones Fiscales",
+          "description": "Realizar pagos a cuenta de impuestos, aplicar retenciones y percepciones según RG AFIP 3858/2015. Emitir certificados de retención.",
+          "requiredDocuments": [
+            "F.572 para pagos",
+            "Certificados de retención",
+            "Registro de percepciones",
+            "Comprobantes de pago"
+          ],
+          "estimatedTime": "Mensual",
+          "responsibleRole": "Administrativo Financiero"
+        },
+        {
+          "order": 7,
+          "title": "Conciliaciones y Auditorías Internas",
+          "description": "Realizar conciliaciones mensuales entre sistemas contables y fiscales. Preparar documentación para eventuales inspecciones de AFIP, AGIP o ARBA.",
+          "requiredDocuments": [
+            "Informes de conciliación",
+            "Backup comprobantes",
+            "Documentación respaldo",
+            "Actas de auditoría"
+          ],
+          "estimatedTime": "5 días mensuales",
+          "responsibleRole": "Contador / Auditor Interno"
+        },
+        {
+          "order": 8,
+          "title": "Actualización Normativa y Capacitación",
+          "description": "Monitorear cambios normativos en AFIP, AGIP y ARBA. Capacitar al personal en nuevas obligaciones y procedimientos.",
+          "requiredDocuments": [
+            "Registros de capacitación",
+            "Actualizaciones normativas",
+            "Procedimientos revisados",
+            "Comunicaciones internas"
+          ],
+          "estimatedTime": "Continuo",
+          "responsibleRole": "Legal Manager / Compliance Officer"
+        }
+      ],
+      "objectives": [
+        "Garantizar cumplimiento normativo integral",
+        "Minimizar riesgos de contingencias fiscales",
+        "Optimizar procesos de facturación electrónica",
+        "Mantener registros contables actualizados",
+        "Facilitar auditorías y controles fiscales"
+      ],
+      "scope": "Aplica a todas las operaciones de facturación, registros contables, declaraciones juradas y cumplimiento fiscal en jurisdicciones de Argentina, CABA y provincia de Buenos Aires para los tipos de negocio especificados.",
+      "references": [
+        "Ley 11.683 - Procedimiento Tributario",
+        "RG AFIP 4291/2018 - Facturación Electrónica",
+        "RG AFIP 4104 - Registros Contables",
+        "RG AFIP 3858/2015 - Retenciones y Percepciones",
+        "Ley 19.550 - Sociedades Comerciales",
+        "Código Fiscal CABA Ley 5640",
+        "Ley 13737 - Impuestos Provincia Buenos Aires"
+      ]
+    },
+    "estimatedImplementationDays": 30,
+    "complexity": "HIGH",
+    "type": "OFFICIAL",
+    "category": "Fiscal",
+    "priority": "CRITICAL",
+    "businessTypes": [
+      "CONSULTORIA",
+      "DESARROLLO_SOFTWARE",
+      "ECOMMERCE",
+      "SERVICIOS_PROFESIONALES",
+      "MANUFACTURA",
+      "RETAIL",
+      "FINTECH",
+      "SALUD",
+      "EDUCACION"
+    ],
+    "jurisdictions": [
+      "Argentina",
+      "Buenos Aires",
+      "CABA"
+    ]
+  }
+]

@@ -12,6 +12,10 @@
     "import:construction": "tsx ./tools/import-sector-data.ts construcción",
     "import:consulting": "tsx ./tools/import-sector-data.ts consultoría",
     "import:all": "tsx ./tools/import-sector-data.ts",
+    "generate:protocols": "tsx prisma/generators/generate-protocols.ts",
+    "seed:protocols": "tsx prisma/seed-protocols.ts",
+    "generate:scenarios": "tsx prisma/generators/generate-scenarios.ts",
+    "seed:scenarios": "tsx prisma/seed-scenarios.ts",
     "db:push": "prisma db push",
     "db:generate": "prisma generate"
   },

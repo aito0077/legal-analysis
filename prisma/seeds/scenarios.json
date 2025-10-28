@@ -1,0 +1,454 @@
+[
+  {
+    "title": "Incumplimiento Contractual por Morosidad y Falta de Pago en Contratos de Servicios",
+    "description": "Riesgo de incumplimiento por parte de clientes o proveedores en contratos de servicios profesionales y desarrollo tecnológico, generando disputas legales bajo el Código Civil y Comercial argentino (Arts. 957-1003) y posibles acciones judiciales en tribunales comerciales de CABA por incumplimiento de obligaciones contractuales.",
+    "triggers": [
+      "Retraso superior a 30 días en pagos de honorarios o servicios prestados",
+      "Incumplimiento de hitos de entrega en contratos de desarrollo de software",
+      "Cambio unilateral en términos contractuales sin consentimiento escrito",
+      "Falta de provisión de recursos necesarios para la ejecución del contrato"
+    ],
+    "consequences": [
+      "Pérdida financiera directa por servicios no pagados y costos incurridos",
+      "Gastos legales por iniciación de demanda civil por incumplimiento contractual",
+      "Daño reputacional que afecta futuras negociaciones con otros clientes",
+      "Interrupción operativa por falta de pago que impacta flujo de caja"
+    ],
+    "mitigationStrategies": [
+      "Implementar cláusulas penales y de resolución automática en contratos según Art. 1060 CCCN",
+      "Establecer sistema de seguimiento de pagos con recordatorios automáticos pre-judiciales",
+      "Exigir garantías bancarias o seguros de caución para contratos de alto monto"
+    ],
+    "category": "Contractual",
+    "probability": "MEDIUM",
+    "impact": "HIGH",
+    "riskScore": 12,
+    "businessTypes": [
+      "CONSULTORIA",
+      "DESARROLLO_SOFTWARE",
+      "ECOMMERCE",
+      "SERVICIOS_PROFESIONALES",
+      "MANUFACTURA",
+      "RETAIL",
+      "FINTECH",
+      "SALUD",
+      "EDUCACION"
+    ],
+    "jurisdictions": [
+      "Argentina",
+      "Buenos Aires",
+      "CABA"
+    ]
+  },
+  {
+    "title": "Riesgo de Nulidad por Cláusulas Abusivas en Contratos de Adhesión",
+    "description": "Inclusión de cláusulas desequilibradas en contratos prediseñados que vulneran derechos del consumidor según Ley 24.240 de Defensa del Consumidor y Código Civil y Comercial argentino, exponiendo a la empresa a acciones judiciales y sanciones administrativas en múltiples jurisdicciones del país.",
+    "triggers": [
+      "Reclamo formal de cliente por cláusula considerada abusiva",
+      "Notificación de defensa del consumidor (COPREC, PROCON, etc.)",
+      "Demanda judicial por aplicación del artículo 37 de la Ley 24.240",
+      "Auditoría regulatoria que identifica cláusulas no conformes"
+    ],
+    "consequences": [
+      "Declaración judicial de nulidad de cláusulas específicas con efectos retroactivos",
+      "Multas administrativas hasta $100.000.000 según Ley 24.240",
+      "Daño reputacional y pérdida de confianza de clientes",
+      "Obligación de renegociar contratos masivos con costos operativos significativos"
+    ],
+    "mitigationStrategies": [
+      "Revisión periódica de contratos por abogado especializado en derecho del consumidor",
+      "Implementación de cláusulas equilibradas que respeten el principio de buena fe",
+      "Capacitación continua al área comercial sobre límites contractuales permitidos"
+    ],
+    "category": "Contractual",
+    "probability": "LOW",
+    "impact": "MODERATE",
+    "riskScore": 6,
+    "businessTypes": [
+      "CONSULTORIA",
+      "DESARROLLO_SOFTWARE",
+      "ECOMMERCE",
+      "SERVICIOS_PROFESIONALES",
+      "MANUFACTURA",
+      "RETAIL",
+      "FINTECH",
+      "SALUD",
+      "EDUCACION"
+    ],
+    "jurisdictions": [
+      "Argentina",
+      "Buenos Aires",
+      "CABA"
+    ]
+  },
+  {
+    "title": "Demanda Laboral por Despido Indirecto y Falta de Registro de Horas Extras en Empresa de Desarrollo de Software",
+    "description": "Escenario de demanda laboral por despido indirecto fundamentado en la Ley de Contrato de Trabajo 20.744 ante incumplimientos contractuales recurrentes, incluyendo falta de pago de horas extras no registradas adecuadamente según la normativa argentina. El empleado alega violación sistemática de derechos laborales tras renunciar invocando justa causa.",
+    "triggers": [
+      "Renuncia del empleado invocando justa causa por incumplimientos patronales",
+      "Notificación fehaciente de reclamo laboral previo a la demanda",
+      "Inspección de la Superintendencia de Riesgos del Trabajo que detecta irregularidades",
+      "Denuncia ante el Ministerio de Trabajo por falta de registración de jornada y horas extras"
+    ],
+    "consequences": [
+      "Condena al pago de indemnizaciones agravadas por despido indirecto (art. 245 LCT)",
+      "Multas administrativas por incumplimiento de la Ley 25.212 de Jornada de Trabajo",
+      "Daño reputacional que afecta la capacidad de atraer talento en el sector tecnológico",
+      "Costos legales y honorarios profesionales que pueden superar los $5.000.000 ARS"
+    ],
+    "mitigationStrategies": [
+      "Implementación de sistema de control de jornada digital homologado y registro fehaciente de horas extras",
+      "Revisión trimestral de cumplimiento contractual con asesoramiento laboral especializado",
+      "Capacitación obligatoria para gerentes sobre normativa laboral argentina y prácticas de gestión de personal"
+    ],
+    "category": "Laboral",
+    "probability": "MEDIUM",
+    "impact": "HIGH",
+    "riskScore": 12,
+    "businessTypes": [
+      "CONSULTORIA",
+      "DESARROLLO_SOFTWARE",
+      "ECOMMERCE",
+      "SERVICIOS_PROFESIONALES",
+      "MANUFACTURA",
+      "RETAIL",
+      "FINTECH",
+      "SALUD",
+      "EDUCACION"
+    ],
+    "jurisdictions": [
+      "Argentina",
+      "Buenos Aires",
+      "CABA"
+    ]
+  },
+  {
+    "title": "Sanciones por empleo no registrado en Argentina: multas, costos laborales y riesgos reputacionales",
+    "description": "Incumplimiento de las obligaciones de registración laboral ante la AFIP y el Ministerio de Trabajo argentino, violando la Ley de Contrato de Trabajo 20.744 y el Régimen de Sanciones de la Ley 25.212. Exposición a sanciones administrativas, reclamos laborales y daño reputacional que afecta especialmente a empresas de servicios profesionales y tecnología.",
+    "triggers": [
+      "Inspección del Ministerio de Trabajo por denuncia anónima o programa de fiscalización",
+      "Denuncia formal de empleado no registrado ante la Secretaría de Trabajo",
+      "Auditoría de la AFIP que detecta discrepancias en cargas sociales",
+      "Reclamo judicial por despido sin indemnización de empleado no registrado"
+    ],
+    "consequences": [
+      "Multas administrativas de hasta 10 veces el valor mensual del salario no registrado (Ley 25.212)",
+      "Obligación de pagar indemnizaciones agravadas por despido y diferencias salariales con intereses",
+      "Costos financieros por embargos preventivos y costas judiciales en procesos laborales",
+      "Daño reputacional que afecta contratos con clientes corporativos y licitaciones públicas"
+    ],
+    "mitigationStrategies": [
+      "Implementar auditorías periódicas de cumplimiento laboral con especialistas en derecho laboral argentino",
+      "Digitalizar procesos de altas y bajas laborales con validación automática ante AFIP",
+      "Establecer protocolos de regularización inmediata ante detección de irregularidades en registración"
+    ],
+    "category": "Laboral",
+    "probability": "LOW",
+    "impact": "CATASTROPHIC",
+    "riskScore": 10,
+    "businessTypes": [
+      "CONSULTORIA",
+      "DESARROLLO_SOFTWARE",
+      "ECOMMERCE",
+      "SERVICIOS_PROFESIONALES",
+      "MANUFACTURA",
+      "RETAIL",
+      "FINTECH",
+      "SALUD",
+      "EDUCACION"
+    ],
+    "jurisdictions": [
+      "Argentina",
+      "Buenos Aires",
+      "CABA"
+    ]
+  },
+  {
+    "title": "Accidente laboral con lesiones por caída en oficina o espacio de trabajo",
+    "description": "Empleado sufre caída en el lugar de trabajo causando lesiones que requieren atención médica y generan incapacidad laboral. Según la Ley de Riesgos del Trabajo 24.557 y el Decreto 1694/2009, el empleador tiene responsabilidad objetiva y debe cubrir todos los gastos médicos, tratamientos y eventuales indemnizaciones por incapacidad.",
+    "triggers": [
+      "Piso mojado sin señalización adecuada en áreas comunes",
+      "Escaleras o escalones sin barandas de seguridad",
+      "Cables eléctricos sueltos en pasillos de circulación",
+      "Iluminación deficiente en zonas de tránsito de empleados"
+    ],
+    "consequences": [
+      "Demanda por daños y perjuicios ante la ART y justicia laboral",
+      "Multas de la Superintendencia de Riesgos del Trabajo por incumplimiento normativo",
+      "Aumento significativo de costos por primas de seguro de riesgo laboral",
+      "Daño reputacional que afecta la imagen corporativa y capacidad de atraer talento"
+    ],
+    "mitigationStrategies": [
+      "Implementar programa de inspecciones periódicas de seguridad según Resolución SRT 37/2010",
+      "Capacitar obligatoriamente a todo el personal en prevención de riesgos laborales",
+      "Mantener registro documentado de condiciones de trabajo y medidas de seguridad implementadas"
+    ],
+    "category": "Laboral",
+    "probability": "MEDIUM",
+    "impact": "HIGH",
+    "riskScore": 12,
+    "businessTypes": [
+      "CONSULTORIA",
+      "DESARROLLO_SOFTWARE",
+      "ECOMMERCE",
+      "SERVICIOS_PROFESIONALES",
+      "MANUFACTURA",
+      "RETAIL",
+      "FINTECH",
+      "SALUD",
+      "EDUCACION"
+    ],
+    "jurisdictions": [
+      "Argentina",
+      "Buenos Aires",
+      "CABA"
+    ]
+  },
+  {
+    "title": "Incumplimiento Fiscal ante AFIP: Multas, Sanciones y Responsabilidades Penales",
+    "description": "Incumplimiento de obligaciones fiscales ante la AFIP que genera exposición a multas sustanciales, intereses resarcitorios y potencial responsabilidad penal según Ley 11.683 y Ley 27.430. Afecta especialmente a empresas con alta facturación digital, exportación de servicios o regímenes especiales como monotributo y responsables inscriptos.",
+    "triggers": [
+      "Presentación extemporánea de declaraciones juradas mensuales o anuales",
+      "Omisión en el pago de impuestos dentro de los plazos establecidos",
+      "Inconsistencias detectadas en facturación electrónica entre ventas y compras",
+      "Falta de registración contable de operaciones según RG AFIP 4299"
+    ],
+    "consequences": [
+      "Multas del 100% al 200% del impuesto evadido más intereses resarcitorios",
+      "Inhabilitación para operar en comercio exterior y sistema bancario",
+      "Clausura temporal del establecimiento comercial por 5 a 30 días",
+      "Daño reputacional con inclusión en listados de morosos y deudores fiscales"
+    ],
+    "mitigationStrategies": [
+      "Implementar calendario fiscal automatizado con recordatorios de vencimientos",
+      "Realizar auditorías trimestrales de compliance fiscal con contador especializado",
+      "Utilizar software de gestión contable integrado con sistemas AFIP para validación en tiempo real"
+    ],
+    "category": "Fiscal",
+    "probability": "MEDIUM",
+    "impact": "HIGH",
+    "riskScore": 12,
+    "businessTypes": [
+      "CONSULTORIA",
+      "DESARROLLO_SOFTWARE",
+      "ECOMMERCE",
+      "SERVICIOS_PROFESIONALES",
+      "MANUFACTURA",
+      "RETAIL",
+      "FINTECH",
+      "SALUD",
+      "EDUCACION"
+    ],
+    "jurisdictions": [
+      "Argentina",
+      "Buenos Aires",
+      "CABA"
+    ]
+  },
+  {
+    "title": "Fiscalización integral de AFIP por inconsistencias en registros contables y fiscales",
+    "description": "Inspección de AFIP que verifica cumplimiento de obligaciones fiscales, contables y previsionales según Ley 11.683 y resoluciones generales. Puede detectar omisiones en IVA, Ganancias, ingresos brutos y cargas sociales, generando multas significativas.",
+    "triggers": [
+      "Denuncia anónima de evasión fiscal o irregularidades contables",
+      "Inconsistencias detectadas en cruce de información entre sistemas de AFIP",
+      "Selección aleatoria dentro de programas de fiscalización masiva de AFIP",
+      "Cambios significativos en declaraciones juradas sin justificación documentada"
+    ],
+    "consequences": [
+      "Multas del 50% al 200% del tributo omitido según gravedad de la infracción",
+      "Ajuste de impuestos con interos resarcitorios y punitorios acumulativos",
+      "Inscripción en régimen de moratoria con costos financieros adicionales",
+      "Daño reputacional que afecta relaciones con clientes y proveedores"
+    ],
+    "mitigationStrategies": [
+      "Implementar auditorías internas trimestrales de cumplimiento fiscal integral",
+      "Mantener documentación respaldatoria organizada y actualizada por 10 años",
+      "Capacitar al personal en obligaciones fiscales específicas del sector",
+      "Realizar reconciliaciones periódicas entre sistemas contables y fiscales"
+    ],
+    "category": "Fiscal",
+    "probability": "MEDIUM",
+    "impact": "MODERATE",
+    "riskScore": 9,
+    "businessTypes": [
+      "CONSULTORIA",
+      "DESARROLLO_SOFTWARE",
+      "ECOMMERCE",
+      "SERVICIOS_PROFESIONALES",
+      "MANUFACTURA",
+      "RETAIL",
+      "FINTECH",
+      "SALUD",
+      "EDUCACION"
+    ],
+    "jurisdictions": [
+      "Argentina",
+      "Buenos Aires",
+      "CABA"
+    ]
+  },
+  {
+    "title": "Violación de Datos Personales por Ciberataque a Base de Clientes",
+    "description": "Acceso no autorizado a base de datos que contiene información personal sensible de clientes, violando la Ley 25.326 de Protección de Datos Personales y el Decreto 1558/2001. Exposición que afecta derechos ARCO (Acceso, Rectificación, Cancelación, Oposición) y genera responsabilidad ante la Dirección Nacional de Protección de Datos Personales.",
+    "triggers": [
+      "Detectada intrusión en servidores con bases de datos de clientes",
+      "Notificación de clientes sobre recepción de comunicaciones fraudulentas",
+      "Alerta del sistema de monitoreo por acceso anómalo a datos sensibles",
+      "Reporte interno de empleado sobre comportamiento irregular del sistema"
+    ],
+    "consequences": [
+      "Multas de hasta ARS 100 millones por la Dirección Nacional de Protección de Datos Personales",
+      "Demandas colectivas por daños y perjuicios de clientes afectados",
+      "Pérdida de certificaciones y habilitaciones comerciales en sectores regulados",
+      "Caída del 40-60% en valor de marca y fuga masiva de clientes"
+    ],
+    "mitigationStrategies": [
+      "Implementar programa de compliance con estándares ISO 27001 y protocolos de la Ley 25.326",
+      "Establecer sistema de monitoreo continuo con detección de anomalías en tiempo real",
+      "Desarrollar plan de respuesta inmediata con protocolos de notificación a autoridades y afectados"
+    ],
+    "category": "Datos",
+    "probability": "LOW",
+    "impact": "CATASTROPHIC",
+    "riskScore": 10,
+    "businessTypes": [
+      "CONSULTORIA",
+      "DESARROLLO_SOFTWARE",
+      "ECOMMERCE",
+      "SERVICIOS_PROFESIONALES",
+      "MANUFACTURA",
+      "RETAIL",
+      "FINTECH",
+      "SALUD",
+      "EDUCACION"
+    ],
+    "jurisdictions": [
+      "Argentina",
+      "Buenos Aires",
+      "CABA"
+    ]
+  },
+  {
+    "title": "Incumplimiento de la Ley 25.326 de Protección de Datos Personales y Resoluciones de la AAIP",
+    "description": "Violación de los principios establecidos en la Ley 25.326 y normativa complementaria de la Agencia de Acceso a la Información Pública (AAIP), incluyendo falta de consentimiento válido, seguridad inadecuada de bases de datos y transferencias internacionales no autorizadas, exponiendo a la organización a sanciones administrativas, acciones civiles y responsabilidad penal.",
+    "triggers": [
+      "Denuncia ante la AAIP por tratamiento de datos sin consentimiento expreso",
+      "Brecha de seguridad que compromete datos personales de clientes o empleados",
+      "Auditoría de la AAIP que detecta incumplimientos en registros de bases de datos",
+      "Reclamo judicial por daños derivados de uso indebido de información personal"
+    ],
+    "consequences": [
+      "Multas de hasta $100.000 por la AAIP según Ley 25.326 art. 31",
+      "Acciones de clase por daños y perjuicios de afectados",
+      "Suspensión o cancelación del registro de base de datos ante la AAIP",
+      "Daño reputacional que afecta relaciones con clientes y partners comerciales"
+    ],
+    "mitigationStrategies": [
+      "Implementar programa de compliance específico con políticas de protección de datos y designar responsable",
+      "Establecer procedimientos para obtención y gestión del consentimiento informado según art. 5 Ley 25.326",
+      "Realizar auditorías periódicas de seguridad y mantener registro actualizado de bases de datos ante AAIP"
+    ],
+    "category": "Datos",
+    "probability": "MEDIUM",
+    "impact": "HIGH",
+    "riskScore": 12,
+    "businessTypes": [
+      "CONSULTORIA",
+      "DESARROLLO_SOFTWARE",
+      "ECOMMERCE",
+      "SERVICIOS_PROFESIONALES",
+      "MANUFACTURA",
+      "RETAIL",
+      "FINTECH",
+      "SALUD",
+      "EDUCACION"
+    ],
+    "jurisdictions": [
+      "Argentina",
+      "Buenos Aires",
+      "CABA"
+    ]
+  },
+  {
+    "title": "Uso no autorizado de software propietario y contenido protegido en operaciones empresariales",
+    "description": "Infracción de derechos de propiedad intelectual por utilización sin licencia de software comercial, imágenes protegidas por derechos de autor o marcas registradas en Argentina, violando la Ley 11.723 de Propiedad Intelectual y la Ley 24.481 de Patentes y Marcas, con exposición a acciones legales ante la Justicia Nacional en lo Civil y Comercial de CABA",
+    "triggers": [
+      "Empleado instala software comercial sin licencia válida en equipos corporativos",
+      "Uso de imágenes con copyright en sitio web sin autorización del titular",
+      "Implementación de funcionalidad de software que replica patentes registradas",
+      "Utilización de logotipos o nombres comerciales similares a marcas registradas en INPI"
+    ],
+    "consequences": [
+      "Demanda civil por daños y perjuicios con condenas que pueden superar los USD 100.000 según jurisprudencia",
+      "Multas administrativas del INPI hasta 1.000.000 de pesos argentinos por infracción marcaria",
+      "Pérdida de certificaciones y habilitaciones comerciales por incumplimiento normativo",
+      "Daño reputacional que afecta relaciones con clientes y proveedores en el mercado local"
+    ],
+    "mitigationStrategies": [
+      "Implementar auditorías trimestrales de licencias de software y derechos de uso de contenido",
+      "Establecer procedimientos de due diligence para verificar libertad de uso antes de incorporar terceros",
+      "Capacitar anualmente al personal sobre normativa de propiedad intelectual argentina y políticas internas"
+    ],
+    "category": "Propiedad Intelectual",
+    "probability": "LOW",
+    "impact": "HIGH",
+    "riskScore": 8,
+    "businessTypes": [
+      "CONSULTORIA",
+      "DESARROLLO_SOFTWARE",
+      "ECOMMERCE",
+      "SERVICIOS_PROFESIONALES",
+      "MANUFACTURA",
+      "RETAIL",
+      "FINTECH",
+      "SALUD",
+      "EDUCACION"
+    ],
+    "jurisdictions": [
+      "Argentina",
+      "Buenos Aires",
+      "CABA"
+    ]
+  },
+  {
+    "title": "Fuga de Secretos Comerciales y Datos Confidenciales por Exfiltración Digital",
+    "description": "Acceso no autorizado y sustracción de información confidencial empresarial, incluyendo secretos comerciales, datos de clientes y propiedad intelectual, violando la Ley 25.326 de Protección de Datos Personales y la Ley 24.766 de Defensa de la Competencia, con posibles sanciones de la Agencia de Acceso a la Información Pública y acciones civiles por daños.",
+    "triggers": [
+      "Acceso remoto no autorizado a servidores corporativos mediante credenciales comprometidas",
+      "Descarga masiva de archivos confidenciales por empleado con acceso privilegiado",
+      "Infección por malware de exfiltración a través de phishing dirigido",
+      "Transferencia no autorizada de bases de datos a dispositivos externos o servicios cloud personales"
+    ],
+    "consequences": [
+      "Multas administrativas por violación de la Ley 25.326 hasta 5 millones de pesos argentinos",
+      "Acciones legales por daños y perjuicios de clientes y competidores afectados",
+      "Pérdida de ventaja competitiva y secretos comerciales valorados en millones de dólares",
+      "Daño reputacional irreversible con pérdida de clientes y caída del valor de marca"
+    ],
+    "mitigationStrategies": [
+      "Implementar controles de acceso basados en roles y monitoreo continuo de actividad de usuarios privilegiados",
+      "Establecer protocolos de cifrado avanzado y políticas DLP (Prevención de Pérdida de Datos)",
+      "Realizar auditorías periódicas de seguridad y capacitación obligatoria en protección de datos para todo el personal"
+    ],
+    "category": "Propiedad Intelectual",
+    "probability": "MEDIUM",
+    "impact": "HIGH",
+    "riskScore": 12,
+    "businessTypes": [
+      "CONSULTORIA",
+      "DESARROLLO_SOFTWARE",
+      "ECOMMERCE",
+      "SERVICIOS_PROFESIONALES",
+      "MANUFACTURA",
+      "RETAIL",
+      "FINTECH",
+      "SALUD",
+      "EDUCACION"
+    ],
+    "jurisdictions": [
+      "Argentina",
+      "Buenos Aires",
+      "CABA"
+    ]
+  }
+]

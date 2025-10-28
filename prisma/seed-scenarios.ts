@@ -1,32 +1,28 @@
 /**
- * Seed Script - Load Protocols from Generated JSON
+ * Seed Script - Load Risk Scenarios from Generated JSON
  *
- * This script reads the protocols.json file and loads them into the database.
- * Run with: npx tsx prisma/seed-protocols.ts
+ * This script reads the scenarios.json file and loads them into the database.
+ * Run with: npx tsx prisma/seed-scenarios.ts
  */
 
-import { PrismaClient, ProtocolType, BusinessType } from '@prisma/client';
+import { PrismaClient, RiskProbability, RiskImpact, BusinessType } from '@prisma/client';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
 const prisma = new PrismaClient();
 
-interface GeneratedProtocol {
+interface GeneratedScenario {
   title: string;
   description: string;
-  content: {
-    steps: any[];
-    objectives: string[];
-    scope: string;
-    references?: string[];
-  };
-  type: 'OFFICIAL' | 'COMMUNITY';
   category: string;
-  priority: string;
+  probability: RiskProbability;
+  impact: RiskImpact;
+  riskScore: number;
+  triggers: string[];
+  consequences: string[];
   businessTypes: string[];
   jurisdictions: string[];
-  estimatedImplementationDays?: number;
-  complexity?: 'LOW' | 'MEDIUM' | 'HIGH';
+  mitigationStrategies?: string[];
 }
 
 // Map business type strings to enum values
@@ -82,27 +78,27 @@ const CATEGORY_MAP: Record<string, { name: string; description: string; color: s
   },
 };
 
-async function seedProtocols() {
-  console.log('🚀 Starting protocol seeding...\n');
+async function seedScenarios() {
+  console.log('🚀 Starting risk scenario seeding...\n');
 
   try {
-    // Read the generated protocols JSON
-    const jsonPath = join(__dirname, 'seeds/protocols.json');
+    // Read the generated scenarios JSON
+    const jsonPath = join(__dirname, 'seeds/scenarios.json');
     const jsonContent = readFileSync(jsonPath, 'utf-8');
-    const protocols: GeneratedProtocol[] = JSON.parse(jsonContent);
+    const scenarios: GeneratedScenario[] = JSON.parse(jsonContent);
 
-    console.log(`📦 Found ${protocols.length} protocols to seed\n`);
+    console.log(`📦 Found ${scenarios.length} scenarios to seed\n`);
 
     let categoriesCreated = 0;
-    let protocolsCreated = 0;
+    let scenariosCreated = 0;
 
-    for (const protocol of protocols) {
-      console.log(`📝 Processing: ${protocol.title}...`);
+    for (const scenario of scenarios) {
+      console.log(`📝 Processing: ${scenario.title}...`);
 
       // 1. Find or create the category
-      const categoryData = CATEGORY_MAP[protocol.category];
+      const categoryData = CATEGORY_MAP[scenario.category];
       if (!categoryData) {
-        console.log(`   ⚠️  Category "${protocol.category}" not found in map, skipping...`);
+        console.log(`   ⚠️  Category "${scenario.category}" not found in map, skipping...`);
         continue;
       }
 
@@ -125,42 +121,39 @@ async function seedProtocols() {
       }
 
       // 2. Map business types
-      const businessTypes: BusinessType[] = protocol.businessTypes
+      const businessTypes: BusinessType[] = scenario.businessTypes
         .map((bt) => BUSINESS_TYPE_MAP[bt])
         .filter(Boolean);
 
-      // 3. Create protocol
-      const protocolType = protocol.type === 'OFFICIAL' ? ProtocolType.SYSTEM : ProtocolType.COMMUNITY;
-
-      await prisma.protocol.create({
+      // 3. Create risk scenario
+      await prisma.riskScenario.create({
         data: {
-          title: protocol.title,
-          description: protocol.description,
-          content: protocol.content,
-          type: protocolType,
+          title: scenario.title,
+          description: scenario.description,
           categoryId: category.id,
+          probability: scenario.probability,
+          impact: scenario.impact,
+          riskScore: scenario.riskScore,
+          triggers: scenario.triggers,
+          consequences: scenario.consequences,
           businessTypes: businessTypes,
-          jurisdictions: protocol.jurisdictions,
-          isVerified: protocol.type === 'OFFICIAL',
-          isPublic: true,
-          upvotes: 0,
-          downvotes: 0,
-          usageCount: 0,
+          jurisdictions: scenario.jurisdictions,
+          isActive: true,
         },
       });
 
-      protocolsCreated++;
-      console.log(`   ✅ Created protocol successfully\n`);
+      scenariosCreated++;
+      console.log(`   ✅ Created scenario successfully (Risk Score: ${scenario.riskScore})\n`);
     }
 
     console.log('═══════════════════════════════════════════════════');
     console.log('✨ Seeding complete!');
     console.log(`📊 Categories created: ${categoriesCreated}`);
-    console.log(`📊 Protocols created: ${protocolsCreated}`);
+    console.log(`📊 Scenarios created: ${scenariosCreated}`);
     console.log('═══════════════════════════════════════════════════\n');
 
   } catch (error) {
-    console.error('❌ Error seeding protocols:', error);
+    console.error('❌ Error seeding scenarios:', error);
     throw error;
   } finally {
     await prisma.$disconnect();
@@ -168,7 +161,7 @@ async function seedProtocols() {
 }
 
 // Run the seeder
-seedProtocols()
+seedScenarios()
   .catch((error) => {
     console.error('Fatal error:', error);
     process.exit(1);
