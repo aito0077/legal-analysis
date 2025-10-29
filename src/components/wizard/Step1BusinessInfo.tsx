@@ -104,22 +104,22 @@ export default function Step1BusinessInfo({ data, onNext, onBack }: Props) {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Información Básica del Negocio</h2>
-        <p className="text-gray-600">
+        <h2 className="text-2xl font-bold text-foreground mb-2">Información Básica del Negocio</h2>
+        <p className="text-muted-foreground">
           Ayúdanos a entender mejor tu negocio para personalizar tu evaluación de riesgos
         </p>
       </div>
 
       {/* Business Type */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Tipo de Negocio <span className="text-red-500">*</span>
+        <label className="block text-sm font-medium text-muted-foreground mb-2">
+          Tipo de Negocio <span className="text-destructive">*</span>
         </label>
         <select
           value={formData.businessType}
           onChange={(e) => setFormData({ ...formData, businessType: e.target.value })}
           required
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+          className="w-full px-4 py-3 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
         >
           <option value="">Selecciona un tipo de negocio</option>
           {businessTypes.map((type) => (
@@ -132,14 +132,14 @@ export default function Step1BusinessInfo({ data, onNext, onBack }: Props) {
 
       {/* Jurisdiction */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Jurisdicción Principal <span className="text-red-500">*</span>
+        <label className="block text-sm font-medium text-muted-foreground mb-2">
+          Jurisdicción Principal <span className="text-destructive">*</span>
         </label>
         <select
           value={formData.jurisdiction}
           onChange={(e) => setFormData({ ...formData, jurisdiction: e.target.value })}
           required
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+          className="w-full px-4 py-3 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
         >
           <option value="">Selecciona un país</option>
           {jurisdictions.map((jurisdiction) => (
@@ -152,8 +152,8 @@ export default function Step1BusinessInfo({ data, onNext, onBack }: Props) {
 
       {/* Company Size */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Tamaño de la Empresa <span className="text-red-500">*</span>
+        <label className="block text-sm font-medium text-muted-foreground mb-2">
+          Tamaño de la Empresa <span className="text-destructive">*</span>
         </label>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {companySizes.map((size) => (
@@ -161,8 +161,8 @@ export default function Step1BusinessInfo({ data, onNext, onBack }: Props) {
               key={size.value}
               className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all ${
                 formData.companySize === size.value
-                  ? 'border-blue-500 bg-blue-50'
-                  : 'border-gray-200 hover:border-gray-300'
+                  ? 'border-primary bg-primary/10'
+                  : 'border-border hover:border-muted-foreground'
               }`}
             >
               <input
@@ -171,9 +171,9 @@ export default function Step1BusinessInfo({ data, onNext, onBack }: Props) {
                 value={size.value}
                 checked={formData.companySize === size.value}
                 onChange={(e) => setFormData({ ...formData, companySize: e.target.value })}
-                className="mr-3 text-blue-600"
+                className="mr-3 text-primary"
               />
-              <span className="text-sm font-medium text-gray-900">{size.label}</span>
+              <span className="text-sm font-medium text-foreground">{size.label}</span>
             </label>
           ))}
         </div>
@@ -181,14 +181,14 @@ export default function Step1BusinessInfo({ data, onNext, onBack }: Props) {
 
       {/* Revenue Range */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Rango de Ingresos Anuales <span className="text-red-500">*</span>
+        <label className="block text-sm font-medium text-muted-foreground mb-2">
+          Rango de Ingresos Anuales <span className="text-destructive">*</span>
         </label>
         <select
           value={formData.revenueRange}
           onChange={(e) => setFormData({ ...formData, revenueRange: e.target.value })}
           required
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+          className="w-full px-4 py-3 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
         >
           <option value="">Selecciona un rango</option>
           {revenueRanges.map((range) => (
@@ -200,12 +200,12 @@ export default function Step1BusinessInfo({ data, onNext, onBack }: Props) {
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-between pt-6 border-t border-gray-200">
+      <div className="flex justify-between pt-6 border-t">
         {onBack && (
           <button
             type="button"
             onClick={onBack}
-            className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors flex items-center gap-2"
+            className="px-6 py-3 border rounded-lg text-muted-foreground font-semibold hover:bg-accent transition-colors flex items-center gap-2"
           >
             <ArrowLeft className="h-5 w-5" />
             Atrás
@@ -214,7 +214,7 @@ export default function Step1BusinessInfo({ data, onNext, onBack }: Props) {
         <button
           type="submit"
           disabled={!isValid}
-          className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+          className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
         >
           Continuar
           <ArrowRight className="h-5 w-5" />

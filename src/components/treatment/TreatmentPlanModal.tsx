@@ -118,7 +118,6 @@ export default function TreatmentPlanModal({
     setLoading(true);
     setError(null);
 
-    // Validate at least one action has a title
     const validActions = actions.filter((action) => action.title.trim() !== '');
     if (validActions.length === 0) {
       setError('Debe agregar al menos una acción con título');
@@ -162,24 +161,24 @@ export default function TreatmentPlanModal({
   const targetRisk = calculateTargetRisk();
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-background/80 flex items-center justify-center z-50 p-4">
+      <div className="bg-card rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="sticky top-0 bg-white border-b px-6 py-4 flex items-center justify-between">
+        <div className="sticky top-0 bg-card border-b px-6 py-4 flex items-center justify-between">
           <div>
-            <h2 className="text-xl font-semibold text-gray-900">Crear Plan de Tratamiento</h2>
-            <p className="text-sm text-gray-600 mt-1">
+            <h2 className="text-xl font-semibold text-foreground">Crear Plan de Tratamiento</h2>
+            <p className="text-sm text-muted-foreground mt-1">
               Riesgo Inherente: {currentRisk.inherentRisk} ({currentRisk.likelihood} × {currentRisk.impact})
             </p>
           </div>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+          <button onClick={onClose} className="text-muted-foreground hover:text-foreground">
             <X size={24} />
           </button>
         </div>
 
         <form onSubmit={handleSubmit} className="p-6 space-y-6">
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg flex items-start gap-2">
+            <div className="bg-destructive/10 border border-destructive/20 text-destructive px-4 py-3 rounded-lg flex items-start gap-2">
               <AlertCircle size={20} className="flex-shrink-0 mt-0.5" />
               <span className="text-sm">{error}</span>
             </div>
@@ -187,7 +186,7 @@ export default function TreatmentPlanModal({
 
           {/* Estrategia */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-muted-foreground mb-2">
               Estrategia de Tratamiento *
             </label>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -196,8 +195,8 @@ export default function TreatmentPlanModal({
                   key={option.value}
                   className={`border rounded-lg p-4 cursor-pointer transition ${
                     formData.strategy === option.value
-                      ? 'border-indigo-600 bg-indigo-50'
-                      : 'border-gray-200 hover:border-gray-300'
+                      ? 'border-primary bg-primary/10'
+                      : 'border-border hover:border-muted-foreground'
                   }`}
                 >
                   <input
@@ -208,8 +207,8 @@ export default function TreatmentPlanModal({
                     onChange={(e) => setFormData({ ...formData, strategy: e.target.value })}
                     className="sr-only"
                   />
-                  <div className="font-medium text-gray-900">{option.label}</div>
-                  <div className="text-sm text-gray-600 mt-1">{option.description}</div>
+                  <div className="font-medium text-foreground">{option.label}</div>
+                  <div className="text-sm text-muted-foreground mt-1">{option.description}</div>
                 </label>
               ))}
             </div>
@@ -217,14 +216,14 @@ export default function TreatmentPlanModal({
 
           {/* Justificación */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-muted-foreground mb-2">
               Justificación
             </label>
             <textarea
               value={formData.justification}
               onChange={(e) => setFormData({ ...formData, justification: e.target.value })}
               rows={3}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+              className="w-full border bg-transparent rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:border-transparent"
               placeholder="¿Por qué se eligió esta estrategia?"
             />
           </div>
@@ -232,13 +231,13 @@ export default function TreatmentPlanModal({
           {/* Acciones */}
           <div>
             <div className="flex items-center justify-between mb-3">
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-muted-foreground">
                 Acciones del Plan *
               </label>
               <button
                 type="button"
                 onClick={addAction}
-                className="text-sm text-indigo-600 hover:text-indigo-700 flex items-center gap-1"
+                className="text-sm text-primary hover:text-primary/90 flex items-center gap-1"
               >
                 <Plus size={16} />
                 Agregar Acción
@@ -246,14 +245,14 @@ export default function TreatmentPlanModal({
             </div>
             <div className="space-y-4">
               {actions.map((action, index) => (
-                <div key={action.id} className="border border-gray-200 rounded-lg p-4">
+                <div key={action.id} className="border rounded-lg p-4">
                   <div className="flex items-start justify-between mb-3">
-                    <span className="text-sm font-medium text-gray-700">Acción {index + 1}</span>
+                    <span className="text-sm font-medium text-muted-foreground">Acción {index + 1}</span>
                     {actions.length > 1 && (
                       <button
                         type="button"
                         onClick={() => removeAction(action.id)}
-                        className="text-red-600 hover:text-red-700"
+                        className="text-destructive hover:text-destructive/90"
                       >
                         <Trash2 size={16} />
                       </button>
@@ -265,7 +264,7 @@ export default function TreatmentPlanModal({
                       value={action.title}
                       onChange={(e) => updateAction(action.id, 'title', e.target.value)}
                       placeholder="Título de la acción *"
-                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                      className="w-full border bg-transparent rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:border-transparent"
                       required
                     />
                     <textarea
@@ -273,7 +272,7 @@ export default function TreatmentPlanModal({
                       onChange={(e) => updateAction(action.id, 'description', e.target.value)}
                       placeholder="Descripción (opcional)"
                       rows={2}
-                      className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                      className="w-full border bg-transparent rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:border-transparent"
                     />
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       <input
@@ -281,13 +280,13 @@ export default function TreatmentPlanModal({
                         value={action.responsible}
                         onChange={(e) => updateAction(action.id, 'responsible', e.target.value)}
                         placeholder="Responsable (opcional)"
-                        className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="border bg-transparent rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:border-transparent"
                       />
                       <input
                         type="date"
                         value={action.deadline}
                         onChange={(e) => updateAction(action.id, 'deadline', e.target.value)}
-                        className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="border bg-transparent rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:border-transparent"
                       />
                     </div>
                   </div>
@@ -299,7 +298,7 @@ export default function TreatmentPlanModal({
           {/* Presupuesto y Timeline */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+              <label className="block text-sm font-medium text-muted-foreground mb-2 flex items-center gap-2">
                 <DollarSign size={16} />
                 Presupuesto Total
               </label>
@@ -309,12 +308,12 @@ export default function TreatmentPlanModal({
                 min="0"
                 value={formData.totalBudget}
                 onChange={(e) => setFormData({ ...formData, totalBudget: e.target.value })}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                className="w-full border bg-transparent rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:border-transparent"
                 placeholder="0.00"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+              <label className="block text-sm font-medium text-muted-foreground mb-2 flex items-center gap-2">
                 <Calendar size={16} />
                 Timeline
               </label>
@@ -322,7 +321,7 @@ export default function TreatmentPlanModal({
                 type="text"
                 value={formData.timeline}
                 onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                className="w-full border bg-transparent rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:border-transparent"
                 placeholder="ej: 3 meses, 6 meses"
               />
             </div>
@@ -330,19 +329,19 @@ export default function TreatmentPlanModal({
 
           {/* Objetivo de Riesgo Residual */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-3 flex items-center gap-2">
+            <label className="block text-sm font-medium text-muted-foreground mb-3 flex items-center gap-2">
               <Target size={16} />
               Objetivo de Riesgo Residual
             </label>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs text-gray-600 mb-1">Probabilidad Objetivo</label>
+                <label className="block text-xs text-muted-foreground mb-1">Probabilidad Objetivo</label>
                 <select
                   value={formData.targetLikelihood}
                   onChange={(e) =>
                     setFormData({ ...formData, targetLikelihood: e.target.value })
                   }
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="w-full border bg-transparent rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:border-transparent"
                 >
                   <option value="">Seleccionar...</option>
                   {likelihoodOptions.map((opt) => (
@@ -353,11 +352,11 @@ export default function TreatmentPlanModal({
                 </select>
               </div>
               <div>
-                <label className="block text-xs text-gray-600 mb-1">Impacto Objetivo</label>
+                <label className="block text-xs text-muted-foreground mb-1">Impacto Objetivo</label>
                 <select
                   value={formData.targetImpact}
                   onChange={(e) => setFormData({ ...formData, targetImpact: e.target.value })}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="w-full border bg-transparent rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:border-transparent"
                 >
                   <option value="">Seleccionar...</option>
                   {impactOptions.map((opt) => (
@@ -369,10 +368,10 @@ export default function TreatmentPlanModal({
               </div>
             </div>
             {targetRisk && (
-              <div className="mt-3 bg-indigo-50 border border-indigo-200 rounded-lg p-3">
-                <p className="text-sm text-indigo-900">
+              <div className="mt-3 bg-primary/10 border border-primary/20 rounded-lg p-3">
+                <p className="text-sm text-primary">
                   <strong>Riesgo Residual Objetivo:</strong> {targetRisk}{' '}
-                  <span className="text-gray-600">
+                  <span className="text-muted-foreground">
                     (Reducción: {currentRisk.inherentRisk - targetRisk} puntos)
                   </span>
                 </p>
@@ -385,14 +384,14 @@ export default function TreatmentPlanModal({
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50"
+              className="px-4 py-2 border rounded-lg text-muted-foreground hover:bg-accent"
             >
               Cancelar
             </button>
             <button
               type="submit"
               disabled={loading}
-              className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:bg-gray-400"
+              className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 disabled:bg-muted"
             >
               {loading ? 'Creando...' : 'Crear Plan de Tratamiento'}
             </button>

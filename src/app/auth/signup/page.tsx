@@ -31,7 +31,6 @@ export default function SignUpPage() {
     e.preventDefault();
     setError('');
 
-    // Validaciones
     if (formData.password !== formData.confirmPassword) {
       setError('Las contraseñas no coinciden');
       return;
@@ -65,7 +64,6 @@ export default function SignUpPage() {
         return;
       }
 
-      // Iniciar sesión automáticamente después del registro
       const signInResult = await signIn('credentials', {
         email: formData.email,
         password: formData.password,
@@ -78,7 +76,6 @@ export default function SignUpPage() {
         return;
       }
 
-      // Si viene del wizard, completar el proceso con los datos guardados
       if (fromWizard) {
         const wizardDataStr = localStorage.getItem('wizardData');
         if (wizardDataStr) {
@@ -103,7 +100,6 @@ export default function SignUpPage() {
         }
       }
 
-      // Redirigir al wizard o dashboard
       router.push(fromWizard ? '/dashboard' : '/wizard');
     } catch (error) {
       setError('Error al crear cuenta');
@@ -116,29 +112,29 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex items-center justify-center px-4 py-12">
+    <div className="min-h-screen bg-background flex items-center justify-center px-4 py-12">
       <div className="max-w-md w-full">
         {/* Logo */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <Shield className="h-10 w-10 text-blue-600" />
-            <span className="text-3xl font-bold text-gray-900">LegalRisk</span>
+            <Shield className="h-10 w-10 text-primary" />
+            <span className="text-3xl font-bold text-foreground">LegalRisk</span>
           </div>
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">Crear Cuenta</h1>
-          <p className="text-gray-600">Comienza a gestionar tus riesgos legales hoy</p>
+          <h1 className="text-2xl font-bold text-foreground mb-2">Crear Cuenta</h1>
+          <p className="text-muted-foreground">Comienza a gestionar tus riesgos legales hoy</p>
         </div>
 
         {/* Sign Up Form */}
-        <div className="bg-white rounded-2xl shadow-xl p-8">
+        <div className="bg-card rounded-2xl shadow-xl p-8">
           {error && (
-            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
+            <div className="mb-4 p-3 bg-destructive/10 border border-destructive/20 rounded-lg text-destructive text-sm">
               {error}
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="name" className="block text-sm font-medium text-muted-foreground mb-1">
                 Nombre completo
               </label>
               <input
@@ -148,13 +144,13 @@ export default function SignUpPage() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                className="w-full px-4 py-2 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
                 placeholder="Juan Pérez"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="email" className="block text-sm font-medium text-muted-foreground mb-1">
                 Email
               </label>
               <input
@@ -164,13 +160,13 @@ export default function SignUpPage() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                className="w-full px-4 py-2 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
                 placeholder="tu@email.com"
               />
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="password" className="block text-sm font-medium text-muted-foreground mb-1">
                 Contraseña
               </label>
               <input
@@ -180,7 +176,7 @@ export default function SignUpPage() {
                 value={formData.password}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                className="w-full px-4 py-2 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
                 placeholder="••••••••"
               />
             </div>
@@ -188,7 +184,7 @@ export default function SignUpPage() {
             <div>
               <label
                 htmlFor="confirmPassword"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium text-muted-foreground mb-1"
               >
                 Confirmar contraseña
               </label>
@@ -199,7 +195,7 @@ export default function SignUpPage() {
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                className="w-full px-4 py-2 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
                 placeholder="••••••••"
               />
             </div>
@@ -207,7 +203,7 @@ export default function SignUpPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? 'Creando cuenta...' : 'Crear Cuenta'}
             </button>
@@ -215,17 +211,17 @@ export default function SignUpPage() {
 
           <div className="relative my-6">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-300"></div>
+              <div className="w-full border-t"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">O continúa con</span>
+              <span className="px-2 bg-card text-muted-foreground">O continúa con</span>
             </div>
           </div>
 
           <button
             onClick={handleGoogleSignUp}
             type="button"
-            className="w-full bg-white border border-gray-300 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors flex items-center justify-center gap-2"
+            className="w-full bg-secondary border text-secondary-foreground py-3 rounded-lg font-semibold hover:bg-accent transition-colors flex items-center justify-center gap-2"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24">
               <path
@@ -248,15 +244,15 @@ export default function SignUpPage() {
             Google
           </button>
 
-          <p className="text-center text-sm text-gray-600 mt-6">
+          <p className="text-center text-sm text-muted-foreground mt-6">
             ¿Ya tienes cuenta?{' '}
-            <Link href="/auth/signin" className="text-blue-600 hover:text-blue-700 font-semibold">
+            <Link href="/auth/signin" className="text-primary hover:text-primary/90 font-semibold">
               Inicia sesión
             </Link>
           </p>
         </div>
 
-        <p className="text-center text-xs text-gray-500 mt-4">
+        <p className="text-center text-xs text-muted-foreground mt-4">
           Al crear una cuenta, aceptas nuestros términos de servicio y política de privacidad
         </p>
       </div>

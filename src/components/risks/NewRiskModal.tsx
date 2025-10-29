@@ -173,32 +173,32 @@ export default function NewRiskModal({ isOpen, onClose, onSuccess }: NewRiskModa
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-xl shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="p-6 border-b border-gray-200 flex items-center justify-between sticky top-0 bg-white z-10">
-          <h2 className="text-2xl font-bold text-gray-900">Registrar Nuevo Riesgo</h2>
+    <div className="fixed inset-0 bg-background/80 flex items-center justify-center z-50 p-4">
+      <div className="bg-card rounded-xl shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="p-6 border-b flex items-center justify-between sticky top-0 bg-card z-10">
+          <h2 className="text-2xl font-bold text-foreground">Registrar Nuevo Riesgo</h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            className="p-2 hover:bg-accent rounded-lg transition-colors"
             disabled={loading}
           >
-            <X className="h-6 w-6 text-gray-600" />
+            <X className="h-6 w-6 text-muted-foreground" />
           </button>
         </div>
 
         <form onSubmit={handleSubmit} className="p-6">
           {error && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+            <div className="mb-6 p-4 bg-destructive/10 border border-destructive/20 rounded-lg text-destructive">
               {error}
             </div>
           )}
 
           {/* Basic Information */}
           <div className="mb-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Información Básica</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">Información Básica</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   Título del Riesgo *
                 </label>
                 <input
@@ -206,13 +206,13 @@ export default function NewRiskModal({ isOpen, onClose, onSuccess }: NewRiskModa
                   required
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                   placeholder="Ej: Incumplimiento de normativas laborales"
                 />
               </div>
 
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   Descripción *
                 </label>
                 <textarea
@@ -220,20 +220,20 @@ export default function NewRiskModal({ isOpen, onClose, onSuccess }: NewRiskModa
                   rows={3}
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                   placeholder="Describe el riesgo en detalle..."
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   Categoría *
                 </label>
                 <select
                   required
                   value={formData.category}
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                 >
                   <option value="">Seleccionar...</option>
                   {categories.map((cat) => (
@@ -245,14 +245,14 @@ export default function NewRiskModal({ isOpen, onClose, onSuccess }: NewRiskModa
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   Identificado por
                 </label>
                 <input
                   type="text"
                   value={formData.identifiedBy}
                   onChange={(e) => setFormData({ ...formData, identifiedBy: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                   placeholder="Nombre o área"
                 />
               </div>
@@ -260,18 +260,18 @@ export default function NewRiskModal({ isOpen, onClose, onSuccess }: NewRiskModa
           </div>
 
           {/* Risk Assessment */}
-          <div className="mb-6 pb-6 border-b border-gray-200">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Evaluación de Riesgo</h3>
+          <div className="mb-6 pb-6 border-b">
+            <h3 className="text-lg font-semibold text-foreground mb-4">Evaluación de Riesgo</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   Probabilidad *
                 </label>
                 <select
                   required
                   value={formData.likelihood}
                   onChange={(e) => setFormData({ ...formData, likelihood: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                 >
                   {likelihoodOptions.map((opt) => (
                     <option key={opt.value} value={opt.value}>
@@ -282,14 +282,14 @@ export default function NewRiskModal({ isOpen, onClose, onSuccess }: NewRiskModa
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   Impacto *
                 </label>
                 <select
                   required
                   value={formData.impact}
                   onChange={(e) => setFormData({ ...formData, impact: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                 >
                   {impactOptions.map((opt) => (
                     <option key={opt.value} value={opt.value}>
@@ -300,14 +300,14 @@ export default function NewRiskModal({ isOpen, onClose, onSuccess }: NewRiskModa
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   Estado *
                 </label>
                 <select
                   required
                   value={formData.status}
                   onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                 >
                   {statusOptions.map((opt) => (
                     <option key={opt.value} value={opt.value}>
@@ -318,14 +318,14 @@ export default function NewRiskModal({ isOpen, onClose, onSuccess }: NewRiskModa
               </div>
 
               <div className="md:col-span-3">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   Fuente de Identificación *
                 </label>
                 <select
                   required
                   value={formData.sourceType}
                   onChange={(e) => setFormData({ ...formData, sourceType: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                 >
                   {sourceTypeOptions.map((opt) => (
                     <option key={opt.value} value={opt.value}>
@@ -338,21 +338,21 @@ export default function NewRiskModal({ isOpen, onClose, onSuccess }: NewRiskModa
           </div>
 
           {/* Triggers */}
-          <div className="mb-6 pb-6 border-b border-gray-200">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Detonantes</h3>
+          <div className="mb-6 pb-6 border-b">
+            <h3 className="text-lg font-semibold text-foreground mb-4">Detonantes</h3>
             <div className="flex gap-2 mb-3">
               <input
                 type="text"
                 value={newTrigger}
                 onChange={(e) => setNewTrigger(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addTrigger())}
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="flex-1 px-3 py-2 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                 placeholder="Ej: Cambios en la legislación"
               />
               <button
                 type="button"
                 onClick={addTrigger}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center gap-2"
+                className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 flex items-center gap-2"
               >
                 <Plus className="h-4 w-4" />
                 Agregar
@@ -363,13 +363,13 @@ export default function NewRiskModal({ isOpen, onClose, onSuccess }: NewRiskModa
                 {formData.triggers.map((trigger, index) => (
                   <div
                     key={index}
-                    className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                    className="flex items-center justify-between p-3 bg-secondary rounded-lg"
                   >
-                    <span className="text-gray-700">{trigger}</span>
+                    <span className="text-secondary-foreground">{trigger}</span>
                     <button
                       type="button"
                       onClick={() => removeTrigger(index)}
-                      className="p-1 hover:bg-red-100 rounded text-red-600"
+                      className="p-1 hover:bg-destructive/10 rounded text-destructive"
                     >
                       <Trash2 className="h-4 w-4" />
                     </button>
@@ -380,21 +380,21 @@ export default function NewRiskModal({ isOpen, onClose, onSuccess }: NewRiskModa
           </div>
 
           {/* Consequences */}
-          <div className="mb-6 pb-6 border-b border-gray-200">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Consecuencias</h3>
+          <div className="mb-6 pb-6 border-b">
+            <h3 className="text-lg font-semibold text-foreground mb-4">Consecuencias</h3>
             <div className="flex gap-2 mb-3">
               <input
                 type="text"
                 value={newConsequence}
                 onChange={(e) => setNewConsequence(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addConsequence())}
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="flex-1 px-3 py-2 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                 placeholder="Ej: Multas y sanciones"
               />
               <button
                 type="button"
                 onClick={addConsequence}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center gap-2"
+                className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 flex items-center gap-2"
               >
                 <Plus className="h-4 w-4" />
                 Agregar
@@ -405,13 +405,13 @@ export default function NewRiskModal({ isOpen, onClose, onSuccess }: NewRiskModa
                 {formData.consequences.map((consequence, index) => (
                   <div
                     key={index}
-                    className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                    className="flex items-center justify-between p-3 bg-secondary rounded-lg"
                   >
-                    <span className="text-gray-700">{consequence}</span>
+                    <span className="text-secondary-foreground">{consequence}</span>
                     <button
                       type="button"
                       onClick={() => removeConsequence(index)}
-                      className="p-1 hover:bg-red-100 rounded text-red-600"
+                      className="p-1 hover:bg-destructive/10 rounded text-destructive"
                     >
                       <Trash2 className="h-4 w-4" />
                     </button>
@@ -423,20 +423,20 @@ export default function NewRiskModal({ isOpen, onClose, onSuccess }: NewRiskModa
 
           {/* Affected Assets */}
           <div className="mb-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Activos Afectados</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">Activos Afectados</h3>
             <div className="flex gap-2 mb-3">
               <input
                 type="text"
                 value={newAsset}
                 onChange={(e) => setNewAsset(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addAsset())}
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="flex-1 px-3 py-2 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                 placeholder="Ej: Recursos Humanos"
               />
               <button
                 type="button"
                 onClick={addAsset}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center gap-2"
+                className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 flex items-center gap-2"
               >
                 <Plus className="h-4 w-4" />
                 Agregar
@@ -447,13 +447,13 @@ export default function NewRiskModal({ isOpen, onClose, onSuccess }: NewRiskModa
                 {formData.affectedAssets.map((asset, index) => (
                   <div
                     key={index}
-                    className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                    className="flex items-center justify-between p-3 bg-secondary rounded-lg"
                   >
-                    <span className="text-gray-700">{asset}</span>
+                    <span className="text-secondary-foreground">{asset}</span>
                     <button
                       type="button"
                       onClick={() => removeAsset(index)}
-                      className="p-1 hover:bg-red-100 rounded text-red-600"
+                      className="p-1 hover:bg-destructive/10 rounded text-destructive"
                     >
                       <Trash2 className="h-4 w-4" />
                     </button>
@@ -464,19 +464,19 @@ export default function NewRiskModal({ isOpen, onClose, onSuccess }: NewRiskModa
           </div>
 
           {/* Actions */}
-          <div className="flex items-center justify-end gap-4 pt-6 border-t border-gray-200">
+          <div className="flex items-center justify-end gap-4 pt-6 border-t">
             <button
               type="button"
               onClick={onClose}
               disabled={loading}
-              className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 disabled:opacity-50"
+              className="px-6 py-2 border rounded-lg text-muted-foreground hover:bg-accent disabled:opacity-50"
             >
               Cancelar
             </button>
             <button
               type="submit"
               disabled={loading}
-              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 flex items-center gap-2"
+              className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 disabled:opacity-50 flex items-center gap-2"
             >
               {loading && <Loader2 className="h-4 w-4 animate-spin" />}
               {loading ? 'Creando...' : 'Crear Riesgo'}

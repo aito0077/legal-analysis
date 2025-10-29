@@ -94,22 +94,22 @@ export default function ControlsList({ controls, onRefresh, riskId }: ControlsLi
 
   const getControlTypeConfig = (type: string) => {
     const configs: Record<string, any> = {
-      PREVENTIVE: { icon: Shield, label: 'Preventivo', color: 'text-green-600 bg-green-50 border-green-200' },
-      DETECTIVE: { icon: Eye, label: 'Detectivo', color: 'text-blue-600 bg-blue-50 border-blue-200' },
-      CORRECTIVE: { icon: Tool, label: 'Correctivo', color: 'text-orange-600 bg-orange-50 border-orange-200' },
-      DIRECTIVE: { icon: Lock, label: 'Directivo', color: 'text-purple-600 bg-purple-50 border-purple-200' },
+      PREVENTIVE: { icon: Shield, label: 'Preventivo', color: 'text-green-600 bg-green-500/10 border-green-500/20' },
+      DETECTIVE: { icon: Eye, label: 'Detectivo', color: 'text-primary bg-primary/10 border-primary/20' },
+      CORRECTIVE: { icon: Tool, label: 'Correctivo', color: 'text-orange-500 bg-orange-500/10 border-orange-500/20' },
+      DIRECTIVE: { icon: Lock, label: 'Directivo', color: 'text-purple-500 bg-purple-500/10 border-purple-500/20' },
     };
     return configs[type] || configs.PREVENTIVE;
   };
 
   const getStatusConfig = (status: string) => {
     const configs: Record<string, any> = {
-      PLANNED: { label: 'Planificado', color: 'bg-gray-100 text-gray-700 border-gray-300' },
-      IN_PROGRESS: { label: 'En Progreso', color: 'bg-blue-100 text-blue-700 border-blue-300' },
-      IMPLEMENTED: { label: 'Implementado', color: 'bg-green-100 text-green-700 border-green-300' },
-      OPERATIONAL: { label: 'Operacional', color: 'bg-green-100 text-green-700 border-green-300' },
-      INEFFECTIVE: { label: 'Inefectivo', color: 'bg-red-100 text-red-700 border-red-300' },
-      DEACTIVATED: { label: 'Desactivado', color: 'bg-gray-100 text-gray-500 border-gray-300' },
+      PLANNED: { label: 'Planificado', color: 'bg-secondary text-secondary-foreground border-border' },
+      IN_PROGRESS: { label: 'En Progreso', color: 'bg-primary/10 text-primary border-primary/20' },
+      IMPLEMENTED: { label: 'Implementado', color: 'bg-green-500/10 text-green-600 border-green-500/20' },
+      OPERATIONAL: { label: 'Operacional', color: 'bg-green-500/10 text-green-600 border-green-500/20' },
+      INEFFECTIVE: { label: 'Inefectivo', color: 'bg-destructive/10 text-destructive border-destructive/20' },
+      DEACTIVATED: { label: 'Desactivado', color: 'bg-secondary text-muted-foreground border-border' },
     };
     return configs[status] || configs.PLANNED;
   };
@@ -135,10 +135,10 @@ export default function ControlsList({ controls, onRefresh, riskId }: ControlsLi
 
   if (controls.length === 0) {
     return (
-      <div className="text-center py-12 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300">
-        <Shield className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-        <p className="text-gray-600 font-medium">No hay controles registrados</p>
-        <p className="text-sm text-gray-500 mt-1">Agrega controles para mitigar este riesgo</p>
+      <div className="text-center py-12 bg-secondary rounded-lg border-2 border-dashed">
+        <Shield className="h-16 w-16 text-muted-foreground/50 mx-auto mb-4" />
+        <p className="text-muted-foreground font-medium">No hay controles registrados</p>
+        <p className="text-sm text-muted-foreground/80 mt-1">Agrega controles para mitigar este riesgo</p>
       </div>
     );
   }
@@ -154,7 +154,7 @@ export default function ControlsList({ controls, onRefresh, riskId }: ControlsLi
         return (
           <div
             key={control.id}
-            className="bg-white rounded-lg shadow border border-gray-200 overflow-hidden hover:shadow-md transition-shadow"
+            className="bg-card rounded-lg shadow border overflow-hidden hover:shadow-md transition-shadow"
           >
             {/* Header */}
             <div className="p-4">
@@ -165,9 +165,9 @@ export default function ControlsList({ controls, onRefresh, riskId }: ControlsLi
                       <TypeIcon className="h-5 w-5" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-gray-900 truncate">{control.title}</h3>
+                      <h3 className="font-semibold text-foreground truncate">{control.title}</h3>
                       {control.protocol && (
-                        <p className="text-xs text-gray-500 flex items-center gap-1 mt-1">
+                        <p className="text-xs text-muted-foreground flex items-center gap-1 mt-1">
                           <FileText className="h-3 w-3" />
                           Protocolo: {control.protocol.title}
                         </p>
@@ -179,13 +179,13 @@ export default function ControlsList({ controls, onRefresh, riskId }: ControlsLi
                     <span className={`px-2 py-1 rounded-full text-xs font-medium border ${statusConfig.color}`}>
                       {statusConfig.label}
                     </span>
-                    <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs">
+                    <span className="px-2 py-1 bg-secondary text-secondary-foreground rounded-full text-xs">
                       {typeConfig.label}
                     </span>
-                    <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs">
+                    <span className="px-2 py-1 bg-secondary text-secondary-foreground rounded-full text-xs">
                       {getCategoryLabel(control.category)}
                     </span>
-                    <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">
+                    <span className="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
                       Fortaleza: {getStrengthLabel(control.controlStrength)}
                     </span>
                   </div>
@@ -195,19 +195,19 @@ export default function ControlsList({ controls, onRefresh, riskId }: ControlsLi
                 <div className="relative">
                   <button
                     onClick={() => setShowMenu(showMenu === control.id ? null : control.id)}
-                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                    className="p-2 hover:bg-accent rounded-lg transition-colors"
                   >
-                    <MoreVertical className="h-5 w-5 text-gray-500" />
+                    <MoreVertical className="h-5 w-5 text-muted-foreground" />
                   </button>
 
                   {showMenu === control.id && (
-                    <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 z-10">
+                    <div className="absolute right-0 mt-2 w-48 bg-card rounded-lg shadow-xl border z-10">
                       <button
                         onClick={() => {
                           setExpandedControl(isExpanded ? null : control.id);
                           setShowMenu(null);
                         }}
-                        className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2"
+                        className="w-full px-4 py-2 text-left text-sm text-muted-foreground hover:bg-accent flex items-center gap-2"
                       >
                         <Eye className="h-4 w-4" />
                         {isExpanded ? 'Ocultar' : 'Ver'} detalles
@@ -219,7 +219,7 @@ export default function ControlsList({ controls, onRefresh, riskId }: ControlsLi
                             handleUpdateStatus(control.id, 'OPERATIONAL');
                             setShowMenu(null);
                           }}
-                          className="w-full px-4 py-2 text-left text-sm text-green-700 hover:bg-gray-50 flex items-center gap-2"
+                          className="w-full px-4 py-2 text-left text-sm text-green-600 hover:bg-accent flex items-center gap-2"
                           disabled={loading}
                         >
                           <CheckCircle2 className="h-4 w-4" />
@@ -232,7 +232,7 @@ export default function ControlsList({ controls, onRefresh, riskId }: ControlsLi
                           handleDeleteControl(control.id);
                           setShowMenu(null);
                         }}
-                        className="w-full px-4 py-2 text-left text-sm text-red-700 hover:bg-gray-50 flex items-center gap-2 border-t border-gray-100"
+                        className="w-full px-4 py-2 text-left text-sm text-destructive hover:bg-accent flex items-center gap-2 border-t"
                         disabled={loading}
                       >
                         <Trash2 className="h-4 w-4" />
@@ -246,31 +246,31 @@ export default function ControlsList({ controls, onRefresh, riskId }: ControlsLi
 
             {/* Expanded Details */}
             {isExpanded && (
-              <div className="border-t border-gray-200 bg-gray-50 p-4 space-y-3">
+              <div className="border-t bg-secondary p-4 space-y-3">
                 <div>
-                  <p className="text-sm font-medium text-gray-700 mb-1">Descripción</p>
-                  <p className="text-sm text-gray-600">{control.description}</p>
+                  <p className="text-sm font-medium text-foreground mb-1">Descripción</p>
+                  <p className="text-sm text-muted-foreground">{control.description}</p>
                 </div>
 
                 {control.owner && (
                   <div>
-                    <p className="text-sm font-medium text-gray-700 mb-1">Responsable</p>
-                    <p className="text-sm text-gray-600">{control.owner}</p>
+                    <p className="text-sm font-medium text-foreground mb-1">Responsable</p>
+                    <p className="text-sm text-muted-foreground">{control.owner}</p>
                   </div>
                 )}
 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {control.reviewFrequency && (
                     <div>
-                      <p className="text-xs text-gray-500 mb-1">Frecuencia de Revisión</p>
-                      <p className="text-sm font-medium text-gray-900">{control.reviewFrequency}</p>
+                      <p className="text-xs text-muted-foreground mb-1">Frecuencia de Revisión</p>
+                      <p className="text-sm font-medium text-foreground">{control.reviewFrequency}</p>
                     </div>
                   )}
 
                   {control.estimatedCost !== null && (
                     <div>
-                      <p className="text-xs text-gray-500 mb-1">Costo Estimado</p>
-                      <p className="text-sm font-medium text-gray-900">
+                      <p className="text-xs text-muted-foreground mb-1">Costo Estimado</p>
+                      <p className="text-sm font-medium text-foreground">
                         ${control.estimatedCost.toLocaleString()}
                       </p>
                     </div>
@@ -278,20 +278,20 @@ export default function ControlsList({ controls, onRefresh, riskId }: ControlsLi
 
                   {control.estimatedEffort && (
                     <div>
-                      <p className="text-xs text-gray-500 mb-1">Esfuerzo</p>
-                      <p className="text-sm font-medium text-gray-900">{control.estimatedEffort}</p>
+                      <p className="text-xs text-muted-foreground mb-1">Esfuerzo</p>
+                      <p className="text-sm font-medium text-foreground">{control.estimatedEffort}</p>
                     </div>
                   )}
                 </div>
 
                 {control.reviews && control.reviews.length > 0 && (
                   <div>
-                    <p className="text-sm font-medium text-gray-700 mb-2">Última Revisión</p>
-                    <div className="bg-white rounded p-3 text-sm">
-                      <p className="text-gray-600">
+                    <p className="text-sm font-medium text-foreground mb-2">Última Revisión</p>
+                    <div className="bg-card rounded p-3 text-sm">
+                      <p className="text-muted-foreground">
                         {new Date(control.reviews[0].reviewDate).toLocaleDateString('es-AR')}
                       </p>
-                      <p className="text-gray-500 text-xs mt-1">
+                      <p className="text-muted-foreground/80 text-xs mt-1">
                         Por: {control.reviews[0].reviewer}
                       </p>
                     </div>

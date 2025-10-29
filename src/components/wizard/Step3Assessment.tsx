@@ -122,40 +122,40 @@ export default function Step3Assessment({ data, onNext, onBack }: Props) {
   return (
     <form onSubmit={handleSubmit} className="space-y-8">
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Evaluación de Riesgos</h2>
-        <p className="text-gray-600">
+        <h2 className="text-2xl font-bold text-foreground mb-2">Evaluación de Riesgos</h2>
+        <p className="text-muted-foreground">
           Responde estas preguntas para que podamos evaluar tu nivel de riesgo actual
         </p>
       </div>
 
       <div className="space-y-6">
         {assessmentQuestions.map((question, index) => (
-          <div key={question.id} className="bg-gray-50 p-6 rounded-xl">
-            <p className="font-semibold text-gray-900 mb-4">
+          <div key={question.id} className="bg-secondary p-6 rounded-xl">
+            <p className="font-semibold text-foreground mb-4">
               {index + 1}. {question.question}
             </p>
 
             {question.type === 'boolean' && (
               <div className="flex gap-4">
-                <label className="flex items-center px-6 py-3 bg-white border-2 rounded-lg cursor-pointer transition-all hover:border-blue-300">
+                <label className="flex items-center px-6 py-3 bg-card border-2 rounded-lg cursor-pointer transition-all hover:border-primary/50">
                   <input
                     type="radio"
                     name={question.id}
                     checked={answers[question.id] === true}
                     onChange={() => handleBooleanChange(question.id, true)}
-                    className="mr-3 text-blue-600"
+                    className="mr-3 text-primary"
                   />
-                  <span className="font-medium text-gray-900">Sí</span>
+                  <span className="font-medium text-foreground">Sí</span>
                 </label>
-                <label className="flex items-center px-6 py-3 bg-white border-2 rounded-lg cursor-pointer transition-all hover:border-blue-300">
+                <label className="flex items-center px-6 py-3 bg-card border-2 rounded-lg cursor-pointer transition-all hover:border-primary/50">
                   <input
                     type="radio"
                     name={question.id}
                     checked={answers[question.id] === false}
                     onChange={() => handleBooleanChange(question.id, false)}
-                    className="mr-3 text-blue-600"
+                    className="mr-3 text-primary"
                   />
-                  <span className="font-medium text-gray-900">No</span>
+                  <span className="font-medium text-foreground">No</span>
                 </label>
               </div>
             )}
@@ -165,16 +165,16 @@ export default function Step3Assessment({ data, onNext, onBack }: Props) {
                 {question.options.map((option) => (
                   <label
                     key={option.value}
-                    className="flex items-center px-4 py-3 bg-white border-2 rounded-lg cursor-pointer transition-all hover:border-blue-300"
+                    className="flex items-center px-4 py-3 bg-card border-2 rounded-lg cursor-pointer transition-all hover:border-primary/50"
                   >
                     <input
                       type="radio"
                       name={question.id}
                       checked={answers[question.id] === option.value}
                       onChange={() => handleScaleChange(question.id, option.value)}
-                      className="mr-3 text-blue-600"
+                      className="mr-3 text-primary"
                     />
-                    <span className="font-medium text-gray-900">{option.label}</span>
+                    <span className="font-medium text-foreground">{option.label}</span>
                   </label>
                 ))}
               </div>
@@ -185,15 +185,15 @@ export default function Step3Assessment({ data, onNext, onBack }: Props) {
                 {question.options.map((option) => (
                   <label
                     key={option}
-                    className="flex items-center px-4 py-3 bg-white border-2 rounded-lg cursor-pointer transition-all hover:border-blue-300"
+                    className="flex items-center px-4 py-3 bg-card border-2 rounded-lg cursor-pointer transition-all hover:border-primary/50"
                   >
                     <input
                       type="checkbox"
                       checked={(answers[question.id] as string[])?.includes(option)}
                       onChange={() => handleChecklistChange(question.id, option)}
-                      className="mr-3 text-blue-600"
+                      className="mr-3 text-primary"
                     />
-                    <span className="font-medium text-gray-900">{option}</span>
+                    <span className="font-medium text-foreground">{option}</span>
                   </label>
                 ))}
               </div>
@@ -203,11 +203,11 @@ export default function Step3Assessment({ data, onNext, onBack }: Props) {
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-between pt-6 border-t border-gray-200">
+      <div className="flex justify-between pt-6 border-t">
         <button
           type="button"
           onClick={onBack}
-          className="px-8 py-3 bg-white border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors flex items-center gap-2"
+          className="px-8 py-3 border rounded-lg text-muted-foreground font-semibold hover:bg-accent transition-colors flex items-center gap-2"
         >
           <ArrowLeft className="h-5 w-5" />
           Atrás
@@ -215,7 +215,7 @@ export default function Step3Assessment({ data, onNext, onBack }: Props) {
         <button
           type="submit"
           disabled={!allAnswered}
-          className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+          className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
         >
           Continuar
           <ArrowRight className="h-5 w-5" />

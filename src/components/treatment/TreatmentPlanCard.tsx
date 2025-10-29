@@ -52,19 +52,19 @@ type TreatmentPlanCardProps = {
 };
 
 const strategyLabels: Record<string, { label: string; color: string }> = {
-  AVOID: { label: 'Evitar', color: 'text-red-700 bg-red-100' },
-  REDUCE: { label: 'Reducir', color: 'text-blue-700 bg-blue-100' },
-  TRANSFER: { label: 'Transferir', color: 'text-purple-700 bg-purple-100' },
-  ACCEPT: { label: 'Aceptar', color: 'text-gray-700 bg-gray-100' },
+  AVOID: { label: 'Evitar', color: 'text-destructive bg-destructive/10' },
+  REDUCE: { label: 'Reducir', color: 'text-primary bg-primary/10' },
+  TRANSFER: { label: 'Transferir', color: 'text-purple-500 bg-purple-500/10' },
+  ACCEPT: { label: 'Aceptar', color: 'text-muted-foreground bg-secondary' },
 };
 
 const statusLabels: Record<string, { label: string; color: string; icon: any }> = {
-  DRAFT: { label: 'Borrador', color: 'text-gray-700 bg-gray-100', icon: AlertCircle },
-  APPROVED: { label: 'Aprobado', color: 'text-green-700 bg-green-100', icon: CheckCircle },
-  IN_PROGRESS: { label: 'En Progreso', color: 'text-blue-700 bg-blue-100', icon: Clock },
-  COMPLETED: { label: 'Completado', color: 'text-green-700 bg-green-100', icon: CheckSquare },
-  ON_HOLD: { label: 'En Espera', color: 'text-yellow-700 bg-yellow-100', icon: Pause },
-  CANCELLED: { label: 'Cancelado', color: 'text-red-700 bg-red-100', icon: XCircle },
+  DRAFT: { label: 'Borrador', color: 'text-muted-foreground bg-secondary', icon: AlertCircle },
+  APPROVED: { label: 'Aprobado', color: 'text-green-600 bg-green-500/10', icon: CheckCircle },
+  IN_PROGRESS: { label: 'En Progreso', color: 'text-primary bg-primary/10', icon: Clock },
+  COMPLETED: { label: 'Completado', color: 'text-green-600 bg-green-500/10', icon: CheckSquare },
+  ON_HOLD: { label: 'En Espera', color: 'text-yellow-600 bg-yellow-500/10', icon: Pause },
+  CANCELLED: { label: 'Cancelado', color: 'text-destructive bg-destructive/10', icon: XCircle },
 };
 
 export default function TreatmentPlanCard({ plan, riskId, onUpdate }: TreatmentPlanCardProps) {
@@ -74,11 +74,11 @@ export default function TreatmentPlanCard({ plan, riskId, onUpdate }: TreatmentP
 
   const strategyInfo = strategyLabels[plan.strategy] || {
     label: plan.strategy,
-    color: 'text-gray-700 bg-gray-100',
+    color: 'text-muted-foreground bg-secondary',
   };
   const statusInfo = statusLabels[plan.status] || {
     label: plan.status,
-    color: 'text-gray-700 bg-gray-100',
+    color: 'text-muted-foreground bg-secondary',
     icon: AlertCircle,
   };
   const StatusIcon = statusInfo.icon;
@@ -124,7 +124,7 @@ export default function TreatmentPlanCard({ plan, riskId, onUpdate }: TreatmentP
   const actionsProgress = totalActions > 0 ? Math.round((completedActions / totalActions) * 100) : 0;
 
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-6 space-y-4">
+    <div className="bg-card border rounded-lg p-6 space-y-4">
       {/* Header */}
       <div className="flex items-start justify-between">
         <div className="space-y-2 flex-1">
@@ -140,7 +140,7 @@ export default function TreatmentPlanCard({ plan, riskId, onUpdate }: TreatmentP
             </span>
           </div>
           {plan.justification && (
-            <p className="text-sm text-gray-600 italic">{plan.justification}</p>
+            <p className="text-sm text-muted-foreground italic">{plan.justification}</p>
           )}
         </div>
 
@@ -148,18 +148,18 @@ export default function TreatmentPlanCard({ plan, riskId, onUpdate }: TreatmentP
         <div className="relative">
           <button
             onClick={() => setShowMenu(!showMenu)}
-            className="p-2 hover:bg-gray-100 rounded-lg"
+            className="p-2 hover:bg-accent rounded-lg"
           >
-            <MoreVertical size={20} className="text-gray-600" />
+            <MoreVertical size={20} className="text-muted-foreground" />
           </button>
           {showMenu && (
-            <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+            <div className="absolute right-0 mt-2 w-48 bg-card border rounded-lg shadow-lg z-10">
               <div className="py-1">
                 {plan.status === 'DRAFT' && (
                   <button
                     onClick={() => handleUpdateStatus('APPROVED')}
                     disabled={updatingStatus}
-                    className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center gap-2"
+                    className="w-full text-left px-4 py-2 text-sm text-muted-foreground hover:bg-accent flex items-center gap-2"
                   >
                     <CheckCircle size={16} />
                     Aprobar
@@ -169,7 +169,7 @@ export default function TreatmentPlanCard({ plan, riskId, onUpdate }: TreatmentP
                   <button
                     onClick={() => handleUpdateStatus('IN_PROGRESS')}
                     disabled={updatingStatus}
-                    className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center gap-2"
+                    className="w-full text-left px-4 py-2 text-sm text-muted-foreground hover:bg-accent flex items-center gap-2"
                   >
                     <Play size={16} />
                     Iniciar
@@ -180,7 +180,7 @@ export default function TreatmentPlanCard({ plan, riskId, onUpdate }: TreatmentP
                     <button
                       onClick={() => handleUpdateStatus('ON_HOLD')}
                       disabled={updatingStatus}
-                      className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center gap-2"
+                      className="w-full text-left px-4 py-2 text-sm text-muted-foreground hover:bg-accent flex items-center gap-2"
                     >
                       <Pause size={16} />
                       Pausar
@@ -188,7 +188,7 @@ export default function TreatmentPlanCard({ plan, riskId, onUpdate }: TreatmentP
                     <button
                       onClick={() => handleUpdateStatus('COMPLETED')}
                       disabled={updatingStatus}
-                      className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center gap-2"
+                      className="w-full text-left px-4 py-2 text-sm text-muted-foreground hover:bg-accent flex items-center gap-2"
                     >
                       <CheckSquare size={16} />
                       Completar
@@ -199,16 +199,16 @@ export default function TreatmentPlanCard({ plan, riskId, onUpdate }: TreatmentP
                   <button
                     onClick={() => handleUpdateStatus('IN_PROGRESS')}
                     disabled={updatingStatus}
-                    className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center gap-2"
+                    className="w-full text-left px-4 py-2 text-sm text-muted-foreground hover:bg-accent flex items-center gap-2"
                   >
                     <Play size={16} />
                     Reanudar
                   </button>
                 )}
-                <hr className="my-1" />
+                <hr className="my-1 border-border" />
                 <button
                   onClick={handleDelete}
-                  className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 flex items-center gap-2"
+                  className="w-full text-left px-4 py-2 text-sm text-destructive hover:bg-destructive/10 flex items-center gap-2"
                 >
                   <Trash2 size={16} />
                   Eliminar
@@ -222,12 +222,12 @@ export default function TreatmentPlanCard({ plan, riskId, onUpdate }: TreatmentP
       {/* Progress Bar */}
       <div>
         <div className="flex items-center justify-between mb-2">
-          <span className="text-sm font-medium text-gray-700">Progreso General</span>
-          <span className="text-sm text-gray-600">{plan.progress}%</span>
+          <span className="text-sm font-medium text-foreground">Progreso General</span>
+          <span className="text-sm text-muted-foreground">{plan.progress}%</span>
         </div>
-        <div className="w-full bg-gray-200 rounded-full h-2">
+        <div className="w-full bg-secondary rounded-full h-2">
           <div
-            className="bg-indigo-600 h-2 rounded-full transition-all"
+            className="bg-primary h-2 rounded-full transition-all"
             style={{ width: `${plan.progress}%` }}
           />
         </div>
@@ -237,10 +237,10 @@ export default function TreatmentPlanCard({ plan, riskId, onUpdate }: TreatmentP
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {plan.totalBudget && (
           <div className="flex items-center gap-2">
-            <DollarSign size={16} className="text-gray-500" />
+            <DollarSign size={16} className="text-muted-foreground" />
             <div>
-              <div className="text-xs text-gray-600">Presupuesto</div>
-              <div className="text-sm font-medium text-gray-900">
+              <div className="text-xs text-muted-foreground">Presupuesto</div>
+              <div className="text-sm font-medium text-foreground">
                 ${plan.totalBudget.toLocaleString()}
               </div>
             </div>
@@ -248,27 +248,27 @@ export default function TreatmentPlanCard({ plan, riskId, onUpdate }: TreatmentP
         )}
         {plan.timeline && (
           <div className="flex items-center gap-2">
-            <Calendar size={16} className="text-gray-500" />
+            <Calendar size={16} className="text-muted-foreground" />
             <div>
-              <div className="text-xs text-gray-600">Timeline</div>
-              <div className="text-sm font-medium text-gray-900">{plan.timeline}</div>
+              <div className="text-xs text-muted-foreground">Timeline</div>
+              <div className="text-sm font-medium text-foreground">{plan.timeline}</div>
             </div>
           </div>
         )}
         {plan.targetRisk && (
           <div className="flex items-center gap-2">
-            <Target size={16} className="text-gray-500" />
+            <Target size={16} className="text-muted-foreground" />
             <div>
-              <div className="text-xs text-gray-600">Riesgo Objetivo</div>
-              <div className="text-sm font-medium text-gray-900">{plan.targetRisk}</div>
+              <div className="text-xs text-muted-foreground">Riesgo Objetivo</div>
+              <div className="text-sm font-medium text-foreground">{plan.targetRisk}</div>
             </div>
           </div>
         )}
         <div className="flex items-center gap-2">
-          <CheckCircle size={16} className="text-gray-500" />
+          <CheckCircle size={16} className="text-muted-foreground" />
           <div>
-            <div className="text-xs text-gray-600">Acciones</div>
-            <div className="text-sm font-medium text-gray-900">
+            <div className="text-xs text-muted-foreground">Acciones</div>
+            <div className="text-sm font-medium text-foreground">
               {completedActions}/{totalActions}
             </div>
           </div>
@@ -279,7 +279,7 @@ export default function TreatmentPlanCard({ plan, riskId, onUpdate }: TreatmentP
       <div>
         <button
           onClick={() => setShowActions(!showActions)}
-          className="text-sm font-medium text-indigo-600 hover:text-indigo-700"
+          className="text-sm font-medium text-primary hover:text-primary/90"
         >
           {showActions ? 'Ocultar' : 'Ver'} Acciones ({totalActions})
         </button>
@@ -289,7 +289,7 @@ export default function TreatmentPlanCard({ plan, riskId, onUpdate }: TreatmentP
               <div
                 key={action.id}
                 className={`border rounded-lg p-3 ${
-                  action.completed ? 'bg-gray-50 border-gray-200' : 'bg-white border-gray-300'
+                  action.completed ? 'bg-secondary border-border' : 'bg-card border-border'
                 }`}
               >
                 <div className="flex items-start gap-3">
@@ -297,7 +297,7 @@ export default function TreatmentPlanCard({ plan, riskId, onUpdate }: TreatmentP
                     className={`mt-1 w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 ${
                       action.completed
                         ? 'bg-green-500 border-green-500'
-                        : 'border-gray-300 bg-white'
+                        : 'border-muted-foreground bg-card'
                     }`}
                   >
                     {action.completed && <CheckCircle size={14} className="text-white" />}
@@ -305,15 +305,15 @@ export default function TreatmentPlanCard({ plan, riskId, onUpdate }: TreatmentP
                   <div className="flex-1">
                     <div
                       className={`text-sm font-medium ${
-                        action.completed ? 'text-gray-500 line-through' : 'text-gray-900'
+                        action.completed ? 'text-muted-foreground line-through' : 'text-foreground'
                       }`}
                     >
                       {index + 1}. {action.title}
                     </div>
                     {action.description && (
-                      <div className="text-xs text-gray-600 mt-1">{action.description}</div>
+                      <div className="text-xs text-muted-foreground mt-1">{action.description}</div>
                     )}
-                    <div className="flex items-center gap-4 mt-2 text-xs text-gray-500">
+                    <div className="flex items-center gap-4 mt-2 text-xs text-muted-foreground">
                       {action.responsible && (
                         <span>Responsable: {action.responsible}</span>
                       )}
@@ -331,7 +331,7 @@ export default function TreatmentPlanCard({ plan, riskId, onUpdate }: TreatmentP
 
       {/* Timestamps */}
       <div className="border-t pt-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs text-gray-600">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs text-muted-foreground">
           <div>
             <div className="font-medium">Creado</div>
             <div>{new Date(plan.createdAt).toLocaleDateString()}</div>

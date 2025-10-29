@@ -92,10 +92,10 @@ export default function RisksPage() {
 
   const getPriorityConfig = (priority: string) => {
     const configs = {
-      CRITICAL: { label: 'Crítico', color: 'bg-red-100 text-red-700 border-red-200', badge: 'bg-red-600' },
-      HIGH: { label: 'Alto', color: 'bg-orange-100 text-orange-700 border-orange-200', badge: 'bg-orange-600' },
-      MEDIUM: { label: 'Medio', color: 'bg-yellow-100 text-yellow-700 border-yellow-200', badge: 'bg-yellow-600' },
-      LOW: { label: 'Bajo', color: 'bg-blue-100 text-blue-700 border-blue-200', badge: 'bg-blue-600' },
+      CRITICAL: { label: 'Crítico', color: 'bg-destructive/10 text-destructive border-destructive/20', badge: 'bg-destructive' },
+      HIGH: { label: 'Alto', color: 'bg-orange-500/10 text-orange-500 border-orange-500/20', badge: 'bg-orange-500' },
+      MEDIUM: { label: 'Medio', color: 'bg-yellow-500/10 text-yellow-500 border-yellow-500/20', badge: 'bg-yellow-500' },
+      LOW: { label: 'Bajo', color: 'bg-primary/10 text-primary border-primary/20', badge: 'bg-primary' },
     };
     return configs[priority as keyof typeof configs] || configs.MEDIUM;
   };
@@ -123,8 +123,8 @@ export default function RisksPage() {
       <DashboardLayout>
         <div className="container mx-auto px-4 py-8 flex items-center justify-center min-h-[400px]">
           <div className="text-center">
-            <Loader2 className="h-12 w-12 text-blue-600 animate-spin mx-auto mb-4" />
-            <p className="text-gray-600">Cargando riesgos...</p>
+            <Loader2 className="h-12 w-12 text-primary animate-spin mx-auto mb-4" />
+            <p className="text-muted-foreground">Cargando riesgos...</p>
           </div>
         </div>
       </DashboardLayout>
@@ -135,13 +135,13 @@ export default function RisksPage() {
     return (
       <DashboardLayout>
         <div className="container mx-auto px-4 py-8">
-          <div className="bg-red-50 border border-red-200 rounded-xl p-8 text-center">
-            <AlertTriangle className="h-12 w-12 text-red-600 mx-auto mb-4" />
-            <p className="text-red-900 font-semibold mb-2">Error al cargar riesgos</p>
-            <p className="text-red-700">{error}</p>
+          <div className="bg-destructive/10 border border-destructive/20 rounded-xl p-8 text-center">
+            <AlertTriangle className="h-12 w-12 text-destructive mx-auto mb-4" />
+            <p className="text-destructive font-semibold mb-2">Error al cargar riesgos</p>
+            <p className="text-destructive/80">{error}</p>
             <button
               onClick={fetchRisks}
-              className="mt-4 px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+              className="mt-4 px-6 py-2 bg-destructive text-destructive-foreground rounded-lg hover:bg-destructive/90"
             >
               Reintentar
             </button>
@@ -156,32 +156,32 @@ export default function RisksPage() {
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Gestión de Riesgos</h1>
-          <p className="text-gray-600">Identifica, analiza y monitorea los riesgos legales de tu organización</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Gestión de Riesgos</h1>
+          <p className="text-muted-foreground">Identifica, analiza y monitorea los riesgos legales de tu organización</p>
         </div>
 
         {/* Stats Grid */}
         {stats && (
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
-            <div className="bg-white rounded-lg shadow p-4">
-              <p className="text-sm text-gray-600 mb-1">Total</p>
-              <p className="text-2xl font-bold text-gray-900">{stats.total}</p>
+            <div className="bg-card rounded-lg shadow p-4">
+              <p className="text-sm text-muted-foreground mb-1">Total</p>
+              <p className="text-2xl font-bold text-foreground">{stats.total}</p>
             </div>
-            <div className="bg-red-50 rounded-lg shadow p-4">
-              <p className="text-sm text-red-700 mb-1">Críticos</p>
-              <p className="text-2xl font-bold text-red-900">{stats.critical}</p>
+            <div className="bg-destructive/10 rounded-lg shadow p-4">
+              <p className="text-sm text-destructive mb-1">Críticos</p>
+              <p className="text-2xl font-bold text-destructive/90">{stats.critical}</p>
             </div>
-            <div className="bg-orange-50 rounded-lg shadow p-4">
-              <p className="text-sm text-orange-700 mb-1">Altos</p>
-              <p className="text-2xl font-bold text-orange-900">{stats.high}</p>
+            <div className="bg-orange-500/10 rounded-lg shadow p-4">
+              <p className="text-sm text-orange-600 mb-1">Altos</p>
+              <p className="text-2xl font-bold text-orange-700">{stats.high}</p>
             </div>
-            <div className="bg-yellow-50 rounded-lg shadow p-4">
-              <p className="text-sm text-yellow-700 mb-1">Medios</p>
-              <p className="text-2xl font-bold text-yellow-900">{stats.medium}</p>
+            <div className="bg-yellow-500/10 rounded-lg shadow p-4">
+              <p className="text-sm text-yellow-600 mb-1">Medios</p>
+              <p className="text-2xl font-bold text-yellow-700">{stats.medium}</p>
             </div>
-            <div className="bg-blue-50 rounded-lg shadow p-4">
-              <p className="text-sm text-blue-700 mb-1">Bajos</p>
-              <p className="text-2xl font-bold text-blue-900">{stats.low}</p>
+            <div className="bg-primary/10 rounded-lg shadow p-4">
+              <p className="text-sm text-primary mb-1">Bajos</p>
+              <p className="text-2xl font-bold text-primary/90">{stats.low}</p>
             </div>
           </div>
         )}
@@ -189,31 +189,31 @@ export default function RisksPage() {
         {/* Actions */}
         <div className="mb-6 flex flex-col sm:flex-row gap-4">
           <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
             <input
               type="text"
               placeholder="Buscar riesgos..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-2 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
             />
           </div>
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50"
+            className="flex items-center gap-2 px-4 py-2 bg-card border rounded-lg hover:bg-accent"
           >
             <Filter className="h-5 w-5" />
             Filtros
             {(filterPriority || filterStatus || filterCategory) && (
-              <span className="ml-1 px-2 py-0.5 bg-blue-600 text-white text-xs rounded-full">
+              <span className="ml-1 px-2 py-0.5 bg-primary text-primary-foreground text-xs rounded-full">
                 {[filterPriority, filterStatus, filterCategory].filter(Boolean).length}
               </span>
             )}
           </button>
           <button
             onClick={() => setShowNewRiskModal(true)}
-            className="flex items-center gap-2 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            className="flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90"
           >
             <Plus className="h-5 w-5" />
             Nuevo Riesgo
@@ -222,25 +222,25 @@ export default function RisksPage() {
 
         {/* Filters Panel */}
         {showFilters && (
-          <div className="mb-6 bg-white rounded-lg shadow-md p-6">
+          <div className="mb-6 bg-card rounded-lg shadow-md p-6">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="font-semibold text-gray-900">Filtros</h3>
+              <h3 className="font-semibold text-foreground">Filtros</h3>
               <button
                 onClick={clearFilters}
-                className="text-sm text-blue-600 hover:text-blue-700"
+                className="text-sm text-primary hover:text-primary/90"
               >
                 Limpiar todo
               </button>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   Prioridad
                 </label>
                 <select
                   value={filterPriority}
                   onChange={(e) => setFilterPriority(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                 >
                   <option value="">Todas</option>
                   <option value="CRITICAL">Crítico</option>
@@ -250,13 +250,13 @@ export default function RisksPage() {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   Estado
                 </label>
                 <select
                   value={filterStatus}
                   onChange={(e) => setFilterStatus(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                 >
                   <option value="">Todos</option>
                   <option value="IDENTIFIED">Identificado</option>
@@ -267,13 +267,13 @@ export default function RisksPage() {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   Categoría
                 </label>
                 <select
                   value={filterCategory}
                   onChange={(e) => setFilterCategory(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                 >
                   <option value="">Todas</option>
                   {stats && Object.keys(stats.byCategory).map((category) => (
@@ -289,15 +289,15 @@ export default function RisksPage() {
 
         {/* Risks List */}
         {risks.length === 0 ? (
-          <div className="bg-white rounded-xl shadow-md p-12 text-center">
-            <Shield className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-            <h2 className="text-xl font-bold text-gray-900 mb-2">No hay riesgos registrados</h2>
-            <p className="text-gray-600 mb-6">
+          <div className="bg-card rounded-xl shadow-md p-12 text-center">
+            <Shield className="h-16 w-16 text-muted-foreground/50 mx-auto mb-4" />
+            <h2 className="text-xl font-bold text-foreground mb-2">No hay riesgos registrados</h2>
+            <p className="text-muted-foreground mb-6">
               Comienza identificando los riesgos legales de tu organización
             </p>
             <button
               onClick={() => setShowNewRiskModal(true)}
-              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90"
             >
               Registrar Primer Riesgo
             </button>
@@ -314,19 +314,19 @@ export default function RisksPage() {
                 <div
                   key={risk.id}
                   onClick={() => router.push(`/dashboard/risks/${risk.id}`)}
-                  className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow cursor-pointer border-l-4 border-transparent hover:border-blue-500"
+                  className="bg-card rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow cursor-pointer border-l-4 border-transparent hover:border-primary"
                 >
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex-1">
-                      <h3 className="text-lg font-bold text-gray-900 mb-1">{risk.title}</h3>
-                      <p className="text-sm text-gray-600 line-clamp-2">{risk.description}</p>
+                      <h3 className="text-lg font-bold text-foreground mb-1">{risk.title}</h3>
+                      <p className="text-sm text-muted-foreground line-clamp-2">{risk.description}</p>
                     </div>
                     <span className={`px-3 py-1 rounded-full text-sm font-medium ${priorityConfig.color} border`}>
                       {priorityConfig.label}
                     </span>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-3">
+                  <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-3">
                     <span className="flex items-center gap-1">
                       <span className="font-medium">Categoría:</span> {risk.category}
                     </span>
@@ -345,13 +345,13 @@ export default function RisksPage() {
 
                   {risk.controlsCount > 0 && (
                     <div className="flex items-center gap-3">
-                      <div className="flex-1 bg-gray-200 rounded-full h-2">
+                      <div className="flex-1 bg-secondary rounded-full h-2">
                         <div
                           className={`h-2 rounded-full ${priorityConfig.badge}`}
                           style={{ width: `${controlProgress}%` }}
                         />
                       </div>
-                      <span className="text-sm text-gray-600">
+                      <span className="text-sm text-muted-foreground">
                         {risk.controlsImplemented}/{risk.controlsCount} controles
                       </span>
                     </div>

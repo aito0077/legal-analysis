@@ -148,23 +148,22 @@ export default function Step1ProfessionalInfo({ data, onNext, onBack }: Props) {
     formData.jurisdiction &&
     formData.yearsExperience !== undefined &&
     formData.workEnvironment;
-    //&& (formData.practiceAreas?.length || 0) > 0;
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">
+        <h2 className="text-2xl font-bold text-foreground mb-2">
           Tu Perfil Profesional
         </h2>
-        <p className="text-gray-600">
+        <p className="text-muted-foreground">
           Esta información nos ayuda a identificar los riesgos específicos de tu práctica profesional
         </p>
       </div>
 
       {/* Profesión */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Profesión <span className="text-red-500">*</span>
+        <label className="block text-sm font-medium text-muted-foreground mb-2">
+          Profesión <span className="text-destructive">*</span>
         </label>
         <select
           value={formData.profession}
@@ -172,7 +171,7 @@ export default function Step1ProfessionalInfo({ data, onNext, onBack }: Props) {
             setFormData({ ...formData, profession: e.target.value, practiceAreas: [] })
           }
           required
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+          className="w-full px-4 py-3 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
         >
           <option value="">Selecciona tu profesión</option>
           {professions.map((prof) => (
@@ -186,7 +185,7 @@ export default function Step1ProfessionalInfo({ data, onNext, onBack }: Props) {
       {/* Specialty (opcional) */}
       {formData.profession && (
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-muted-foreground mb-2">
             Especialidad (opcional)
           </label>
           <input
@@ -194,15 +193,15 @@ export default function Step1ProfessionalInfo({ data, onNext, onBack }: Props) {
             value={formData.specialty}
             onChange={(e) => setFormData({ ...formData, specialty: e.target.value })}
             placeholder="Ej: Derecho Laboral, Cirugía General, etc."
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+            className="w-full px-4 py-3 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
           />
         </div>
       )}
 
       {/* Years of Experience */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Años de Experiencia <span className="text-red-500">*</span>
+        <label className="block text-sm font-medium text-muted-foreground mb-2">
+          Años de Experiencia <span className="text-destructive">*</span>
         </label>
         <input
           type="number"
@@ -217,20 +216,20 @@ export default function Step1ProfessionalInfo({ data, onNext, onBack }: Props) {
           }
           required
           placeholder="Ej: 5"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+          className="w-full px-4 py-3 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
         />
       </div>
 
       {/* Jurisdiction */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Jurisdicción Principal <span className="text-red-500">*</span>
+        <label className="block text-sm font-medium text-muted-foreground mb-2">
+          Jurisdicción Principal <span className="text-destructive">*</span>
         </label>
         <select
           value={formData.jurisdiction}
           onChange={(e) => setFormData({ ...formData, jurisdiction: e.target.value })}
           required
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+          className="w-full px-4 py-3 border bg-transparent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
         >
           <option value="">Selecciona un país</option>
           {jurisdictions.map((jurisdiction) => (
@@ -244,27 +243,27 @@ export default function Step1ProfessionalInfo({ data, onNext, onBack }: Props) {
       {/* Practice Areas (solo si hay disponibles) */}
       {availablePracticeAreas.length > 0 && (
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Áreas de Práctica <span className="text-red-500">*</span>
+          <label className="block text-sm font-medium text-muted-foreground mb-2">
+            Áreas de Práctica <span className="text-destructive">*</span>
           </label>
-          <p className="text-xs text-gray-500 mb-3">Selecciona todas las que apliquen</p>
+          <p className="text-xs text-muted-foreground/80 mb-3">Selecciona todas las que apliquen</p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
             {availablePracticeAreas.map((area) => (
               <label
                 key={area}
                 className={`flex items-center p-3 border-2 rounded-lg cursor-pointer transition-all ${
                   formData.practiceAreas?.includes(area)
-                    ? 'border-blue-500 bg-blue-50'
-                    : 'border-gray-200 hover:border-gray-300'
+                    ? 'border-primary bg-primary/10'
+                    : 'border-border hover:border-muted-foreground'
                 }`}
               >
                 <input
                   type="checkbox"
                   checked={formData.practiceAreas?.includes(area)}
                   onChange={() => togglePracticeArea(area)}
-                  className="mr-2 text-blue-600"
+                  className="mr-2 text-primary"
                 />
-                <span className="text-sm font-medium text-gray-900">{area}</span>
+                <span className="text-sm font-medium text-foreground">{area}</span>
               </label>
             ))}
           </div>
@@ -273,8 +272,8 @@ export default function Step1ProfessionalInfo({ data, onNext, onBack }: Props) {
 
       {/* Work Environment */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Entorno de Trabajo <span className="text-red-500">*</span>
+        <label className="block text-sm font-medium text-muted-foreground mb-2">
+          Entorno de Trabajo <span className="text-destructive">*</span>
         </label>
         <div className="space-y-2">
           {workEnvironments.map((env) => (
@@ -282,8 +281,8 @@ export default function Step1ProfessionalInfo({ data, onNext, onBack }: Props) {
               key={env.value}
               className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all ${
                 formData.workEnvironment === env.value
-                  ? 'border-blue-500 bg-blue-50'
-                  : 'border-gray-200 hover:border-gray-300'
+                  ? 'border-primary bg-primary/10'
+                  : 'border-border hover:border-muted-foreground'
               }`}
             >
               <input
@@ -294,9 +293,9 @@ export default function Step1ProfessionalInfo({ data, onNext, onBack }: Props) {
                 onChange={(e) =>
                   setFormData({ ...formData, workEnvironment: e.target.value })
                 }
-                className="mr-3 text-blue-600"
+                className="mr-3 text-primary"
               />
-              <span className="text-sm font-medium text-gray-900">{env.label}</span>
+              <span className="text-sm font-medium text-foreground">{env.label}</span>
             </label>
           ))}
         </div>
@@ -304,20 +303,20 @@ export default function Step1ProfessionalInfo({ data, onNext, onBack }: Props) {
 
       {/* Professional Insurance */}
       <div>
-        <label className="flex items-start p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-blue-300 transition-all">
+        <label className="flex items-start p-4 border-2 rounded-lg cursor-pointer hover:border-primary/50 transition-all">
           <input
             type="checkbox"
             checked={formData.professionalInsurance}
             onChange={(e) =>
               setFormData({ ...formData, professionalInsurance: e.target.checked })
             }
-            className="mt-1 mr-3 text-blue-600"
+            className="mt-1 mr-3 text-primary"
           />
           <div>
-            <span className="text-sm font-medium text-gray-900 block">
+            <span className="text-sm font-medium text-foreground block">
               Cuento con Seguro de Responsabilidad Profesional
             </span>
-            <span className="text-xs text-gray-500">
+            <span className="text-xs text-muted-foreground/80">
               Importante para la evaluación de tu exposición al riesgo
             </span>
           </div>
@@ -325,11 +324,11 @@ export default function Step1ProfessionalInfo({ data, onNext, onBack }: Props) {
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-between pt-6 border-t border-gray-200">
+      <div className="flex justify-between pt-6 border-t">
         <button
           type="button"
           onClick={onBack}
-          className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors flex items-center gap-2"
+          className="px-6 py-3 border rounded-lg text-muted-foreground font-semibold hover:bg-accent transition-colors flex items-center gap-2"
         >
           <ArrowLeft className="h-5 w-5" />
           Atrás
@@ -337,7 +336,7 @@ export default function Step1ProfessionalInfo({ data, onNext, onBack }: Props) {
         <button
           type="submit"
           disabled={!isValid}
-          className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+          className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
         >
           Continuar
           <ArrowRight className="h-5 w-5" />

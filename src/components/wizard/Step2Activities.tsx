@@ -55,7 +55,6 @@ export default function Step2Activities({ data, onNext, onBack }: Props) {
           return;
         }
 
-        // Construir query params
         const params = new URLSearchParams({
           profileType,
         });
@@ -116,8 +115,8 @@ export default function Step2Activities({ data, onNext, onBack }: Props) {
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center py-12">
-        <Loader2 className="h-12 w-12 text-blue-600 animate-spin mb-4" />
-        <p className="text-gray-600">Cargando actividades y riesgos específicos...</p>
+        <Loader2 className="h-12 w-12 text-primary animate-spin mb-4" />
+        <p className="text-muted-foreground">Cargando actividades y riesgos específicos...</p>
       </div>
     );
   }
@@ -125,18 +124,18 @@ export default function Step2Activities({ data, onNext, onBack }: Props) {
   if (error) {
     return (
       <div className="space-y-6">
-        <div className="flex items-center gap-3 p-4 bg-red-50 border border-red-200 rounded-lg">
-          <AlertCircle className="h-6 w-6 text-red-600" />
+        <div className="flex items-center gap-3 p-4 bg-destructive/10 border border-destructive/20 rounded-lg">
+          <AlertCircle className="h-6 w-6 text-destructive" />
           <div>
-            <p className="font-semibold text-red-900">Error al cargar datos</p>
-            <p className="text-sm text-red-700">{error}</p>
+            <p className="font-semibold text-destructive">Error al cargar datos</p>
+            <p className="text-sm text-destructive/80">{error}</p>
           </div>
         </div>
         <div className="flex justify-between">
           <button
             type="button"
             onClick={onBack}
-            className="px-8 py-3 bg-white border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors flex items-center gap-2"
+            className="px-8 py-3 border rounded-lg text-muted-foreground font-semibold hover:bg-accent transition-colors flex items-center gap-2"
           >
             <ArrowLeft className="h-5 w-5" />
             Atrás
@@ -149,8 +148,8 @@ export default function Step2Activities({ data, onNext, onBack }: Props) {
   return (
     <form onSubmit={handleSubmit} className="space-y-8">
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Actividades y Riesgos</h2>
-        <p className="text-gray-600">
+        <h2 className="text-2xl font-bold text-foreground mb-2">Actividades y Riesgos</h2>
+        <p className="text-muted-foreground">
           Selecciona las actividades que realizas y las áreas de riesgo específicas para tu{' '}
           {data.profileType === 'PROFESSIONAL' ? 'profesión' : 'tipo de negocio'}
         </p>
@@ -158,27 +157,27 @@ export default function Step2Activities({ data, onNext, onBack }: Props) {
 
       {/* Business Activities */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-3">
-          Actividades Principales <span className="text-red-500">*</span>
+        <label className="block text-sm font-medium text-muted-foreground mb-3">
+          Actividades Principales <span className="text-destructive">*</span>
         </label>
-        <p className="text-sm text-gray-500 mb-3">Selecciona al menos una actividad</p>
+        <p className="text-sm text-muted-foreground/80 mb-3">Selecciona al menos una actividad</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {activities.map((activity) => (
             <label
               key={activity.code}
               className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all ${
                 formData.businessActivities?.includes(activity.code)
-                  ? 'border-blue-500 bg-blue-50'
-                  : 'border-gray-200 hover:border-gray-300'
+                  ? 'border-primary bg-primary/10'
+                  : 'border-border hover:border-muted-foreground'
               }`}
             >
               <input
                 type="checkbox"
                 checked={formData.businessActivities?.includes(activity.code)}
                 onChange={() => handleActivityToggle(activity.code)}
-                className="mr-3 text-blue-600"
+                className="mr-3 text-primary"
               />
-              <span className="text-sm font-medium text-gray-900">{activity.label}</span>
+              <span className="text-sm font-medium text-foreground">{activity.label}</span>
             </label>
           ))}
         </div>
@@ -186,10 +185,10 @@ export default function Step2Activities({ data, onNext, onBack }: Props) {
 
       {/* Risk Exposure Areas */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-3">
-          Áreas de Exposición al Riesgo <span className="text-red-500">*</span>
+        <label className="block text-sm font-medium text-muted-foreground mb-3">
+          Áreas de Exposición al Riesgo <span className="text-destructive">*</span>
         </label>
-        <p className="text-sm text-gray-500 mb-3">
+        <p className="text-sm text-muted-foreground/80 mb-3">
           Selecciona las áreas donde consideras mayor exposición al riesgo
         </p>
         <div className="space-y-3">
@@ -198,23 +197,23 @@ export default function Step2Activities({ data, onNext, onBack }: Props) {
               key={risk.code}
               className={`flex items-start p-4 border-2 rounded-lg cursor-pointer transition-all ${
                 formData.riskExposure?.includes(risk.code)
-                  ? 'border-blue-500 bg-blue-50'
-                  : 'border-gray-200 hover:border-gray-300'
+                  ? 'border-primary bg-primary/10'
+                  : 'border-border hover:border-muted-foreground'
               }`}
             >
               <input
                 type="checkbox"
                 checked={formData.riskExposure?.includes(risk.code)}
                 onChange={() => handleRiskToggle(risk.code)}
-                className="mr-3 mt-1 text-blue-600"
+                className="mr-3 mt-1 text-primary"
               />
               <div className="flex-1">
-                <p className="text-sm font-semibold text-gray-900">{risk.label}</p>
-                <p className="text-xs text-gray-600 mt-1">{risk.description}</p>
+                <p className="text-sm font-semibold text-foreground">{risk.label}</p>
+                <p className="text-xs text-muted-foreground mt-1">{risk.description}</p>
                 {risk.examples && risk.examples.length > 0 && (
                   <div className="mt-2">
-                    <p className="text-xs text-gray-500 font-medium">Ejemplos:</p>
-                    <ul className="text-xs text-gray-500 list-disc list-inside mt-1">
+                    <p className="text-xs text-muted-foreground font-medium">Ejemplos:</p>
+                    <ul className="text-xs text-muted-foreground list-disc list-inside mt-1">
                       {risk.examples.slice(0, 3).map((example, idx) => (
                         <li key={idx}>{example}</li>
                       ))}
@@ -228,11 +227,11 @@ export default function Step2Activities({ data, onNext, onBack }: Props) {
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-between pt-6 border-t border-gray-200">
+      <div className="flex justify-between pt-6 border-t">
         <button
           type="button"
           onClick={onBack}
-          className="px-8 py-3 bg-white border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors flex items-center gap-2"
+          className="px-8 py-3 border rounded-lg text-muted-foreground font-semibold hover:bg-accent transition-colors flex items-center gap-2"
         >
           <ArrowLeft className="h-5 w-5" />
           Atrás
@@ -240,7 +239,7 @@ export default function Step2Activities({ data, onNext, onBack }: Props) {
         <button
           type="submit"
           disabled={!isValid}
-          className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+          className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
         >
           Continuar
           <ArrowRight className="h-5 w-5" />
