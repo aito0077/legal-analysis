@@ -15,6 +15,7 @@ import {
   X,
   ChevronRight,
 } from 'lucide-react';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 type NavItem = {
   name: string;
@@ -78,11 +79,11 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Mobile sidebar backdrop */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-gray-900 bg-opacity-50 z-40 lg:hidden"
+          className="fixed inset-0 bg-background/80 z-40 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
@@ -90,22 +91,22 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       {/* Sidebar */}
       <aside
         className={`
-          fixed top-0 left-0 z-50 h-full w-64 bg-white border-r border-gray-200 transform transition-transform duration-300 ease-in-out
+          fixed top-0 left-0 z-50 h-full w-64 bg-card border-r transform transition-transform duration-300 ease-in-out
           ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
           lg:translate-x-0
         `}
       >
         {/* Logo */}
-        <div className="h-16 flex items-center justify-between px-6 border-b border-gray-200">
+        <div className="h-16 flex items-center justify-between px-6 border-b">
           <div className="flex items-center gap-2">
-            <Shield className="h-8 w-8 text-blue-600" />
-            <span className="text-xl font-bold text-gray-900">LegalRisk</span>
+            <Shield className="h-8 w-8 text-primary" />
+            <span className="text-xl font-bold text-foreground">LegalRisk</span>
           </div>
           <button
             onClick={() => setSidebarOpen(false)}
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100"
+            className="lg:hidden p-2 rounded-lg hover:bg-accent"
           >
-            <X className="h-5 w-5 text-gray-600" />
+            <X className="h-5 w-5 text-muted-foreground" />
           </button>
         </div>
 
@@ -126,33 +127,36 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                   w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all
                   ${
                     active
-                      ? 'bg-blue-50 text-blue-700 font-semibold'
-                      : 'text-gray-700 hover:bg-gray-50'
+                      ? 'bg-secondary text-primary font-semibold'
+                      : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'
                   }
                 `}
               >
-                <Icon className={`h-5 w-5 ${active ? 'text-blue-600' : 'text-gray-500'}`} />
+                <Icon className={`h-5 w-5 ${active ? 'text-primary' : 'text-muted-foreground'}`} />
                 <div className="flex-1 text-left">
                   <div className="font-medium">{item.name}</div>
-                  <div className="text-xs text-gray-500">{item.description}</div>
+                  <div className="text-xs text-muted-foreground">{item.description}</div>
                 </div>
-                {active && <ChevronRight className="h-4 w-4 text-blue-600" />}
+                {active && <ChevronRight className="h-4 w-4 text-primary" />}
               </button>
             );
           })}
         </nav>
 
         {/* User info and logout (bottom of sidebar) */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 bg-white">
-          <div className="mb-3 px-4 py-2 bg-gray-50 rounded-lg">
-            <p className="text-sm font-semibold text-gray-900 truncate">
-              {session?.user?.name || 'Usuario'}
-            </p>
-            <p className="text-xs text-gray-500 truncate">{session?.user?.email}</p>
+        <div className="absolute bottom-0 left-0 right-0 p-4 border-t bg-card">
+          <div className="flex items-center justify-between mb-3 px-4 py-2 bg-secondary rounded-lg">
+            <div>
+              <p className="text-sm font-semibold text-foreground truncate">
+                {session?.user?.name || 'Usuario'}
+              </p>
+              <p className="text-xs text-muted-foreground truncate">{session?.user?.email}</p>
+            </div>
+            <ThemeToggle />
           </div>
           <button
             onClick={handleLogout}
-            className="w-full flex items-center gap-3 px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+            className="w-full flex items-center gap-3 px-4 py-2 text-destructive hover:bg-destructive/10 rounded-lg transition-colors"
           >
             <LogOut className="h-5 w-5" />
             <span className="font-medium">Cerrar Sesión</span>
@@ -163,16 +167,16 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       {/* Main content */}
       <div className="lg:pl-64">
         {/* Top bar (mobile) */}
-        <header className="lg:hidden sticky top-0 z-30 h-16 bg-white border-b border-gray-200 flex items-center px-4">
+        <header className="lg:hidden sticky top-0 z-30 h-16 bg-card border-b flex items-center px-4">
           <button
             onClick={() => setSidebarOpen(true)}
-            className="p-2 rounded-lg hover:bg-gray-100"
+            className="p-2 rounded-lg hover:bg-accent"
           >
-            <Menu className="h-6 w-6 text-gray-600" />
+            <Menu className="h-6 w-6 text-muted-foreground" />
           </button>
           <div className="flex-1 flex items-center justify-center">
-            <Shield className="h-6 w-6 text-blue-600 mr-2" />
-            <span className="text-lg font-bold text-gray-900">LegalRisk</span>
+            <Shield className="h-6 w-6 text-primary mr-2" />
+            <span className="text-lg font-bold text-foreground">LegalRisk</span>
           </div>
           <div className="w-10" /> {/* Spacer for centering */}
         </header>

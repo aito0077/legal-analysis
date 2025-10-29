@@ -26,12 +26,10 @@ export default function AIAssistantWidget() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Scroll to bottom when new messages arrive
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  // Focus input when opened
   useEffect(() => {
     if (isOpen && !isMinimized) {
       inputRef.current?.focus();
@@ -103,7 +101,7 @@ export default function AIAssistantWidget() {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105"
       >
         <Sparkles className="h-5 w-5" />
         <span className="font-medium">Asistente IA</span>
@@ -113,16 +111,14 @@ export default function AIAssistantWidget() {
 
   return (
     <div
-      className={`fixed bottom-6 right-6 z-50 bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col transition-all ${
-        isMinimized ? 'w-80 h-16' : 'w-96 h-[600px]'
-      }`}
+      className={`fixed bottom-6 right-6 z-50 bg-card rounded-2xl shadow-2xl border flex flex-col transition-all ${isMinimized ? 'w-80 h-16' : 'w-96 h-[600px]'}`}
     >
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-t-2xl">
+      <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-t-2xl">
         <div className="flex items-center gap-2">
           <div className="relative">
             <Sparkles className="h-6 w-6" />
-            <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
+            <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-card animate-pulse"></div>
           </div>
           <div>
             <h3 className="font-semibold text-sm">Asistente de IA</h3>
@@ -132,13 +128,13 @@ export default function AIAssistantWidget() {
         <div className="flex items-center gap-2">
           <button
             onClick={() => setIsMinimized(!isMinimized)}
-            className="p-1.5 hover:bg-white/20 rounded-lg transition-colors"
+            className="p-1.5 hover:bg-background/20 rounded-lg transition-colors"
           >
             <Minimize2 className="h-4 w-4" />
           </button>
           <button
             onClick={() => setIsOpen(false)}
-            className="p-1.5 hover:bg-white/20 rounded-lg transition-colors"
+            className="p-1.5 hover:bg-background/20 rounded-lg transition-colors"
           >
             <X className="h-4 w-4" />
           </button>
@@ -155,23 +151,17 @@ export default function AIAssistantWidget() {
                 className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`max-w-[85%] rounded-2xl px-4 py-2.5 ${
-                    message.role === 'user'
-                      ? 'bg-purple-600 text-white'
-                      : 'bg-gray-100 text-gray-900'
-                  }`}
+                  className={`max-w-[85%] rounded-2xl px-4 py-2.5 ${message.role === 'user' ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground'}`}
                 >
                   {message.role === 'assistant' ? (
-                    <div className="prose prose-sm max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-strong:text-gray-900 prose-ul:text-gray-700">
+                    <div className="prose prose-sm max-w-none prose-p:text-muted-foreground prose-strong:text-foreground prose-ul:text-muted-foreground">
                       <ReactMarkdown>{message.content}</ReactMarkdown>
                     </div>
                   ) : (
                     <p className="text-sm whitespace-pre-wrap">{message.content}</p>
                   )}
                   <span
-                    className={`text-xs mt-1 block ${
-                      message.role === 'user' ? 'text-purple-200' : 'text-gray-500'
-                    }`}
+                    className={`text-xs mt-1 block ${message.role === 'user' ? 'text-primary-foreground/80' : 'text-muted-foreground'}`}
                   >
                     {message.timestamp.toLocaleTimeString('es-AR', {
                       hour: '2-digit',
@@ -184,9 +174,9 @@ export default function AIAssistantWidget() {
 
             {loading && (
               <div className="flex justify-start">
-                <div className="bg-gray-100 rounded-2xl px-4 py-3 flex items-center gap-2">
-                  <Loader2 className="h-4 w-4 animate-spin text-purple-600" />
-                  <span className="text-sm text-gray-600">Pensando...</span>
+                <div className="bg-secondary rounded-2xl px-4 py-3 flex items-center gap-2">
+                  <Loader2 className="h-4 w-4 animate-spin text-primary" />
+                  <span className="text-sm text-muted-foreground">Pensando...</span>
                 </div>
               </div>
             )}
@@ -195,7 +185,7 @@ export default function AIAssistantWidget() {
           </div>
 
           {/* Input Area */}
-          <div className="border-t border-gray-200 p-3">
+          <div className="border-t p-3">
             <div className="flex items-end gap-2">
               <input
                 ref={inputRef}
@@ -205,17 +195,17 @@ export default function AIAssistantWidget() {
                 onKeyPress={handleKeyPress}
                 placeholder="Escribe tu pregunta..."
                 disabled={loading}
-                className="flex-1 px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent disabled:bg-gray-100 text-sm"
+                className="flex-1 px-4 py-2.5 border bg-transparent rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent disabled:bg-muted text-sm"
               />
               <button
                 onClick={handleSendMessage}
                 disabled={!inputMessage.trim() || loading}
-                className="p-2.5 bg-purple-600 text-white rounded-xl hover:bg-purple-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                className="p-2.5 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 disabled:bg-muted disabled:cursor-not-allowed transition-colors"
               >
                 <Send className="h-5 w-5" />
               </button>
             </div>
-            <p className="text-xs text-gray-500 mt-2 px-1">
+            <p className="text-xs text-muted-foreground mt-2 px-1">
               El asistente usa IA y puede cometer errores. Verifica la información importante.
             </p>
           </div>
@@ -224,10 +214,10 @@ export default function AIAssistantWidget() {
 
       {isMinimized && (
         <div className="flex items-center justify-between px-4 h-full">
-          <p className="text-sm text-gray-600">Chat minimizado</p>
+          <p className="text-sm text-muted-foreground">Chat minimizado</p>
           <button
             onClick={() => setIsMinimized(false)}
-            className="text-sm text-purple-600 hover:text-purple-700 font-medium"
+            className="text-sm text-primary hover:text-primary/90 font-medium"
           >
             Expandir
           </button>
