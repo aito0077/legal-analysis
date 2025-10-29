@@ -16,6 +16,8 @@
     "seed:protocols": "tsx prisma/seed-protocols.ts",
     "generate:scenarios": "tsx prisma/generators/generate-scenarios.ts",
     "seed:scenarios": "tsx prisma/seed-scenarios.ts",
+    "generate:wizard-data": "tsx prisma/generators/generate-wizard-data.ts",
+    "seed:wizard-data": "tsx prisma/seed-wizard-data-generated.ts",
     "db:push": "prisma db push",
     "db:generate": "prisma generate"
   },

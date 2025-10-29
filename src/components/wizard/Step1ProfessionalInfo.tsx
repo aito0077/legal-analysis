@@ -147,8 +147,8 @@ export default function Step1ProfessionalInfo({ data, onNext, onBack }: Props) {
     formData.profession &&
     formData.jurisdiction &&
     formData.yearsExperience !== undefined &&
-    formData.workEnvironment &&
-    (formData.practiceAreas?.length || 0) > 0;
+    formData.workEnvironment;
+    //&& (formData.practiceAreas?.length || 0) > 0;
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">

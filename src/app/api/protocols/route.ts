@@ -1,84 +1,76 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
+import { BusinessType } from '@prisma/client';
 
 export async function GET(req: NextRequest) {
   try {
-    const session = await auth();
+    const { searchParams } = new URL(req.url);
+    const businessType = searchParams.get('businessType');
+    const jurisdiction = searchParams.get('jurisdiction');
+    const category = searchParams.get('category');
 
-    if (!session?.user?.id) {
-      return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
+    // Build where clause
+    const whereClause: any = {
+      isPublic: true,
+      type: 'SYSTEM', // Only show official protocols
+    };
+
+    // Filter by business type if provided
+    if (businessType) {
+      whereClause.businessTypes = {
+        has: businessType as BusinessType,
+      };
     }
 
-    const { searchParams } = new URL(req.url);
-    const status = searchParams.get('status');
-    const search = searchParams.get('search');
+    // Filter by jurisdiction if provided
+    if (jurisdiction) {
+      whereClause.jurisdictions = {
+        has: jurisdiction,
+      };
+    }
 
-    // Get user's assigned protocols
-    const userProtocols = await prisma.userProtocol.findMany({
-      where: {
-        userId: session.user.id,
-        ...(status && { status: status as any }),
-      },
+    // Filter by category if provided
+    if (category) {
+      whereClause.categoryId = category;
+    }
+
+    // Fetch protocols from database
+    const protocols = await prisma.protocol.findMany({
+      where: whereClause,
       include: {
-        protocol: {
-          include: {
-            category: true,
-          },
-        },
+        category: true,
       },
       orderBy: [
-        { status: 'asc' },
-        { assignedAt: 'desc' },
+        { usageCount: 'desc' },
+        { createdAt: 'desc' },
       ],
     });
 
-    // Filter by search term if provided
-    let filteredProtocols = userProtocols;
-    if (search) {
-      const searchLower = search.toLowerCase();
-      filteredProtocols = userProtocols.filter(
-        (up) =>
-          up.protocol.title.toLowerCase().includes(searchLower) ||
-          up.protocol.description.toLowerCase().includes(searchLower)
-      );
-    }
-
     // Format response
-    const protocols = filteredProtocols.map((up) => ({
-      id: up.id,
-      protocolId: up.protocolId,
-      title: up.protocol.title,
-      description: up.protocol.description,
-      category: up.protocol.category?.name || 'General',
-      status: up.status,
-      progress: up.progress,
-      assignedAt: up.assignedAt,
-      startedAt: up.startedAt,
-      completedAt: up.completedAt,
-      type: up.protocol.type,
+    const formattedProtocols = protocols.map((protocol) => ({
+      id: protocol.id,
+      title: protocol.title,
+      description: protocol.description,
+      content: protocol.content,
+      type: protocol.type,
+      category: protocol.category?.name || 'General',
+      categoryId: protocol.categoryId,
+      businessTypes: protocol.businessTypes,
+      jurisdictions: protocol.jurisdictions,
+      isVerified: protocol.isVerified,
+      usageCount: protocol.usageCount,
+      upvotes: protocol.upvotes,
+      createdAt: protocol.createdAt,
     }));
 
-    // Calculate statistics
-    const stats = {
-      total: protocols.length,
-      pending: protocols.filter((p) => p.status === 'PENDING').length,
-      inProgress: protocols.filter((p) => p.status === 'IN_PROGRESS').length,
-      completed: protocols.filter((p) => p.status === 'COMPLETED').length,
-      archived: protocols.filter((p) => p.status === 'ARCHIVED').length,
-      averageProgress: protocols.length > 0
-        ? Math.round(protocols.reduce((sum, p) => sum + p.progress, 0) / protocols.length)
-        : 0,
-    };
-
     return NextResponse.json({
-      protocols,
-      stats,
+      protocols: formattedProtocols,
+      total: formattedProtocols.length,
     });
   } catch (error) {
     console.error('Error fetching protocols:', error);
     return NextResponse.json(
-      { error: 'Error al cargar protocolos', details: error instanceof Error ? error.message : 'Unknown error' },
+      { error: 'Error al cargar protocolos' },
       { status: 500 }
     );
   }

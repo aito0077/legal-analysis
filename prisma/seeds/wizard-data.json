@@ -1,0 +1,4446 @@
+{
+  "activities": [
+    {
+      "code": "asesoramiento_legal",
+      "label": "Asesoramiento Legal",
+      "description": "Brindar orientación y consejo jurídico a clientes sobre diversos temas legales",
+      "category": "Legal",
+      "order": 1,
+      "professions": [
+        "LAWYER"
+      ]
+    },
+    {
+      "code": "redaccion_contratos",
+      "label": "Redacción de Contratos",
+      "description": "Elaboración, revisión y negociación de documentos contractuales",
+      "category": "Legal",
+      "order": 2,
+      "professions": [
+        "LAWYER"
+      ]
+    },
+    {
+      "code": "representacion_judicial",
+      "label": "Representación Judicial",
+      "description": "Actuación en juicios y procedimientos judiciales ante tribunales",
+      "category": "Legal",
+      "order": 3,
+      "professions": [
+        "LAWYER"
+      ]
+    },
+    {
+      "code": "gestion_expedientes",
+      "label": "Gestión de Expedientes",
+      "description": "Administración y seguimiento de carpetas y documentos legales",
+      "category": "Administrativo",
+      "order": 4,
+      "professions": [
+        "LAWYER"
+      ]
+    },
+    {
+      "code": "mediacion_negociacion",
+      "label": "Mediación y Negociación",
+      "description": "Facilitar acuerdos entre partes en conflictos legales",
+      "category": "Operaciones",
+      "order": 5,
+      "professions": [
+        "LAWYER"
+      ]
+    },
+    {
+      "code": "due_diligence",
+      "label": "Due Diligence",
+      "description": "Investigación y verificación legal de empresas y activos",
+      "category": "Técnico",
+      "order": 6,
+      "professions": [
+        "LAWYER"
+      ]
+    },
+    {
+      "code": "atencion_pacientes",
+      "label": "Atención de Pacientes",
+      "description": "Consulta, diagnóstico y tratamiento médico de pacientes",
+      "category": "Operaciones",
+      "order": 1,
+      "professions": [
+        "DOCTOR"
+      ]
+    },
+    {
+      "code": "prescripcion_medicamentos",
+      "label": "Prescripción de Medicamentos",
+      "description": "Indicación y receta de fármacos y tratamientos",
+      "category": "Técnico",
+      "order": 2,
+      "professions": [
+        "DOCTOR"
+      ]
+    },
+    {
+      "code": "documentacion_clinica",
+      "label": "Documentación Clínica",
+      "description": "Registro de historias clínicas y documentación médica",
+      "category": "Administrativo",
+      "order": 3,
+      "professions": [
+        "DOCTOR"
+      ]
+    },
+    {
+      "code": "procedimientos_invasivos",
+      "label": "Procedimientos Invasivos",
+      "description": "Realización de intervenciones y procedimientos médicos",
+      "category": "Técnico",
+      "order": 4,
+      "professions": [
+        "DOCTOR"
+      ]
+    },
+    {
+      "code": "consentimiento_informado",
+      "label": "Consentimiento Informado",
+      "description": "Obtención de autorizaciones y consentimientos de pacientes",
+      "category": "Legal",
+      "order": 5,
+      "professions": [
+        "DOCTOR"
+      ]
+    },
+    {
+      "code": "facturacion_obras_sociales",
+      "label": "Facturación a Obras Sociales",
+      "description": "Gestión de facturación y cobranza con prestadores de salud",
+      "category": "Administrativo",
+      "order": 6,
+      "professions": [
+        "DOCTOR"
+      ]
+    },
+    {
+      "code": "atencion_pacientes",
+      "label": "Atención de Pacientes",
+      "description": "Consulta, diagnóstico y tratamiento odontológico",
+      "category": "Operaciones",
+      "order": 1,
+      "professions": [
+        "DENTIST"
+      ]
+    },
+    {
+      "code": "documentacion_clinica",
+      "label": "Documentación Clínica",
+      "description": "Registro de historias clínicas y consentimientos informados",
+      "category": "Legal",
+      "order": 2,
+      "professions": [
+        "DENTIST"
+      ]
+    },
+    {
+      "code": "facturacion_cobranzas",
+      "label": "Facturación y Cobranzas",
+      "description": "Emisión de facturas y gestión de cobros a pacientes y obras sociales",
+      "category": "Administrativo",
+      "order": 3,
+      "professions": [
+        "DENTIST"
+      ]
+    },
+    {
+      "code": "procedimientos_quirurgicos",
+      "label": "Procedimientos Quirúrgicos",
+      "description": "Cirugías bucales, implantes y extracciones complejas",
+      "category": "Técnico",
+      "order": 4,
+      "professions": [
+        "DENTIST"
+      ]
+    },
+    {
+      "code": "esterilizacion_bioseguridad",
+      "label": "Esterilización y Bioseguridad",
+      "description": "Procesos de desinfección y control de infecciones",
+      "category": "Técnico",
+      "order": 5,
+      "professions": [
+        "DENTIST"
+      ]
+    },
+    {
+      "code": "gestion_obras_sociales",
+      "label": "Gestión con Obras Sociales",
+      "description": "Trámites y autorizaciones con entidades de salud",
+      "category": "Administrativo",
+      "order": 6,
+      "professions": [
+        "DENTIST"
+      ]
+    },
+    {
+      "code": "diseno_proyectual",
+      "label": "Diseño Proyectual",
+      "description": "Desarrollo de anteproyectos, proyectos ejecutivos y dirección de obra",
+      "category": "Técnico",
+      "order": 1,
+      "professions": [
+        "ARCHITECT"
+      ]
+    },
+    {
+      "code": "direccion_obra",
+      "label": "Dirección de Obra",
+      "description": "Supervisión y control técnico de la ejecución de obras",
+      "category": "Técnico",
+      "order": 2,
+      "professions": [
+        "ARCHITECT"
+      ]
+    },
+    {
+      "code": "gestion_permisos",
+      "label": "Gestión de Permisos Municipales",
+      "description": "Tramitación de aprobaciones y habilitaciones ante municipios",
+      "category": "Administrativo",
+      "order": 3,
+      "professions": [
+        "ARCHITECT"
+      ]
+    },
+    {
+      "code": "redaccion_contratos",
+      "label": "Redacción de Contratos",
+      "description": "Elaboración de contratos de servicios profesionales y construcción",
+      "category": "Legal",
+      "order": 4,
+      "professions": [
+        "ARCHITECT"
+      ]
+    },
+    {
+      "code": "certificaciones_tecnicas",
+      "label": "Certificaciones Técnicas",
+      "description": "Emisión de certificados de superficie, estado y final de obra",
+      "category": "Técnico",
+      "order": 5,
+      "professions": [
+        "ARCHITECT"
+      ]
+    },
+    {
+      "code": "gestion_proveedores",
+      "label": "Gestión de Proveedores",
+      "description": "Selección y coordinación con contratistas y proveedores",
+      "category": "Operaciones",
+      "order": 6,
+      "professions": [
+        "ARCHITECT"
+      ]
+    },
+    {
+      "code": "diseno_proyectos",
+      "label": "Diseño de Proyectos",
+      "description": "Elaboración de planos, cálculos estructurales y especificaciones técnicas",
+      "category": "Técnico",
+      "order": 1,
+      "professions": [
+        "ENGINEER"
+      ]
+    },
+    {
+      "code": "direccion_obra",
+      "label": "Dirección de Obra",
+      "description": "Supervisión y control de la ejecución de obras civiles",
+      "category": "Operaciones",
+      "order": 2,
+      "professions": [
+        "ENGINEER"
+      ]
+    },
+    {
+      "code": "certificaciones_tecnicas",
+      "label": "Certificaciones Técnicas",
+      "description": "Emisión de certificados de aptitud técnica y habilitaciones",
+      "category": "Legal",
+      "order": 3,
+      "professions": [
+        "ENGINEER"
+      ]
+    },
+    {
+      "code": "gestion_contratos",
+      "label": "Gestión de Contratos",
+      "description": "Redacción y administración de contratos de obra y servicios",
+      "category": "Administrativo",
+      "order": 4,
+      "professions": [
+        "ENGINEER"
+      ]
+    },
+    {
+      "code": "control_calidad",
+      "label": "Control de Calidad",
+      "description": "Verificación de cumplimiento de normas y especificaciones técnicas",
+      "category": "Técnico",
+      "order": 5,
+      "professions": [
+        "ENGINEER"
+      ]
+    },
+    {
+      "code": "evaluacion_riesgos",
+      "label": "Evaluación de Riesgos",
+      "description": "Análisis de riesgos técnicos y estructurales en proyectos",
+      "category": "Técnico",
+      "order": 6,
+      "professions": [
+        "ENGINEER"
+      ]
+    },
+    {
+      "code": "diseno_estructural",
+      "label": "Diseño Estructural",
+      "description": "Cálculo y diseño de estructuras de edificios y obras civiles",
+      "category": "Técnico",
+      "order": 1,
+      "professions": [
+        "CIVIL_ENGINEER"
+      ]
+    },
+    {
+      "code": "direccion_obra",
+      "label": "Dirección de Obra",
+      "description": "Supervisión y control de la ejecución de obras de construcción",
+      "category": "Operaciones",
+      "order": 2,
+      "professions": [
+        "CIVIL_ENGINEER"
+      ]
+    },
+    {
+      "code": "certificaciones_tecnicas",
+      "label": "Certificaciones Técnicas",
+      "description": "Emisión de certificados de solvencia técnica y estado de obras",
+      "category": "Legal",
+      "order": 3,
+      "professions": [
+        "CIVIL_ENGINEER"
+      ]
+    },
+    {
+      "code": "gestion_contratos",
+      "label": "Gestión de Contratos",
+      "description": "Elaboración y administración de contratos de obra y servicios",
+      "category": "Administrativo",
+      "order": 4,
+      "professions": [
+        "CIVIL_ENGINEER"
+      ]
+    },
+    {
+      "code": "control_calidad",
+      "label": "Control de Calidad",
+      "description": "Verificación de cumplimiento de normas y especificaciones técnicas",
+      "category": "Técnico",
+      "order": 5,
+      "professions": [
+        "CIVIL_ENGINEER"
+      ]
+    },
+    {
+      "code": "informes_periciales",
+      "label": "Informes Periciales",
+      "description": "Elaboración de informes técnicos para procesos judiciales",
+      "category": "Legal",
+      "order": 6,
+      "professions": [
+        "CIVIL_ENGINEER"
+      ]
+    },
+    {
+      "code": "liquidacion_impuestos",
+      "label": "Liquidación de Impuestos",
+      "description": "Preparación y presentación de declaraciones juradas impositivas",
+      "category": "Técnico",
+      "order": 1,
+      "professions": [
+        "ACCOUNTANT"
+      ]
+    },
+    {
+      "code": "auditoria_contable",
+      "label": "Auditoría Contable",
+      "description": "Revisión y verificación de estados contables y registros financieros",
+      "category": "Técnico",
+      "order": 2,
+      "professions": [
+        "ACCOUNTANT"
+      ]
+    },
+    {
+      "code": "asesoramiento_fiscal",
+      "label": "Asesoramiento Fiscal",
+      "description": "Consultoría en planificación fiscal y optimización tributaria",
+      "category": "Legal",
+      "order": 3,
+      "professions": [
+        "ACCOUNTANT"
+      ]
+    },
+    {
+      "code": "confeccion_estados_contables",
+      "label": "Confección de Estados Contables",
+      "description": "Elaboración de balances, estados de resultados y anexos",
+      "category": "Técnico",
+      "order": 4,
+      "professions": [
+        "ACCOUNTANT"
+      ]
+    },
+    {
+      "code": "gestion_societaria",
+      "label": "Gestión Societaria",
+      "description": "Constitución de sociedades y cumplimiento de obligaciones societarias",
+      "category": "Legal",
+      "order": 5,
+      "professions": [
+        "ACCOUNTANT"
+      ]
+    },
+    {
+      "code": "administracion_honorarios",
+      "label": "Administración de Honorarios",
+      "description": "Facturación, cobranza y gestión económica del estudio",
+      "category": "Administrativo",
+      "order": 6,
+      "professions": [
+        "ACCOUNTANT"
+      ]
+    },
+    {
+      "code": "diagnostico_organizacional",
+      "label": "Diagnóstico Organizacional",
+      "description": "Análisis integral de la estructura y procesos de la organización cliente",
+      "category": "Técnico",
+      "order": 1,
+      "professions": [
+        "CONSULTANT"
+      ]
+    },
+    {
+      "code": "elaboracion_informes",
+      "label": "Elaboración de Informes",
+      "description": "Redacción de documentos técnicos con recomendaciones y conclusiones",
+      "category": "Técnico",
+      "order": 2,
+      "professions": [
+        "CONSULTANT"
+      ]
+    },
+    {
+      "code": "asesoramiento_estrategico",
+      "label": "Asesoramiento Estratégico",
+      "description": "Provisión de recomendaciones para la toma de decisiones empresariales",
+      "category": "Operaciones",
+      "order": 3,
+      "professions": [
+        "CONSULTANT"
+      ]
+    },
+    {
+      "code": "gestion_contratos",
+      "label": "Gestión de Contratos",
+      "description": "Negociación y redacción de acuerdos con clientes y proveedores",
+      "category": "Legal",
+      "order": 4,
+      "professions": [
+        "CONSULTANT"
+      ]
+    },
+    {
+      "code": "procesamiento_datos",
+      "label": "Procesamiento de Datos",
+      "description": "Manejo y análisis de información confidencial de clientes",
+      "category": "Administrativo",
+      "order": 5,
+      "professions": [
+        "CONSULTANT"
+      ]
+    },
+    {
+      "code": "facturacion_servicios",
+      "label": "Facturación de Servicios",
+      "description": "Emisión de comprobantes y gestión de cobranzas",
+      "category": "Administrativo",
+      "order": 6,
+      "professions": [
+        "CONSULTANT"
+      ]
+    },
+    {
+      "code": "autorizacion_actos_notariales",
+      "label": "Autorización de Actos Notariales",
+      "description": "Otorgar fe pública en instrumentos públicos y privados",
+      "category": "Legal",
+      "order": 1,
+      "professions": [
+        "NOTARY"
+      ]
+    },
+    {
+      "code": "inscripcion_registral",
+      "label": "Inscripción Registral",
+      "description": "Gestión de inscripciones en registros de la propiedad y otros",
+      "category": "Operaciones",
+      "order": 2,
+      "professions": [
+        "NOTARY"
+      ]
+    },
+    {
+      "code": "certificaciones_firmas",
+      "label": "Certificación de Firmas y Copias",
+      "description": "Certificar autenticidad de firmas y fidelidad de copias",
+      "category": "Legal",
+      "order": 3,
+      "professions": [
+        "NOTARY"
+      ]
+    },
+    {
+      "code": "protocolizacion_documentos",
+      "label": "Protocolización de Documentos",
+      "description": "Organización y custodia del protocolo notarial",
+      "category": "Administrativo",
+      "order": 4,
+      "professions": [
+        "NOTARY"
+      ]
+    },
+    {
+      "code": "asesoramiento_legal",
+      "label": "Asesoramiento Legal",
+      "description": "Brindar asesoramiento jurídico a clientes",
+      "category": "Legal",
+      "order": 5,
+      "professions": [
+        "NOTARY"
+      ]
+    },
+    {
+      "code": "gestion_sucesiones",
+      "label": "Gestión de Sucesiones",
+      "description": "Tramitación de sucesiones y declaratorias de herederos",
+      "category": "Operaciones",
+      "order": 6,
+      "professions": [
+        "NOTARY"
+      ]
+    },
+    {
+      "code": "control_legalidad",
+      "label": "Control de Legalidad",
+      "description": "Verificar legalidad de actos y contratos",
+      "category": "Legal",
+      "order": 7,
+      "professions": [
+        "NOTARY"
+      ]
+    },
+    {
+      "code": "evaluacion_diagnostica",
+      "label": "Evaluación Diagnóstica",
+      "description": "Realización de entrevistas, aplicación de tests y formulación de diagnósticos psicológicos",
+      "category": "Técnico",
+      "order": 1,
+      "professions": [
+        "PSYCHOLOGIST"
+      ]
+    },
+    {
+      "code": "psicoterapia_individual",
+      "label": "Psicoterapia Individual",
+      "description": "Sesiones de tratamiento psicológico con pacientes individuales",
+      "category": "Operaciones",
+      "order": 2,
+      "professions": [
+        "PSYCHOLOGIST"
+      ]
+    },
+    {
+      "code": "gestion_historias_clinicas",
+      "label": "Gestión de Historias Clínicas",
+      "description": "Documentación, almacenamiento y custodia de registros clínicos de pacientes",
+      "category": "Administrativo",
+      "order": 3,
+      "professions": [
+        "PSYCHOLOGIST"
+      ]
+    },
+    {
+      "code": "emision_informes",
+      "label": "Emisión de Informes",
+      "description": "Elaboración de informes psicológicos para instituciones, tribunales o terceros",
+      "category": "Legal",
+      "order": 4,
+      "professions": [
+        "PSYCHOLOGIST"
+      ]
+    },
+    {
+      "code": "intervencion_crisis",
+      "label": "Intervención en Crisis",
+      "description": "Atención de situaciones de emergencia psicológica y riesgo suicida",
+      "category": "Operaciones",
+      "order": 5,
+      "professions": [
+        "PSYCHOLOGIST"
+      ]
+    },
+    {
+      "code": "consulta_telefonica",
+      "label": "Consulta Telefónica",
+      "description": "Atención psicológica a través de medios telefónicos o virtuales",
+      "category": "Operaciones",
+      "order": 6,
+      "professions": [
+        "PSYCHOLOGIST"
+      ]
+    },
+    {
+      "code": "dispensacion_medicamentos",
+      "label": "Dispensación de Medicamentos",
+      "description": "Entrega de medicamentos bajo receta archivada o venta libre",
+      "category": "Operaciones",
+      "order": 1,
+      "professions": [
+        "PHARMACIST"
+      ]
+    },
+    {
+      "code": "asesoramiento_farmaceutico",
+      "label": "Asesoramiento Farmacéutico",
+      "description": "Recomendaciones sobre uso de medicamentos y productos para la salud",
+      "category": "Técnico",
+      "order": 2,
+      "professions": [
+        "PHARMACIST"
+      ]
+    },
+    {
+      "code": "control_recetas",
+      "label": "Control de Recetas",
+      "description": "Verificación de validez y cumplimiento de requisitos legales en recetas",
+      "category": "Legal",
+      "order": 3,
+      "professions": [
+        "PHARMACIST"
+      ]
+    },
+    {
+      "code": "gestion_stock",
+      "label": "Gestión de Stock",
+      "description": "Control de inventario y cadena de frío de medicamentos",
+      "category": "Administrativo",
+      "order": 4,
+      "professions": [
+        "PHARMACIST"
+      ]
+    },
+    {
+      "code": "facturacion_obras_sociales",
+      "label": "Facturación a Obras Sociales",
+      "description": "Procesamiento de recetas y facturación ante obras sociales y prepagas",
+      "category": "Administrativo",
+      "order": 5,
+      "professions": [
+        "PHARMACIST"
+      ]
+    },
+    {
+      "code": "vigilancia_farmacovigilancia",
+      "label": "Vigilancia y Farmacovigilancia",
+      "description": "Detección y notificación de reacciones adversas a medicamentos",
+      "category": "Técnico",
+      "order": 6,
+      "professions": [
+        "PHARMACIST"
+      ]
+    },
+    {
+      "code": "atencion_clinica",
+      "label": "Atención Clínica",
+      "description": "Diagnóstico y tratamiento de animales en consultorio",
+      "category": "Operaciones",
+      "order": 1,
+      "professions": [
+        "VETERINARIAN"
+      ]
+    },
+    {
+      "code": "cirugias_procedimientos",
+      "label": "Cirugías y Procedimientos",
+      "description": "Realización de intervenciones quirúrgicas y procedimientos invasivos",
+      "category": "Técnico",
+      "order": 2,
+      "professions": [
+        "VETERINARIAN"
+      ]
+    },
+    {
+      "code": "prescripcion_medicamentos",
+      "label": "Prescripción de Medicamentos",
+      "description": "Recetar y administrar fármacos y tratamientos",
+      "category": "Técnico",
+      "order": 3,
+      "professions": [
+        "VETERINARIAN"
+      ]
+    },
+    {
+      "code": "gestion_historias_clinicas",
+      "label": "Gestión de Historias Clínicas",
+      "description": "Mantenimiento y custodia de documentación médica",
+      "category": "Administrativo",
+      "order": 4,
+      "professions": [
+        "VETERINARIAN"
+      ]
+    },
+    {
+      "code": "emision_certificados",
+      "label": "Emisión de Certificados",
+      "description": "Expedición de documentos oficiales y certificaciones",
+      "category": "Legal",
+      "order": 5,
+      "professions": [
+        "VETERINARIAN"
+      ]
+    },
+    {
+      "code": "venta_productos",
+      "label": "Venta de Productos Veterinarios",
+      "description": "Comercialización de medicamentos y productos para animales",
+      "category": "Operaciones",
+      "order": 6,
+      "professions": [
+        "VETERINARIAN"
+      ]
+    },
+    {
+      "code": "representacion_judicial",
+      "label": "Representación Judicial",
+      "description": "Actuación en juicios y procedimientos judiciales ante tribunales",
+      "category": "Operaciones",
+      "order": 1,
+      "businessTypes": [
+        "LEGAL_FIRM"
+      ]
+    },
+    {
+      "code": "asesoramiento_legal",
+      "label": "Asesoramiento Legal",
+      "description": "Consultoría y asesoramiento jurídico a clientes",
+      "category": "Operaciones",
+      "order": 2,
+      "businessTypes": [
+        "LEGAL_FIRM"
+      ]
+    },
+    {
+      "code": "gestion_documental",
+      "label": "Gestión Documental",
+      "description": "Elaboración y revisión de contratos, escritos y documentación legal",
+      "category": "Administrativo",
+      "order": 3,
+      "businessTypes": [
+        "LEGAL_FIRM"
+      ]
+    },
+    {
+      "code": "facturacion_servicios",
+      "label": "Facturación de Servicios",
+      "description": "Emisión de facturas y gestión de cobranzas",
+      "category": "Administrativo",
+      "order": 4,
+      "businessTypes": [
+        "LEGAL_FIRM"
+      ]
+    },
+    {
+      "code": "captacion_clientes",
+      "label": "Captación de Clientes",
+      "description": "Actividades comerciales para obtener nuevos clientes",
+      "category": "Comercial",
+      "order": 5,
+      "businessTypes": [
+        "LEGAL_FIRM"
+      ]
+    },
+    {
+      "code": "cumplimiento_normativo",
+      "label": "Cumplimiento Normativo",
+      "description": "Verificación del cumplimiento de obligaciones legales y regulatorias",
+      "category": "Legal",
+      "order": 6,
+      "businessTypes": [
+        "LEGAL_FIRM"
+      ]
+    },
+    {
+      "code": "gestion_honorarios",
+      "label": "Gestión de Honorarios",
+      "description": "Administración de acuerdos de honorarios y cobranzas",
+      "category": "Comercial",
+      "order": 7,
+      "businessTypes": [
+        "LEGAL_FIRM"
+      ]
+    },
+    {
+      "code": "proteccion_datos",
+      "label": "Protección de Datos",
+      "description": "Gestión de información confidencial de clientes según Ley 25.326",
+      "category": "Legal",
+      "order": 8,
+      "businessTypes": [
+        "LEGAL_FIRM"
+      ]
+    },
+    {
+      "code": "atencion_pacientes",
+      "label": "Atención de Pacientes",
+      "description": "Atención médica, consultas, diagnósticos y tratamientos",
+      "category": "Operaciones",
+      "order": 1,
+      "businessTypes": [
+        "HEALTHCARE"
+      ]
+    },
+    {
+      "code": "gestion_historias_clinicas",
+      "label": "Gestión de Historias Clínicas",
+      "description": "Administración y custodia de documentación médica de pacientes",
+      "category": "Administrativo",
+      "order": 2,
+      "businessTypes": [
+        "HEALTHCARE"
+      ]
+    },
+    {
+      "code": "facturacion_obras_sociales",
+      "label": "Facturación a Obras Sociales",
+      "description": "Gestión de facturación y cobranza con prepagas y obras sociales",
+      "category": "Comercial",
+      "order": 3,
+      "businessTypes": [
+        "HEALTHCARE"
+      ]
+    },
+    {
+      "code": "cumplimiento_normativo",
+      "label": "Cumplimiento Normativo",
+      "description": "Verificación de cumplimiento con leyes de salud y regulaciones",
+      "category": "Legal",
+      "order": 4,
+      "businessTypes": [
+        "HEALTHCARE"
+      ]
+    },
+    {
+      "code": "gestion_insumos_medicos",
+      "label": "Gestión de Insumos Médicos",
+      "description": "Control de stock y adquisición de medicamentos y materiales",
+      "category": "Operaciones",
+      "order": 5,
+      "businessTypes": [
+        "HEALTHCARE"
+      ]
+    },
+    {
+      "code": "venta_servicios_medicos",
+      "label": "Venta de Servicios Médicos",
+      "description": "Comercialización de servicios de salud al público",
+      "category": "Comercial",
+      "order": 6,
+      "businessTypes": [
+        "HEALTHCARE"
+      ]
+    },
+    {
+      "code": "gestion_recursos_humanos",
+      "label": "Gestión de Recursos Humanos",
+      "description": "Administración de personal médico y administrativo",
+      "category": "Administrativo",
+      "order": 7,
+      "businessTypes": [
+        "HEALTHCARE"
+      ]
+    },
+    {
+      "code": "mantenimiento_equipamiento",
+      "label": "Mantenimiento de Equipamiento",
+      "description": "Control y mantenimiento de equipos médicos e instalaciones",
+      "category": "Técnico",
+      "order": 8,
+      "businessTypes": [
+        "HEALTHCARE"
+      ]
+    },
+    {
+      "code": "gestion_proyectos",
+      "label": "Gestión de Proyectos",
+      "description": "Planificación, ejecución y control de proyectos de construcción",
+      "category": "Operaciones",
+      "order": 1,
+      "businessTypes": [
+        "CONSTRUCTION"
+      ]
+    },
+    {
+      "code": "compra_materiales",
+      "label": "Compra de Materiales",
+      "description": "Adquisición de materiales de construcción y equipamiento",
+      "category": "Operaciones",
+      "order": 2,
+      "businessTypes": [
+        "CONSTRUCTION"
+      ]
+    },
+    {
+      "code": "gestion_contratos",
+      "label": "Gestión de Contratos",
+      "description": "Elaboración y administración de contratos con clientes y proveedores",
+      "category": "Legal",
+      "order": 3,
+      "businessTypes": [
+        "CONSTRUCTION"
+      ]
+    },
+    {
+      "code": "gestion_personal",
+      "label": "Gestión de Personal",
+      "description": "Administración de recursos humanos y relaciones laborales",
+      "category": "Administrativo",
+      "order": 4,
+      "businessTypes": [
+        "CONSTRUCTION"
+      ]
+    },
+    {
+      "code": "ventas_presupuestos",
+      "label": "Ventas y Presupuestos",
+      "description": "Elaboración de presupuestos y gestión comercial con clientes",
+      "category": "Comercial",
+      "order": 5,
+      "businessTypes": [
+        "CONSTRUCTION"
+      ]
+    },
+    {
+      "code": "control_calidad",
+      "label": "Control de Calidad",
+      "description": "Supervisión de estándares de calidad en obras y materiales",
+      "category": "Técnico",
+      "order": 6,
+      "businessTypes": [
+        "CONSTRUCTION"
+      ]
+    },
+    {
+      "code": "cumplimiento_normativo",
+      "label": "Cumplimiento Normativo",
+      "description": "Verificación del cumplimiento de normativas legales y técnicas",
+      "category": "Legal",
+      "order": 7,
+      "businessTypes": [
+        "CONSTRUCTION"
+      ]
+    },
+    {
+      "code": "gestion_financiera",
+      "label": "Gestión Financiera",
+      "description": "Administración de flujo de fondos, facturación y pagos",
+      "category": "Administrativo",
+      "order": 8,
+      "businessTypes": [
+        "CONSTRUCTION"
+      ]
+    },
+    {
+      "code": "gestion_cartera_crediticia",
+      "label": "Gestión de Cartera Crediticia",
+      "description": "Administración y seguimiento de préstamos y créditos otorgados",
+      "category": "Operaciones",
+      "order": 1,
+      "businessTypes": [
+        "FINANCE"
+      ]
+    },
+    {
+      "code": "analisis_riesgo_financiero",
+      "label": "Análisis de Riesgo Financiero",
+      "description": "Evaluación de capacidad de pago y scoring crediticio de clientes",
+      "category": "Operaciones",
+      "order": 2,
+      "businessTypes": [
+        "FINANCE"
+      ]
+    },
+    {
+      "code": "cobranzas_recupero",
+      "label": "Gestión de Cobranzas y Recupero",
+      "description": "Seguimiento y ejecución de cobranzas de cartera vencida",
+      "category": "Operaciones",
+      "order": 3,
+      "businessTypes": [
+        "FINANCE"
+      ]
+    },
+    {
+      "code": "cumplimiento_normativo_afip",
+      "label": "Cumplimiento Normativo AFIP",
+      "description": "Gestión de obligaciones fiscales y presentaciones ante AFIP",
+      "category": "Legal",
+      "order": 4,
+      "businessTypes": [
+        "FINANCE"
+      ]
+    },
+    {
+      "code": "proteccion_datos_personales",
+      "label": "Protección de Datos Personales",
+      "description": "Gestión de datos sensibles de clientes según Ley 25.326",
+      "category": "Legal",
+      "order": 5,
+      "businessTypes": [
+        "FINANCE"
+      ]
+    },
+    {
+      "code": "ventas_financieras",
+      "label": "Ventas de Productos Financieros",
+      "description": "Comercialización de préstamos, créditos y servicios financieros",
+      "category": "Comercial",
+      "order": 6,
+      "businessTypes": [
+        "FINANCE"
+      ]
+    },
+    {
+      "code": "gestion_contratos_digitales",
+      "label": "Gestión de Contratos Digitales",
+      "description": "Celebración y administración de contratos financieros electrónicos",
+      "category": "Administrativo",
+      "order": 7,
+      "businessTypes": [
+        "FINANCE"
+      ]
+    },
+    {
+      "code": "seguimiento_indicadores",
+      "label": "Seguimiento de Indicadores de Gestión",
+      "description": "Monitoreo de KPIs y métricas de desempeño financiero",
+      "category": "Administrativo",
+      "order": 8,
+      "businessTypes": [
+        "FINANCE"
+      ]
+    },
+    {
+      "code": "ventas_online",
+      "label": "Ventas Online",
+      "description": "Procesamiento de pedidos y transacciones de comercio electrónico",
+      "category": "Comercial",
+      "order": 1,
+      "businessTypes": [
+        "E_COMMERCE"
+      ]
+    },
+    {
+      "code": "gestion_inventarios",
+      "label": "Gestión de Inventarios",
+      "description": "Control y administración de stock de productos",
+      "category": "Operaciones",
+      "order": 2,
+      "businessTypes": [
+        "E_COMMERCE"
+      ]
+    },
+    {
+      "code": "logistica_distribucion",
+      "label": "Logística y Distribución",
+      "description": "Preparación y envío de pedidos a clientes",
+      "category": "Operaciones",
+      "order": 3,
+      "businessTypes": [
+        "E_COMMERCE"
+      ]
+    },
+    {
+      "code": "atencion_cliente",
+      "label": "Atención al Cliente",
+      "description": "Soporte post-venta y resolución de consultas",
+      "category": "Comercial",
+      "order": 4,
+      "businessTypes": [
+        "E_COMMERCE"
+      ]
+    },
+    {
+      "code": "procesamiento_pagos",
+      "label": "Procesamiento de Pagos",
+      "description": "Gestión de medios de pago electrónicos y financieros",
+      "category": "Administrativo",
+      "order": 5,
+      "businessTypes": [
+        "E_COMMERCE"
+      ]
+    },
+    {
+      "code": "cumplimiento_legal",
+      "label": "Cumplimiento Legal",
+      "description": "Aseguramiento del cumplimiento normativo argentino",
+      "category": "Legal",
+      "order": 6,
+      "businessTypes": [
+        "E_COMMERCE"
+      ]
+    },
+    {
+      "code": "gestion_contratos",
+      "label": "Gestión de Contratos",
+      "description": "Administración de contratos con proveedores y clientes",
+      "category": "Legal",
+      "order": 7,
+      "businessTypes": [
+        "E_COMMERCE"
+      ]
+    },
+    {
+      "code": "seguridad_datos",
+      "label": "Seguridad de Datos",
+      "description": "Protección de datos personales de clientes",
+      "category": "Técnico",
+      "order": 8,
+      "businessTypes": [
+        "E_COMMERCE"
+      ]
+    },
+    {
+      "code": "desarrollo_software",
+      "label": "Desarrollo de Software",
+      "description": "Creación y mantenimiento de aplicaciones y sistemas informáticos",
+      "category": "Técnico",
+      "order": 1,
+      "businessTypes": [
+        "TECHNOLOGY"
+      ]
+    },
+    {
+      "code": "ventas_online",
+      "label": "Ventas Online",
+      "description": "Comercialización de productos y servicios digitales a través de plataformas web",
+      "category": "Comercial",
+      "order": 2,
+      "businessTypes": [
+        "TECHNOLOGY"
+      ]
+    },
+    {
+      "code": "gestion_contratos",
+      "label": "Gestión de Contratos",
+      "description": "Elaboración y administración de contratos con clientes y proveedores",
+      "category": "Legal",
+      "order": 3,
+      "businessTypes": [
+        "TECHNOLOGY"
+      ]
+    },
+    {
+      "code": "soporte_tecnico",
+      "label": "Soporte Técnico",
+      "description": "Atención y resolución de incidencias técnicas para clientes",
+      "category": "Operaciones",
+      "order": 4,
+      "businessTypes": [
+        "TECHNOLOGY"
+      ]
+    },
+    {
+      "code": "facturacion_electronica",
+      "label": "Facturación Electrónica",
+      "description": "Emisión y gestión de comprobantes fiscales electrónicos ante AFIP",
+      "category": "Administrativo",
+      "order": 5,
+      "businessTypes": [
+        "TECHNOLOGY"
+      ]
+    },
+    {
+      "code": "proteccion_datos",
+      "label": "Protección de Datos Personales",
+      "description": "Cumplimiento de la Ley 25.326 de Protección de Datos Personales",
+      "category": "Legal",
+      "order": 6,
+      "businessTypes": [
+        "TECHNOLOGY"
+      ]
+    },
+    {
+      "code": "gestion_talento",
+      "label": "Gestión de Talento",
+      "description": "Reclutamiento, contratación y administración de personal bajo LCT",
+      "category": "Administrativo",
+      "order": 7,
+      "businessTypes": [
+        "TECHNOLOGY"
+      ]
+    },
+    {
+      "code": "monitoreo_seguridad",
+      "label": "Monitoreo de Seguridad Informática",
+      "description": "Supervisión y protección de infraestructura tecnológica y datos",
+      "category": "Técnico",
+      "order": 8,
+      "businessTypes": [
+        "TECHNOLOGY"
+      ]
+    },
+    {
+      "code": "gestion_contratos",
+      "label": "Gestión de Contratos",
+      "description": "Elaboración, negociación y administración de contratos de locación, compraventa y mandatos",
+      "category": "Legal",
+      "order": 1,
+      "businessTypes": [
+        "REAL_ESTATE"
+      ]
+    },
+    {
+      "code": "ventas_propiedades",
+      "label": "Venta de Propiedades",
+      "description": "Comercialización y transferencia de propiedades inmuebles",
+      "category": "Comercial",
+      "order": 2,
+      "businessTypes": [
+        "REAL_ESTATE"
+      ]
+    },
+    {
+      "code": "administracion_alquileres",
+      "label": "Administración de Alquileres",
+      "description": "Gestión integral de propiedades en locación: cobros, mantenimiento, relaciones con inquilinos",
+      "category": "Operaciones",
+      "order": 3,
+      "businessTypes": [
+        "REAL_ESTATE"
+      ]
+    },
+    {
+      "code": "tasaciones_inmuebles",
+      "label": "Tasación de Inmuebles",
+      "description": "Valuación profesional de propiedades para venta, alquiler o garantías",
+      "category": "Técnico",
+      "order": 4,
+      "businessTypes": [
+        "REAL_ESTATE"
+      ]
+    },
+    {
+      "code": "gestion_impuestos",
+      "label": "Gestión Impositiva",
+      "description": "Liquidación y pago de impuestos: IVA, ingresos brutos, bienes personales",
+      "category": "Administrativo",
+      "order": 5,
+      "businessTypes": [
+        "REAL_ESTATE"
+      ]
+    },
+    {
+      "code": "marketing_digital",
+      "label": "Marketing Digital",
+      "description": "Promoción de propiedades en portales inmobiliarios y redes sociales",
+      "category": "Comercial",
+      "order": 6,
+      "businessTypes": [
+        "REAL_ESTATE"
+      ]
+    },
+    {
+      "code": "cumplimiento_normativo",
+      "label": "Cumplimiento Normativo",
+      "description": "Verificación del cumplimiento de leyes locales y regulaciones específicas",
+      "category": "Legal",
+      "order": 7,
+      "businessTypes": [
+        "REAL_ESTATE"
+      ]
+    },
+    {
+      "code": "gestion_cobranzas",
+      "label": "Gestión de Cobranzas",
+      "description": "Seguimiento y recuperación de deudas de alquileres y servicios",
+      "category": "Administrativo",
+      "order": 8,
+      "businessTypes": [
+        "REAL_ESTATE"
+      ]
+    },
+    {
+      "code": "gestion_academica",
+      "label": "Gestión Académica",
+      "description": "Planificación y ejecución de programas educativos, diseño curricular y evaluación de estudiantes",
+      "category": "Operaciones",
+      "order": 1,
+      "businessTypes": [
+        "EDUCATION"
+      ]
+    },
+    {
+      "code": "contratacion_docente",
+      "label": "Contratación de Personal Docente",
+      "description": "Selección, contratación y gestión laboral del cuerpo docente según Ley de Contrato de Trabajo",
+      "category": "Legal",
+      "order": 2,
+      "businessTypes": [
+        "EDUCATION"
+      ]
+    },
+    {
+      "code": "facturacion_cobranzas",
+      "label": "Facturación y Cobranzas",
+      "description": "Emisión de facturas, recibos y gestión de cobros de cuotas y servicios educativos",
+      "category": "Administrativo",
+      "order": 3,
+      "businessTypes": [
+        "EDUCATION"
+      ]
+    },
+    {
+      "code": "marketing_captacion",
+      "label": "Marketing y Captación de Alumnos",
+      "description": "Campañas publicitarias, prospección y matriculación de nuevos estudiantes",
+      "category": "Comercial",
+      "order": 4,
+      "businessTypes": [
+        "EDUCATION"
+      ]
+    },
+    {
+      "code": "gestion_plataforma_online",
+      "label": "Gestión de Plataforma Online",
+      "description": "Administración de sistemas educativos virtuales y entornos digitales de aprendizaje",
+      "category": "Técnico",
+      "order": 5,
+      "businessTypes": [
+        "EDUCATION"
+      ]
+    },
+    {
+      "code": "cumplimiento_normativo",
+      "label": "Cumplimiento Normativo",
+      "description": "Verificación de requisitos legales, habilitaciones y autorizaciones educativas",
+      "category": "Legal",
+      "order": 6,
+      "businessTypes": [
+        "EDUCATION"
+      ]
+    },
+    {
+      "code": "gestion_infraestructura",
+      "label": "Gestión de Infraestructura",
+      "description": "Mantenimiento de instalaciones, seguridad e higiene de espacios educativos",
+      "category": "Operaciones",
+      "order": 7,
+      "businessTypes": [
+        "EDUCATION"
+      ]
+    },
+    {
+      "code": "produccion_manufactura",
+      "label": "Producción y Manufactura",
+      "description": "Procesos de transformación de materias primas en productos terminados",
+      "category": "Operaciones",
+      "order": 1,
+      "businessTypes": [
+        "MANUFACTURING"
+      ]
+    },
+    {
+      "code": "gestion_compras_inventarios",
+      "label": "Gestión de Compras e Inventarios",
+      "description": "Adquisición de materias primas y gestión de stock de productos",
+      "category": "Operaciones",
+      "order": 2,
+      "businessTypes": [
+        "MANUFACTURING"
+      ]
+    },
+    {
+      "code": "ventas_distribucion",
+      "label": "Ventas y Distribución",
+      "description": "Comercialización de productos y gestión de canales de distribución",
+      "category": "Comercial",
+      "order": 3,
+      "businessTypes": [
+        "MANUFACTURING"
+      ]
+    },
+    {
+      "code": "gestion_contratos_laborales",
+      "label": "Gestión de Contratos Laborales",
+      "description": "Administración de relaciones laborales según Ley de Contrato de Trabajo",
+      "category": "Legal",
+      "order": 4,
+      "businessTypes": [
+        "MANUFACTURING"
+      ]
+    },
+    {
+      "code": "cumplimiento_tributario",
+      "label": "Cumplimiento Tributario",
+      "description": "Obligaciones fiscales ante AFIP y organismos tributarios",
+      "category": "Legal",
+      "order": 5,
+      "businessTypes": [
+        "MANUFACTURING"
+      ]
+    },
+    {
+      "code": "gestion_calidad",
+      "label": "Gestión de Calidad",
+      "description": "Control de calidad de productos y procesos de fabricación",
+      "category": "Técnico",
+      "order": 6,
+      "businessTypes": [
+        "MANUFACTURING"
+      ]
+    },
+    {
+      "code": "mantenimiento_equipos",
+      "label": "Mantenimiento de Equipos",
+      "description": "Mantenimiento preventivo y correctivo de maquinaria industrial",
+      "category": "Técnico",
+      "order": 7,
+      "businessTypes": [
+        "MANUFACTURING"
+      ]
+    },
+    {
+      "code": "gestion_riesgos_operativos",
+      "label": "Gestión de Riesgos Operativos",
+      "description": "Identificación y mitigación de riesgos en procesos productivos",
+      "category": "Administrativo",
+      "order": 8,
+      "businessTypes": [
+        "MANUFACTURING"
+      ]
+    },
+    {
+      "code": "gestion_inventarios",
+      "label": "Gestión de Inventarios",
+      "description": "Control y administración de stock de productos",
+      "category": "Operaciones",
+      "order": 1,
+      "businessTypes": [
+        "RETAIL"
+      ]
+    },
+    {
+      "code": "ventas_punto_venta",
+      "label": "Ventas en Punto de Venta",
+      "description": "Atención al cliente y procesamiento de ventas",
+      "category": "Comercial",
+      "order": 2,
+      "businessTypes": [
+        "RETAIL"
+      ]
+    },
+    {
+      "code": "facturacion_electronica",
+      "label": "Facturación Electrónica",
+      "description": "Emisión de comprobantes fiscales según normativa AFIP",
+      "category": "Legal",
+      "order": 3,
+      "businessTypes": [
+        "RETAIL"
+      ]
+    },
+    {
+      "code": "gestion_empleados",
+      "label": "Gestión de Empleados",
+      "description": "Administración de personal según Ley de Contrato de Trabajo",
+      "category": "Administrativo",
+      "order": 4,
+      "businessTypes": [
+        "RETAIL"
+      ]
+    },
+    {
+      "code": "atencion_reclamos",
+      "label": "Atención de Reclamos",
+      "description": "Manejo de quejas y reclamos según defensa del consumidor",
+      "category": "Comercial",
+      "order": 5,
+      "businessTypes": [
+        "RETAIL"
+      ]
+    },
+    {
+      "code": "seguridad_comercial",
+      "label": "Seguridad Comercial",
+      "description": "Protección de instalaciones y prevención de robos",
+      "category": "Operaciones",
+      "order": 6,
+      "businessTypes": [
+        "RETAIL"
+      ]
+    },
+    {
+      "code": "marketing_promociones",
+      "label": "Marketing y Promociones",
+      "description": "Campañas publicitarias y ofertas comerciales",
+      "category": "Comercial",
+      "order": 7,
+      "businessTypes": [
+        "RETAIL"
+      ]
+    },
+    {
+      "code": "proteccion_datos",
+      "label": "Protección de Datos Personales",
+      "description": "Cumplimiento de Ley 25.326 de protección de datos",
+      "category": "Legal",
+      "order": 8,
+      "businessTypes": [
+        "RETAIL"
+      ]
+    },
+    {
+      "code": "gestion_reservas",
+      "label": "Gestión de Reservas",
+      "description": "Administración de reservas, check-in y check-out de huéspedes",
+      "category": "Operaciones",
+      "order": 1,
+      "businessTypes": [
+        "HOSPITALITY"
+      ]
+    },
+    {
+      "code": "servicios_hospedaje",
+      "label": "Servicios de Hospedaje",
+      "description": "Prestación de servicios de alojamiento y mantenimiento de habitaciones",
+      "category": "Operaciones",
+      "order": 2,
+      "businessTypes": [
+        "HOSPITALITY"
+      ]
+    },
+    {
+      "code": "gastronomia_servicios",
+      "label": "Servicios Gastronómicos",
+      "description": "Operación de restaurantes, bares y servicios de catering",
+      "category": "Operaciones",
+      "order": 3,
+      "businessTypes": [
+        "HOSPITALITY"
+      ]
+    },
+    {
+      "code": "ventas_marketing",
+      "label": "Ventas y Marketing",
+      "description": "Promoción comercial y venta de paquetes turísticos y servicios",
+      "category": "Comercial",
+      "order": 4,
+      "businessTypes": [
+        "HOSPITALITY"
+      ]
+    },
+    {
+      "code": "gestion_contratos",
+      "label": "Gestión de Contratos",
+      "description": "Elaboración y administración de contratos con proveedores y clientes",
+      "category": "Legal",
+      "order": 5,
+      "businessTypes": [
+        "HOSPITALITY"
+      ]
+    },
+    {
+      "code": "cumplimiento_tributario",
+      "label": "Cumplimiento Tributario",
+      "description": "Gestión de obligaciones fiscales ante AFIP y organismos provinciales",
+      "category": "Legal",
+      "order": 6,
+      "businessTypes": [
+        "HOSPITALITY"
+      ]
+    },
+    {
+      "code": "gestion_personal",
+      "label": "Gestión de Personal",
+      "description": "Administración de recursos humanos según Ley de Contrato de Trabajo",
+      "category": "Administrativo",
+      "order": 7,
+      "businessTypes": [
+        "HOSPITALITY"
+      ]
+    },
+    {
+      "code": "seguridad_hygiene",
+      "label": "Seguridad e Higiene",
+      "description": "Implementación de protocolos de seguridad y normas sanitarias",
+      "category": "Técnico",
+      "order": 8,
+      "businessTypes": [
+        "HOSPITALITY"
+      ]
+    },
+    {
+      "code": "gestion_flota_vehiculos",
+      "label": "Gestión de Flota de Vehículos",
+      "description": "Administración y mantenimiento de la flota de transporte",
+      "category": "Operaciones",
+      "order": 1,
+      "businessTypes": [
+        "TRANSPORTATION"
+      ]
+    },
+    {
+      "code": "contratacion_choferes",
+      "label": "Contratación de Choferes",
+      "description": "Selección y contratación de personal de conducción",
+      "category": "Legal",
+      "order": 2,
+      "businessTypes": [
+        "TRANSPORTATION"
+      ]
+    },
+    {
+      "code": "facturacion_clientes",
+      "label": "Facturación a Clientes",
+      "description": "Emisión de facturas y gestión de cobranzas",
+      "category": "Administrativo",
+      "order": 3,
+      "businessTypes": [
+        "TRANSPORTATION"
+      ]
+    },
+    {
+      "code": "ventas_servicios_transporte",
+      "label": "Ventas de Servicios de Transporte",
+      "description": "Comercialización de servicios de transporte a clientes",
+      "category": "Comercial",
+      "order": 4,
+      "businessTypes": [
+        "TRANSPORTATION"
+      ]
+    },
+    {
+      "code": "control_rutas_horarios",
+      "label": "Control de Rutas y Horarios",
+      "description": "Planificación y seguimiento de rutas y programaciones",
+      "category": "Operaciones",
+      "order": 5,
+      "businessTypes": [
+        "TRANSPORTATION"
+      ]
+    },
+    {
+      "code": "cumplimiento_afip",
+      "label": "Cumplimiento AFIP",
+      "description": "Obligaciones fiscales y presentaciones ante AFIP",
+      "category": "Legal",
+      "order": 6,
+      "businessTypes": [
+        "TRANSPORTATION"
+      ]
+    },
+    {
+      "code": "gestion_seguros",
+      "label": "Gestión de Seguros",
+      "description": "Contratación y administración de pólizas de seguro",
+      "category": "Administrativo",
+      "order": 7,
+      "businessTypes": [
+        "TRANSPORTATION"
+      ]
+    },
+    {
+      "code": "mantenimiento_preventivo",
+      "label": "Mantenimiento Preventivo",
+      "description": "Programación y ejecución de mantenimientos de vehículos",
+      "category": "Técnico",
+      "order": 8,
+      "businessTypes": [
+        "TRANSPORTATION"
+      ]
+    },
+    {
+      "code": "diagnostico_empresarial",
+      "label": "Diagnóstico Empresarial",
+      "description": "Análisis inicial de la situación y necesidades del cliente",
+      "category": "Operaciones",
+      "order": 1,
+      "businessTypes": [
+        "CONSULTING"
+      ]
+    },
+    {
+      "code": "elaboracion_propuestas",
+      "label": "Elaboración de Propuestas",
+      "description": "Desarrollo de propuestas comerciales y contratos de servicios",
+      "category": "Comercial",
+      "order": 2,
+      "businessTypes": [
+        "CONSULTING"
+      ]
+    },
+    {
+      "code": "gestion_contratos",
+      "label": "Gestión de Contratos",
+      "description": "Administración y seguimiento de contratos con clientes y proveedores",
+      "category": "Legal",
+      "order": 3,
+      "businessTypes": [
+        "CONSULTING"
+      ]
+    },
+    {
+      "code": "facturacion_cobranzas",
+      "label": "Facturación y Cobranzas",
+      "description": "Emisión de facturas y gestión de cobros a clientes",
+      "category": "Administrativo",
+      "order": 4,
+      "businessTypes": [
+        "CONSULTING"
+      ]
+    },
+    {
+      "code": "consultoria_especializada",
+      "label": "Consultoría Especializada",
+      "description": "Ejecución de servicios de consultoría según especialidad",
+      "category": "Técnico",
+      "order": 5,
+      "businessTypes": [
+        "CONSULTING"
+      ]
+    },
+    {
+      "code": "gestion_impuestos",
+      "label": "Gestión de Impuestos",
+      "description": "Cumplimiento de obligaciones fiscales ante AFIP",
+      "category": "Legal",
+      "order": 6,
+      "businessTypes": [
+        "CONSULTING"
+      ]
+    },
+    {
+      "code": "proteccion_datos",
+      "label": "Protección de Datos",
+      "description": "Gestión de información confidencial de clientes según Ley 25.326",
+      "category": "Legal",
+      "order": 7,
+      "businessTypes": [
+        "CONSULTING"
+      ]
+    },
+    {
+      "code": "seguimiento_proyectos",
+      "label": "Seguimiento de Proyectos",
+      "description": "Monitoreo y control de avance de proyectos de consultoría",
+      "category": "Operaciones",
+      "order": 8,
+      "businessTypes": [
+        "CONSULTING"
+      ]
+    },
+    {
+      "code": "produccion_contenidos",
+      "label": "Producción de Contenidos",
+      "description": "Creación y desarrollo de contenidos periodísticos, informativos y de entretenimiento",
+      "category": "Operaciones",
+      "order": 1,
+      "businessTypes": [
+        "MEDIA"
+      ]
+    },
+    {
+      "code": "gestion_derechos_autor",
+      "label": "Gestión de Derechos de Autor",
+      "description": "Administración de derechos intelectuales y propiedad intelectual de contenidos",
+      "category": "Legal",
+      "order": 2,
+      "businessTypes": [
+        "MEDIA"
+      ]
+    },
+    {
+      "code": "ventas_publicidad",
+      "label": "Ventas de Publicidad",
+      "description": "Comercialización de espacios publicitarios en diferentes plataformas",
+      "category": "Comercial",
+      "order": 3,
+      "businessTypes": [
+        "MEDIA"
+      ]
+    },
+    {
+      "code": "gestion_contratos",
+      "label": "Gestión de Contratos",
+      "description": "Administración de contratos con empleados, colaboradores y proveedores",
+      "category": "Administrativo",
+      "order": 4,
+      "businessTypes": [
+        "MEDIA"
+      ]
+    },
+    {
+      "code": "transmision_streaming",
+      "label": "Transmisión y Streaming",
+      "description": "Operación técnica de transmisiones en vivo y contenido digital",
+      "category": "Técnico",
+      "order": 5,
+      "businessTypes": [
+        "MEDIA"
+      ]
+    },
+    {
+      "code": "cumplimiento_regulatorio",
+      "label": "Cumplimiento Regulatorio",
+      "description": "Verificación del cumplimiento de normativas AFIP, LCT y defensa del consumidor",
+      "category": "Legal",
+      "order": 6,
+      "businessTypes": [
+        "MEDIA"
+      ]
+    },
+    {
+      "code": "gestion_redes_sociales",
+      "label": "Gestión de Redes Sociales",
+      "description": "Administración y moderación de contenidos en plataformas digitales",
+      "category": "Operaciones",
+      "order": 7,
+      "businessTypes": [
+        "MEDIA"
+      ]
+    },
+    {
+      "code": "facturacion_cobranzas",
+      "label": "Facturación y Cobranzas",
+      "description": "Emisión de facturas electrónicas y gestión de cobranza de clientes",
+      "category": "Administrativo",
+      "order": 8,
+      "businessTypes": [
+        "MEDIA"
+      ]
+    },
+    {
+      "code": "siembra_cultivos",
+      "label": "Siembra de Cultivos",
+      "description": "Planificación y ejecución de siembra de diferentes cultivos según temporada y condiciones climáticas",
+      "category": "Operaciones",
+      "order": 1,
+      "businessTypes": [
+        "AGRICULTURE"
+      ]
+    },
+    {
+      "code": "gestion_riego",
+      "label": "Gestión de Riego",
+      "description": "Control y administración de sistemas de riego para optimizar el uso del agua",
+      "category": "Operaciones",
+      "order": 2,
+      "businessTypes": [
+        "AGRICULTURE"
+      ]
+    },
+    {
+      "code": "aplicacion_agroquimicos",
+      "label": "Aplicación de Agroquímicos",
+      "description": "Manejo y aplicación de fertilizantes, pesticidas y otros productos químicos agrícolas",
+      "category": "Operaciones",
+      "order": 3,
+      "businessTypes": [
+        "AGRICULTURE"
+      ]
+    },
+    {
+      "code": "gestion_contratos_trabajo",
+      "label": "Gestión de Contratos de Trabajo",
+      "description": "Administración de contratos laborales según Ley de Contrato de Trabajo argentina",
+      "category": "Legal",
+      "order": 4,
+      "businessTypes": [
+        "AGRICULTURE"
+      ]
+    },
+    {
+      "code": "facturacion_ventas",
+      "label": "Facturación y Ventas",
+      "description": "Emisión de facturas electrónicas y gestión comercial según normativa AFIP",
+      "category": "Comercial",
+      "order": 5,
+      "businessTypes": [
+        "AGRICULTURE"
+      ]
+    },
+    {
+      "code": "control_inventario",
+      "label": "Control de Inventario",
+      "description": "Gestión de stock de insumos, productos terminados y maquinaria agrícola",
+      "category": "Administrativo",
+      "order": 6,
+      "businessTypes": [
+        "AGRICULTURE"
+      ]
+    },
+    {
+      "code": "mantenimiento_maquinaria",
+      "label": "Mantenimiento de Maquinaria",
+      "description": "Programación y ejecución de mantenimiento preventivo y correctivo de equipos",
+      "category": "Técnico",
+      "order": 7,
+      "businessTypes": [
+        "AGRICULTURE"
+      ]
+    },
+    {
+      "code": "gestion_riesgos_laborales",
+      "label": "Gestión de Riesgos Laborales",
+      "description": "Implementación de medidas de seguridad e higiene para trabajadores rurales",
+      "category": "Legal",
+      "order": 8,
+      "businessTypes": [
+        "AGRICULTURE"
+      ]
+    }
+  ],
+  "riskAreas": [
+    {
+      "code": "mala_praxis_profesional",
+      "label": "Mala Praxis Profesional",
+      "description": "Errores u omisiones en el ejercicio profesional que causan perjuicios al cliente",
+      "severity": "HIGH",
+      "examples": [
+        "Prescripción de plazos procesales",
+        "Asesoramiento incorrecto en contratos",
+        "Omisión de recursos legales disponibles",
+        "Error en cálculo de honorarios"
+      ],
+      "order": 1,
+      "professions": [
+        "LAWYER"
+      ]
+    },
+    {
+      "code": "violacion_confidencialidad",
+      "label": "Violación de Confidencialidad",
+      "description": "Incumplimiento del deber de secreto profesional y protección de datos personales",
+      "severity": "HIGH",
+      "examples": [
+        "Filtración de información sensible del cliente",
+        "Incumplimiento de Ley 25.326 de Protección de Datos",
+        "Acceso no autorizado a expedientes",
+        "Divulgación de estrategias legales"
+      ],
+      "order": 2,
+      "professions": [
+        "LAWYER"
+      ]
+    },
+    {
+      "code": "conflicto_intereses",
+      "label": "Conflicto de Intereses",
+      "description": "Representación de partes con intereses contrapuestos sin consentimiento informado",
+      "severity": "MEDIUM",
+      "examples": [
+        "Representar a ambas partes en un divorcio",
+        "Asesorar a competidores en mismo rubro",
+        "Actuar para empresa y empleado en conflicto laboral",
+        "No revelar relaciones previas con contraparte"
+      ],
+      "order": 3,
+      "professions": [
+        "LAWYER"
+      ]
+    },
+    {
+      "code": "incumplimiento_plazos",
+      "label": "Incumplimiento de Plazos Procesales",
+      "description": "Falta de presentación de documentos o recursos dentro de términos legales",
+      "severity": "MEDIUM",
+      "examples": [
+        "Vencimiento de plazo para apelación",
+        "Presentación extemporánea de demanda",
+        "Omisión de términos perentorios",
+        "No interposición de recursos en tiempo"
+      ],
+      "order": 4,
+      "professions": [
+        "LAWYER"
+      ]
+    },
+    {
+      "code": "gestion_incorrecta_fondos",
+      "label": "Gestión Incorrecta de Fondos",
+      "description": "Manejo inadecuado de dinero de clientes o depósitos judiciales",
+      "severity": "HIGH",
+      "examples": [
+        "Uso indebido de depósitos judiciales",
+        "No rendición de cuentas de gastos",
+        "Mezcla de fondos propios con clientes",
+        "Retención indebida de honorarios"
+      ],
+      "order": 5,
+      "professions": [
+        "LAWYER"
+      ]
+    },
+    {
+      "code": "mala_praxis_medica",
+      "label": "Mala Praxis Médica",
+      "description": "Responsabilidad civil por errores en diagnóstico o tratamiento",
+      "severity": "HIGH",
+      "examples": [
+        "Error en diagnóstico que retrasa tratamiento oportuno",
+        "Complicación en procedimiento quirúrgico no informada",
+        "Prescripción incorrecta de medicación",
+        "Falta de seguimiento adecuado del paciente"
+      ],
+      "order": 1,
+      "professions": [
+        "DOCTOR"
+      ]
+    },
+    {
+      "code": "proteccion_datos_personales",
+      "label": "Protección de Datos Personales",
+      "description": "Riesgos por manejo de datos sensibles de pacientes según Ley 25.326",
+      "severity": "HIGH",
+      "examples": [
+        "Filtración de historias clínicas",
+        "Compartir información sin consentimiento",
+        "Almacenamiento inseguro de datos médicos",
+        "Incumplimiento de derechos ARCO de pacientes"
+      ],
+      "order": 2,
+      "professions": [
+        "DOCTOR"
+      ]
+    },
+    {
+      "code": "consentimiento_informado",
+      "label": "Consentimiento Informado",
+      "description": "Deficiencias en la obtención y documentación de consentimientos",
+      "severity": "MEDIUM",
+      "examples": [
+        "Procedimiento realizado sin consentimiento válido",
+        "Falta de información completa sobre riesgos",
+        "Consentimiento obtenido bajo presión",
+        "Documentación incompleta del consentimiento"
+      ],
+      "order": 3,
+      "professions": [
+        "DOCTOR"
+      ]
+    },
+    {
+      "code": "facturacion_prepagas",
+      "label": "Facturación con Obras Sociales",
+      "description": "Riesgos en la facturación y relación con prestadores de salud",
+      "severity": "MEDIUM",
+      "examples": [
+        "Facturación por prestaciones no realizadas",
+        "Error en codificación de prácticas médicas",
+        "Incumplimiento de plazos de facturación",
+        "Conflictos con auditorías de obras sociales"
+      ],
+      "order": 4,
+      "professions": [
+        "DOCTOR"
+      ]
+    },
+    {
+      "code": "obligaciones_fiscales",
+      "label": "Obligaciones Fiscales",
+      "description": "Incumplimiento de obligaciones tributarias y contables",
+      "severity": "MEDIUM",
+      "examples": [
+        "Declaraciones juradas incorrectas",
+        "Falta de registración contable adecuada",
+        "Incumplimiento en pagos de impuestos",
+        "Problemas con facturación electrónica AFIP"
+      ],
+      "order": 5,
+      "professions": [
+        "DOCTOR"
+      ]
+    },
+    {
+      "code": "mala_praxis_medica",
+      "label": "Mala Praxis Médica",
+      "description": "Responsabilidad profesional por errores en diagnóstico o tratamiento",
+      "severity": "HIGH",
+      "examples": [
+        "Daño nervioso en cirugía de terceros molares",
+        "Perforación de seno maxilar durante colocación de implantes",
+        "Diagnóstico erróneo de lesiones potencialmente malignas",
+        "Fractura mandibular durante extracción"
+      ],
+      "order": 1,
+      "professions": [
+        "DENTIST"
+      ]
+    },
+    {
+      "code": "proteccion_datos_personales",
+      "label": "Protección de Datos Personales",
+      "description": "Incumplimiento de la Ley 25.326 de Protección de Datos Personales",
+      "severity": "HIGH",
+      "examples": [
+        "Filtración de historias clínicas digitales",
+        "Compartir información de pacientes sin consentimiento",
+        "Almacenamiento inseguro de datos sensibles",
+        "Falta de registro en la Dirección Nacional de Protección de Datos Personales"
+      ],
+      "order": 2,
+      "professions": [
+        "DENTIST"
+      ]
+    },
+    {
+      "code": "consentimiento_informado",
+      "label": "Consentimiento Informado",
+      "description": "Deficiencias en el proceso de obtención y documentación del consentimiento",
+      "severity": "HIGH",
+      "examples": [
+        "Procedimiento realizado sin consentimiento firmado",
+        "Falta de explicación adecuada de riesgos y alternativas",
+        "Consentimiento genérico no específico para el tratamiento",
+        "Paciente menor de edad sin consentimiento de representantes"
+      ],
+      "order": 3,
+      "professions": [
+        "DENTIST"
+      ]
+    },
+    {
+      "code": "bioseguridad_normativas",
+      "label": "Bioseguridad y Normativas",
+      "description": "Incumplimiento de protocolos de esterilización y normas sanitarias",
+      "severity": "MEDIUM",
+      "examples": [
+        "Transmisión de enfermedades por instrumental mal esterilizado",
+        "Incumplimiento de la Ley Nacional de SIDA N° 23.798",
+        "Manejo incorrecto de residuos patológicos",
+        "Falta de certificación de autoclaves"
+      ],
+      "order": 4,
+      "professions": [
+        "DENTIST"
+      ]
+    },
+    {
+      "code": "obligaciones_fiscales",
+      "label": "Obligaciones Fiscales",
+      "description": "Incumplimiento de obligaciones tributarias y facturación",
+      "severity": "MEDIUM",
+      "examples": [
+        "Facturación incorrecta a obras sociales",
+        "Omisión de facturación por prestaciones privadas",
+        "Incumplimiento con IVA e ingresos brutos",
+        "Problemas con monotributo o régimen general"
+      ],
+      "order": 5,
+      "professions": [
+        "DENTIST"
+      ]
+    },
+    {
+      "code": "gestion_historias_clinicas",
+      "label": "Gestión de Historias Clínicas",
+      "description": "Deficiencias en la documentación y conservación de historias clínicas",
+      "severity": "MEDIUM",
+      "examples": [
+        "Historia clínica incompleta o ilegible",
+        "Falta de conservación por el plazo legal (10 años)",
+        "Acceso no autorizado al archivo de historias clínicas",
+        "Omisión de registros relevantes del tratamiento"
+      ],
+      "order": 6,
+      "professions": [
+        "DENTIST"
+      ]
+    },
+    {
+      "code": "responsabilidad_civil",
+      "label": "Responsabilidad Civil Profesional",
+      "description": "Riesgos por errores en diseño, cálculo o dirección que causen daños",
+      "severity": "HIGH",
+      "examples": [
+        "Error en cálculo estructural que cause fisuras",
+        "Omisión de normativa de accesibilidad",
+        "Deficiencias en dirección de obra que generen humedades",
+        "Incumplimiento de plazos contractuales"
+      ],
+      "order": 1,
+      "professions": [
+        "ARCHITECT"
+      ]
+    },
+    {
+      "code": "incumplimiento_normativo",
+      "label": "Incumplimiento Normativo Municipal",
+      "description": "Riesgos por violación de códigos de edificación y ordenanzas locales",
+      "severity": "HIGH",
+      "examples": [
+        "Exceso de altura permitida",
+        "Incumplimiento de retiros obligatorios",
+        "Falta de estacionamientos requeridos",
+        "Violación de coeficiente de ocupación del suelo"
+      ],
+      "order": 2,
+      "professions": [
+        "ARCHITECT"
+      ]
+    },
+    {
+      "code": "problemas_contractuales",
+      "label": "Conflictos Contractuales",
+      "description": "Disputas con clientes, contratistas y proveedores por incumplimientos",
+      "severity": "MEDIUM",
+      "examples": [
+        "Reclamos por honorarios profesionales",
+        "Incumplimiento de plazos de entrega",
+        "Disputas sobre alcance de servicios",
+        "Reclamos por sobrecostos no autorizados"
+      ],
+      "order": 3,
+      "professions": [
+        "ARCHITECT"
+      ]
+    },
+    {
+      "code": "gestion_datos_personales",
+      "label": "Gestión de Datos Personales",
+      "description": "Riesgos por manejo inadecuado de información personal de clientes",
+      "severity": "MEDIUM",
+      "examples": [
+        "Filtración de datos de propietarios",
+        "Almacenamiento inseguro de documentación",
+        "Uso no autorizado de imágenes de proyectos",
+        "Incumplimiento de Ley 25.326 de Protección de Datos"
+      ],
+      "order": 4,
+      "professions": [
+        "ARCHITECT"
+      ]
+    },
+    {
+      "code": "seguridad_constructiva",
+      "label": "Seguridad en la Construcción",
+      "description": "Riesgos relacionados con la seguridad laboral en obra",
+      "severity": "MEDIUM",
+      "examples": [
+        "Accidentes por falta de medidas de seguridad",
+        "Incumplimiento de Ley 19.587 de Higiene y Seguridad",
+        "Daños a terceros durante la construcción",
+        "Falta de señalización adecuada en obra"
+      ],
+      "order": 5,
+      "professions": [
+        "ARCHITECT"
+      ]
+    },
+    {
+      "code": "responsabilidad_civil",
+      "label": "Responsabilidad Civil Profesional",
+      "description": "Riesgos por errores en diseño, cálculo o dirección que causen daños a terceros",
+      "severity": "HIGH",
+      "examples": [
+        "Colapso estructural por errores de cálculo",
+        "Filtraciones por defectos en diseño hidráulico",
+        "Lesiones a personas por fallas en seguridad estructural"
+      ],
+      "order": 1,
+      "professions": [
+        "ENGINEER"
+      ]
+    },
+    {
+      "code": "incumplimiento_normativo",
+      "label": "Incumplimiento Normativo",
+      "description": "Violación de códigos de edificación, normas IRAM y regulaciones específicas",
+      "severity": "HIGH",
+      "examples": [
+        "Obra sin aprobación municipal correspondiente",
+        "Incumplimiento de normas antisísmicas CIRSOC",
+        "Violación de normas de accesibilidad Ley 24.314"
+      ],
+      "order": 2,
+      "professions": [
+        "ENGINEER"
+      ]
+    },
+    {
+      "code": "mala_praxis_profesional",
+      "label": "Mala Praxis Profesional",
+      "description": "Negligencia, impericia o imprudencia en el ejercicio profesional",
+      "severity": "HIGH",
+      "examples": [
+        "Firmar planos sin verificación adecuada",
+        "Omisión de controles de calidad obligatorios",
+        "Supervisión deficiente de obra con resultados catastróficos"
+      ],
+      "order": 3,
+      "professions": [
+        "ENGINEER"
+      ]
+    },
+    {
+      "code": "gestion_contractual",
+      "label": "Gestión Contractual",
+      "description": "Riesgos derivados de la redacción e interpretación de contratos",
+      "severity": "MEDIUM",
+      "examples": [
+        "Cláusulas ambiguas en contratos de obra",
+        "Incumplimiento de plazos contractuales",
+        "Disputas por honorarios profesionales no pactados claramente"
+      ],
+      "order": 4,
+      "professions": [
+        "ENGINEER"
+      ]
+    },
+    {
+      "code": "proteccion_datos",
+      "label": "Protección de Datos",
+      "description": "Manejo de información personal en proyectos y relaciones contractuales",
+      "severity": "MEDIUM",
+      "examples": [
+        "Exposición de datos de clientes en planos digitales",
+        "Falta de consentimiento para uso de imágenes en obras",
+        "Violación de Ley 25.326 de Protección de Datos Personales"
+      ],
+      "order": 5,
+      "professions": [
+        "ENGINEER"
+      ]
+    },
+    {
+      "code": "responsabilidad_civil_profesional",
+      "label": "Responsabilidad Civil Profesional",
+      "description": "Riesgos por errores en diseño, cálculo o supervisión que causen daños",
+      "severity": "HIGH",
+      "examples": [
+        "Colapso estructural por errores de cálculo",
+        "Filtraciones por deficiencias en diseño hidráulico",
+        "Lesiones a terceros por fallas en obra",
+        "Daños materiales por especificaciones incorrectas"
+      ],
+      "order": 1,
+      "professions": [
+        "CIVIL_ENGINEER"
+      ]
+    },
+    {
+      "code": "incumplimiento_normativo",
+      "label": "Incumplimiento Normativo",
+      "description": "Violación de normas técnicas y regulatorias específicas de Argentina",
+      "severity": "HIGH",
+      "examples": [
+        "Incumplimiento del Código de Edificación",
+        "Violación de normas IRAM y normas sismo-resistentes",
+        "No aplicación de Ley de Accesibilidad 24.314",
+        "Incumplimiento de normas ambientales locales"
+      ],
+      "order": 2,
+      "professions": [
+        "CIVIL_ENGINEER"
+      ]
+    },
+    {
+      "code": "mala_praxis_profesional",
+      "label": "Mala Praxis Profesional",
+      "description": "Negligencia, impericia o imprudencia en el ejercicio profesional",
+      "severity": "HIGH",
+      "examples": [
+        "Firmar planos sin verificación adecuada",
+        "No realizar inspecciones periódicas requeridas",
+        "Aprobar materiales no conformes",
+        "Omisión de controles de seguridad obligatorios"
+      ],
+      "order": 3,
+      "professions": [
+        "CIVIL_ENGINEER"
+      ]
+    },
+    {
+      "code": "riesgos_contractuales",
+      "label": "Riesgos Contractuales",
+      "description": "Conflictos derivados de la relación contractual con clientes y contratistas",
+      "severity": "MEDIUM",
+      "examples": [
+        "Reclamos por incumplimiento de plazos",
+        "Disputas por honorarios profesionales",
+        "Responsabilidad solidaria con contratistas",
+        "Reclamos por vicios ocultos en la obra"
+      ],
+      "order": 4,
+      "professions": [
+        "CIVIL_ENGINEER"
+      ]
+    },
+    {
+      "code": "responsabilidad_penal",
+      "label": "Responsabilidad Penal",
+      "description": "Riesgos de imputación penal por accidentes o daños graves",
+      "severity": "HIGH",
+      "examples": [
+        "Homicidio culposo por derrumbe",
+        "Lesiones graves por accidentes evitables",
+        "Daño ambiental penalmente tipificado",
+        "Incumplimiento de deberes de funcionario público"
+      ],
+      "order": 5,
+      "professions": [
+        "CIVIL_ENGINEER"
+      ]
+    },
+    {
+      "code": "mala_praxis_profesional",
+      "label": "Mala Praxis Profesional",
+      "description": "Errores u omisiones en el ejercicio profesional que causan perjuicios al cliente",
+      "severity": "HIGH",
+      "examples": [
+        "Error en cálculo de impuestos que genera multas",
+        "Omisión de presentación de declaraciones juradas",
+        "Asesoramiento incorrecto en planificación fiscal",
+        "Falta de detección de irregularidades en auditoría"
+      ],
+      "order": 1,
+      "professions": [
+        "ACCOUNTANT"
+      ]
+    },
+    {
+      "code": "incumplimiento_normativo",
+      "label": "Incumplimiento Normativo",
+      "description": "Violación de normativas específicas del ejercicio profesional contable",
+      "severity": "HIGH",
+      "examples": [
+        "Incumplimiento de Resoluciones Técnicas de FACPCE",
+        "No aplicación de normas contables profesionales",
+        "Falta de registro en matrícula profesional",
+        "Ejercicio ilegal de la profesión"
+      ],
+      "order": 2,
+      "professions": [
+        "ACCOUNTANT"
+      ]
+    },
+    {
+      "code": "proteccion_datos_personales",
+      "label": "Protección de Datos Personales",
+      "description": "Manejo inadecuado de información sensible de clientes",
+      "severity": "MEDIUM",
+      "examples": [
+        "Filtración de información financiera de clientes",
+        "Almacenamiento inseguro de documentación contable",
+        "Compartir datos sin autorización expresa",
+        "Incumplimiento de Ley 25.326 de Protección de Datos Personales"
+      ],
+      "order": 3,
+      "professions": [
+        "ACCOUNTANT"
+      ]
+    },
+    {
+      "code": "responsabilidad_solidaria_tributaria",
+      "label": "Responsabilidad Solidaria Tributaria",
+      "description": "Responsabilidad frente al fisco por obligaciones tributarias de los clientes",
+      "severity": "MEDIUM",
+      "examples": [
+        "Firma de declaraciones juradas con inconsistencias",
+        "No verificación de documentación respaldatoria",
+        "Asunción de responsabilidad en retenciones y percepciones",
+        "Incumplimiento de obligaciones como agente de retención"
+      ],
+      "order": 4,
+      "professions": [
+        "ACCOUNTANT"
+      ]
+    },
+    {
+      "code": "gestion_documental",
+      "label": "Gestión Documental",
+      "description": "Riesgos asociados al manejo y conservación de documentación",
+      "severity": "LOW",
+      "examples": [
+        "Pérdida de comprobantes y documentación respaldatoria",
+        "Falta de archivo por tiempos legales requeridos",
+        "Destrucción anticipada de documentación contable",
+        "Organización deficiente de expedientes"
+      ],
+      "order": 5,
+      "professions": [
+        "ACCOUNTANT"
+      ]
+    },
+    {
+      "code": "responsabilidad_profesional",
+      "label": "Responsabilidad Profesional",
+      "description": "Riesgos por asesoramiento incorrecto o negligente que cause perjuicios al cliente",
+      "severity": "HIGH",
+      "examples": [
+        "Recomendación estratégica errónea que genera pérdidas económicas significativas",
+        "Diagnóstico organizacional incorrecto que deriva en reestructuraciones costosas",
+        "Asesoramiento en procesos de cambio que fracasan por mala implementación"
+      ],
+      "order": 1,
+      "professions": [
+        "CONSULTANT"
+      ]
+    },
+    {
+      "code": "incumplimiento_contractual",
+      "label": "Incumplimiento Contractual",
+      "description": "Falta de cumplimiento de obligaciones establecidas en los contratos de servicios",
+      "severity": "HIGH",
+      "examples": [
+        "No entrega de informes en los plazos pactados",
+        "Incumplimiento de metas de performance acordadas",
+        "Violación de cláusulas de confidencialidad",
+        "Prestación de servicios por personal no autorizado"
+      ],
+      "order": 2,
+      "professions": [
+        "CONSULTANT"
+      ]
+    },
+    {
+      "code": "proteccion_datos_personales",
+      "label": "Protección de Datos Personales",
+      "description": "Riesgos asociados al manejo de información personal bajo Ley 25.326",
+      "severity": "HIGH",
+      "examples": [
+        "Filtración de datos sensibles de empleados durante auditorías",
+        "Almacenamiento inseguro de información personal de clientes",
+        "Transferencia internacional de datos sin autorización",
+        "Falta de registro en base de datos ante la Dirección Nacional de Protección de Datos Personales"
+      ],
+      "order": 3,
+      "professions": [
+        "CONSULTANT"
+      ]
+    },
+    {
+      "code": "aspectos_tributarios",
+      "label": "Aspectos Tributarios",
+      "description": "Riesgos relacionados con obligaciones fiscales y contables",
+      "severity": "MEDIUM",
+      "examples": [
+        "Emisión incorrecta de facturas electrónicas",
+        "Error en la categorización de ingresos para monotributo o responsable inscripto",
+        "Omisión de pagos a cuenta de IVA o ingresos brutos",
+        "Asesoramiento tributario sin matrícula habilitante cuando corresponde"
+      ],
+      "order": 4,
+      "professions": [
+        "CONSULTANT"
+      ]
+    },
+    {
+      "code": "propiedad_intelectual",
+      "label": "Propiedad Intelectual",
+      "description": "Riesgos por uso indebido de materiales protegidos o conflictos sobre creaciones",
+      "severity": "MEDIUM",
+      "examples": [
+        "Uso de metodologías patentadas sin autorización",
+        "Conflictos sobre la propiedad de informes y estudios desarrollados",
+        "Utilización de software sin licencia válida",
+        "Plagio de contenidos en materiales de consultoría"
+      ],
+      "order": 5,
+      "professions": [
+        "CONSULTANT"
+      ]
+    },
+    {
+      "code": "responsabilidad_civil",
+      "label": "Responsabilidad Civil por Mala Praxis",
+      "description": "Riesgo de demandas por errores en la función notarial",
+      "severity": "HIGH",
+      "examples": [
+        "Error en la identificación de partes",
+        "Omisión de requisitos legales en escrituras",
+        "Deficiente asesoramiento que cause perjuicio económico",
+        "Falta de control de legalidad en actos notariales"
+      ],
+      "order": 1,
+      "professions": [
+        "NOTARY"
+      ]
+    },
+    {
+      "code": "proteccion_datos_personales",
+      "label": "Protección de Datos Personales",
+      "description": "Riesgos vinculados al tratamiento de datos sensibles",
+      "severity": "HIGH",
+      "examples": [
+        "Filtración de información de sucesiones",
+        "Acceso no autorizado a documentación personal",
+        "Incumplimiento de la Ley 25.326",
+        "Manejo inadecuado de datos de capacidad jurídica"
+      ],
+      "order": 2,
+      "professions": [
+        "NOTARY"
+      ]
+    },
+    {
+      "code": "incumplimiento_regulatorio",
+      "label": "Incumplimiento Normativo",
+      "description": "Riesgos por violación de normativas específicas del notariado",
+      "severity": "HIGH",
+      "examples": [
+        "Incumplimiento del Código Civil y Comercial",
+        "Violación de normas de prevención de lavado",
+        "Falta de aplicación de impuestos y tasas",
+        "Incumplimiento de plazos registrales"
+      ],
+      "order": 3,
+      "professions": [
+        "NOTARY"
+      ]
+    },
+    {
+      "code": "gestion_documental",
+      "label": "Gestión Documental y Protocolo",
+      "description": "Riesgos en la custodia y organización del protocolo",
+      "severity": "MEDIUM",
+      "examples": [
+        "Pérdida o deterioro de documentos protocolares",
+        "Falta de medidas de seguridad del protocolo",
+        "Error en la numeración y foliación",
+        "Acceso indebido al archivo notarial"
+      ],
+      "order": 4,
+      "professions": [
+        "NOTARY"
+      ]
+    },
+    {
+      "code": "conflictos_intereses",
+      "label": "Conflictos de Intereses",
+      "description": "Riesgos por falta de imparcialidad en el ejercicio profesional",
+      "severity": "MEDIUM",
+      "examples": [
+        "Intervención en actos con partes vinculadas",
+        "Asesoramiento a ambas partes en contratos",
+        "Participación en operaciones con familiares",
+        "Incompatibilidad con otras actividades profesionales"
+      ],
+      "order": 5,
+      "professions": [
+        "NOTARY"
+      ]
+    },
+    {
+      "code": "mala_praxis_profesional",
+      "label": "Mala Praxis Profesional",
+      "description": "Negligencia, impericia o imprudencia en el ejercicio profesional que cause daño al paciente",
+      "severity": "HIGH",
+      "examples": [
+        "Diagnóstico erróneo que deriva en tratamiento inadecuado",
+        "Abandono de paciente en situación de crisis",
+        "Revelación de información confidencial sin consentimiento",
+        "Falta de derivación oportuna a especialista cuando es necesario"
+      ],
+      "order": 1,
+      "professions": [
+        "PSYCHOLOGIST"
+      ]
+    },
+    {
+      "code": "violacion_confidencialidad",
+      "label": "Violación de Confidencialidad",
+      "description": "Incumplimiento de la protección de datos personales y secreto profesional",
+      "severity": "HIGH",
+      "examples": [
+        "Filtración de historias clínicas por seguridad informática deficiente",
+        "Comentarios sobre pacientes en ámbitos no profesionales",
+        "Entrega de informes sin autorización del paciente",
+        "Almacenamiento inseguro de registros digitales"
+      ],
+      "order": 2,
+      "professions": [
+        "PSYCHOLOGIST"
+      ]
+    },
+    {
+      "code": "incumplimiento_ley_proteccion_datos",
+      "label": "Incumplimiento Ley de Protección de Datos",
+      "description": "Violación de la Ley 25.326 de Protección de Datos Personales y normativas complementarias",
+      "severity": "HIGH",
+      "examples": [
+        "Falta de registro ante la Dirección Nacional de Protección de Datos",
+        "No obtener consentimiento informado para tratamiento de datos",
+        "Transferencia internacional de datos sin autorización",
+        "Falta de medidas de seguridad nivel medio/alto según ley"
+      ],
+      "order": 3,
+      "professions": [
+        "PSYCHOLOGIST"
+      ]
+    },
+    {
+      "code": "responsabilidad_civil_contractual",
+      "label": "Responsabilidad Civil Contractual",
+      "description": "Incumplimiento de obligaciones derivadas del contrato terapéutico con el paciente",
+      "severity": "MEDIUM",
+      "examples": [
+        "Suspensión abrupta de tratamiento sin causa justificada",
+        "Incumplimiento de honorarios pactados",
+        "Falta de entrega de comprobantes y facturas",
+        "No respetar horarios y días de atención acordados"
+      ],
+      "order": 4,
+      "professions": [
+        "PSYCHOLOGIST"
+      ]
+    },
+    {
+      "code": "ejercicio_ilegal_profesion",
+      "label": "Ejercicio Ilegal de la Profesión",
+      "description": "Actividades que exceden las competencias del título habilitante o incumplimiento de requisitos legales",
+      "severity": "HIGH",
+      "examples": [
+        "Prescripción de medicamentos sin facultad",
+        "Realización de peritajes sin matrícula correspondiente",
+        "Ejercicio sin matrícula profesional vigente",
+        "Uso de técnicas no validadas científicamente"
+      ],
+      "order": 5,
+      "professions": [
+        "PSYCHOLOGIST"
+      ]
+    },
+    {
+      "code": "gestion_incorrecta_historias_clinicas",
+      "label": "Gestión Incorrecta de Historias Clínicas",
+      "description": "Deficiencias en la documentación, conservación y acceso a los registros clínicos",
+      "severity": "MEDIUM",
+      "examples": [
+        "Historias clínicas incompletas o ilegibles",
+        "Falta de conservación por el tiempo legal requerido (10 años)",
+        "No registrar consentimientos informados",
+        "Acceso no autorizado al archivo de historias clínicas"
+      ],
+      "order": 6,
+      "professions": [
+        "PSYCHOLOGIST"
+      ]
+    },
+    {
+      "code": "mala_praxis_farmaceutica",
+      "label": "Mala Praxis Farmacéutica",
+      "description": "Errores en dispensación o asesoramiento que causen daño al paciente",
+      "severity": "HIGH",
+      "examples": [
+        "Dispensar medicamento incorrecto por confusión de nombres similares",
+        "No advertir contraindicaciones en paciente polimedicado",
+        "Error en dosificación pediátrica por cálculo incorrecto",
+        "Omisión de verificar alergias medicamentosas"
+      ],
+      "order": 1,
+      "professions": [
+        "PHARMACIST"
+      ]
+    },
+    {
+      "code": "incumplimiento_normativo",
+      "label": "Incumplimiento Normativo",
+      "description": "Violación de normativas ANMAT, leyes de estupefacientes y psicotrópicos",
+      "severity": "HIGH",
+      "examples": [
+        "Venta sin receta de medicamentos bajo receta archivada",
+        "Falta de registro en libro de estupefacientes",
+        "Incumplimiento de cadena de frío en vacunas",
+        "No verificar autenticidad de recetas médicas"
+      ],
+      "order": 2,
+      "professions": [
+        "PHARMACIST"
+      ]
+    },
+    {
+      "code": "proteccion_datos_pacientes",
+      "label": "Protección de Datos de Pacientes",
+      "description": "Violación de la Ley 25.326 de Protección de Datos Personales",
+      "severity": "MEDIUM",
+      "examples": [
+        "Exposición de historias clínicas o recetas sin consentimiento",
+        "Compartir información de pacientes con terceros sin autorización",
+        "Falta de medidas de seguridad en sistemas informáticos",
+        "No destruir adecuadamente documentos con datos sensibles"
+      ],
+      "order": 3,
+      "professions": [
+        "PHARMACIST"
+      ]
+    },
+    {
+      "code": "responsabilidad_civil_contratual",
+      "label": "Responsabilidad Civil Contractual",
+      "description": "Incumplimiento de obligaciones con obras sociales y prepagas",
+      "severity": "MEDIUM",
+      "examples": [
+        "Facturación incorrecta a obras sociales",
+        "No cumplir con plazos de presentación de recetas",
+        "Errores en trámites de autorizaciones previas",
+        "Incumplimiento de convenios con entidades de salud"
+      ],
+      "order": 4,
+      "professions": [
+        "PHARMACIST"
+      ]
+    },
+    {
+      "code": "gestion_operativa",
+      "label": "Gestión Operativa",
+      "description": "Riesgos derivados de la gestión diaria de la farmacia",
+      "severity": "MEDIUM",
+      "examples": [
+        "Robo de medicamentos de alto valor",
+        "Falta de control de vencimientos en stock",
+        "Daños por mal almacenamiento de productos",
+        "Problemas con proveedores y cadena de suministro"
+      ],
+      "order": 5,
+      "professions": [
+        "PHARMACIST"
+      ]
+    },
+    {
+      "code": "mala_praxis",
+      "label": "Mala Praxis Profesional",
+      "description": "Responsabilidad civil por errores en diagnóstico o tratamiento",
+      "severity": "HIGH",
+      "examples": [
+        "Error en diagnóstico que causa muerte del animal",
+        "Complicación post-operatoria por negligencia",
+        "Prescripción incorrecta de medicamentos",
+        "Omisión de protocolos de esterilización"
+      ],
+      "order": 1,
+      "professions": [
+        "VETERINARIAN"
+      ]
+    },
+    {
+      "code": "responsabilidad_civil",
+      "label": "Responsabilidad Civil Contractual",
+      "description": "Incumplimiento de obligaciones contractuales con clientes",
+      "severity": "HIGH",
+      "examples": [
+        "Incumplimiento de garantías de servicios",
+        "Daños a propiedad del cliente durante internación",
+        "Pérdida o extravío de animal hospitalizado",
+        "Incumplimiento de honorarios pactados"
+      ],
+      "order": 2,
+      "professions": [
+        "VETERINARIAN"
+      ]
+    },
+    {
+      "code": "proteccion_datos",
+      "label": "Protección de Datos Personales",
+      "description": "Incumplimiento de Ley 25.326 de Protección de Datos Personales",
+      "severity": "MEDIUM",
+      "examples": [
+        "Filtración de historias clínicas",
+        "Uso indebido de datos de clientes",
+        "Falta de consentimiento para tratamiento de datos",
+        "Inseguridad en sistemas de almacenamiento digital"
+      ],
+      "order": 3,
+      "professions": [
+        "VETERINARIAN"
+      ]
+    },
+    {
+      "code": "regulacion_medicamentos",
+      "label": "Regulación de Medicamentos",
+      "description": "Incumplimiento de normativas ANMAT y SENASA",
+      "severity": "MEDIUM",
+      "examples": [
+        "Venta de medicamentos sin receta",
+        "Uso de fármacos vencidos",
+        "Incumplimiento de cadena de frío",
+        "Falta de registros de control de estupefacientes"
+      ],
+      "order": 4,
+      "professions": [
+        "VETERINARIAN"
+      ]
+    },
+    {
+      "code": "obligaciones_fiscales",
+      "label": "Obligaciones Fiscales y Contables",
+      "description": "Incumplimiento de obligaciones ante AFIP y organismos fiscales",
+      "severity": "MEDIUM",
+      "examples": [
+        "Facturación incorrecta",
+        "Omisión de ingresos",
+        "Incumplimiento con IVA e ingresos brutos",
+        "Falta de registros contables adecuados"
+      ],
+      "order": 5,
+      "professions": [
+        "VETERINARIAN"
+      ]
+    },
+    {
+      "code": "responsabilidad_profesional",
+      "label": "Responsabilidad Profesional",
+      "description": "Riesgos por errores u omisiones en la prestación de servicios legales",
+      "severity": "HIGH",
+      "examples": [
+        "Prescripción de plazos procesales",
+        "Asesoramiento erróneo en contratos",
+        "Omisión de recursos legales disponibles",
+        "Error en cálculo de plazos de prescripción"
+      ],
+      "order": 1,
+      "businessTypes": [
+        "LEGAL_FIRM"
+      ]
+    },
+    {
+      "code": "cumplimiento_regulatorio",
+      "label": "Cumplimiento Regulatorio",
+      "description": "Incumplimiento de obligaciones legales y regulatorias específicas del sector",
+      "severity": "HIGH",
+      "examples": [
+        "Incumplimiento Ley 25.326 de Protección de Datos",
+        "Violación del secreto profesional",
+        "No registro ante Colegio de Abogados",
+        "Incumplimiento normas AFIP para facturación"
+      ],
+      "order": 2,
+      "businessTypes": [
+        "LEGAL_FIRM"
+      ]
+    },
+    {
+      "code": "gestion_documental_confidencial",
+      "label": "Gestión Documental Confidencial",
+      "description": "Riesgos asociados al manejo de información sensible y documentación legal",
+      "severity": "HIGH",
+      "examples": [
+        "Filtración de expedientes confidenciales",
+        "Pérdida de documentación original",
+        "Acceso no autorizado a información de clientes",
+        "Falta de backup de archivos críticos"
+      ],
+      "order": 3,
+      "businessTypes": [
+        "LEGAL_FIRM"
+      ]
+    },
+    {
+      "code": "relacion_laboral",
+      "label": "Relación Laboral",
+      "description": "Riesgos derivados de la relación con empleados y colaboradores",
+      "severity": "MEDIUM",
+      "examples": [
+        "Demandas por despido sin causa",
+        "Incumplimiento Ley de Contrato de Trabajo",
+        "Conflictos por horas extras no pagadas",
+        "Falta de registración de jornada laboral"
+      ],
+      "order": 4,
+      "businessTypes": [
+        "LEGAL_FIRM"
+      ]
+    },
+    {
+      "code": "continuidad_operativa",
+      "label": "Continuidad Operativa",
+      "description": "Riesgos que afectan la capacidad de prestar servicios de manera continua",
+      "severity": "MEDIUM",
+      "examples": [
+        "Fallo de sistemas informáticos",
+        "Falta de personal clave",
+        "Interrupción de servicios esenciales",
+        "Problemas de conectividad en sistemas judiciales electrónicos"
+      ],
+      "order": 5,
+      "businessTypes": [
+        "LEGAL_FIRM"
+      ]
+    },
+    {
+      "code": "gestion_financiera",
+      "label": "Gestión Financiera",
+      "description": "Riesgos relacionados con la administración económica del estudio",
+      "severity": "MEDIUM",
+      "examples": [
+        "Morosidad en cobro de honorarios",
+        "Falta de previsión de gastos judiciales",
+        "Incumplimiento obligaciones fiscales AFIP",
+        "Mala gestión de fondos de terceros"
+      ],
+      "order": 6,
+      "businessTypes": [
+        "LEGAL_FIRM"
+      ]
+    },
+    {
+      "code": "conflictos_interes",
+      "label": "Conflictos de Interés",
+      "description": "Riesgos por representación de intereses contrapuestos",
+      "severity": "MEDIUM",
+      "examples": [
+        "Representación de partes con intereses opuestos",
+        "Falta de revelación de conflictos potenciales",
+        "Trabajo para competidores del mismo cliente",
+        "Uso de información privilegiada"
+      ],
+      "order": 7,
+      "businessTypes": [
+        "LEGAL_FIRM"
+      ]
+    },
+    {
+      "code": "responsabilidad_profesional",
+      "label": "Responsabilidad Profesional",
+      "description": "Riesgos por mala praxis médica y errores en diagnósticos o tratamientos",
+      "severity": "HIGH",
+      "examples": [
+        "Diagnóstico erróneo que genera daño al paciente",
+        "Complicaciones quirúrgicas no informadas",
+        "Prescripción incorrecta de medicamentos",
+        "Falta de consentimiento informado"
+      ],
+      "order": 1,
+      "businessTypes": [
+        "HEALTHCARE"
+      ]
+    },
+    {
+      "code": "proteccion_datos_personales",
+      "label": "Protección de Datos Personales",
+      "description": "Riesgos por manejo inadecuado de datos sensibles de pacientes según Ley 25.326",
+      "severity": "HIGH",
+      "examples": [
+        "Filtración de historias clínicas",
+        "Acceso no autorizado a datos de salud",
+        "Falta de consentimiento para tratamiento de datos",
+        "Incumplimiento de medidas de seguridad informática"
+      ],
+      "order": 2,
+      "businessTypes": [
+        "HEALTHCARE"
+      ]
+    },
+    {
+      "code": "cumplimiento_regulatorio",
+      "label": "Cumplimiento Regulatorio",
+      "description": "Riesgos por incumplimiento de normativas específicas del sector salud",
+      "severity": "HIGH",
+      "examples": [
+        "Incumplimiento de habilitaciones ANMAT",
+        "Falta de registro de profesionales",
+        "Violación de normas de bioseguridad",
+        "Incumplimiento de Ley de Ejercicio de la Medicina"
+      ],
+      "order": 3,
+      "businessTypes": [
+        "HEALTHCARE"
+      ]
+    },
+    {
+      "code": "relacion_laboral",
+      "label": "Relación Laboral",
+      "description": "Riesgos asociados a la gestión del personal según Ley de Contrato de Trabajo",
+      "severity": "MEDIUM",
+      "examples": [
+        "Demandas por despido indirecto",
+        "Incumplimiento de horarios de guardia",
+        "Falta de pago de horas extras",
+        "Problemas con ART y condiciones de trabajo"
+      ],
+      "order": 4,
+      "businessTypes": [
+        "HEALTHCARE"
+      ]
+    },
+    {
+      "code": "defensa_consumidor",
+      "label": "Defensa del Consumidor",
+      "description": "Riesgos por incumplimiento de Ley 24.240 de Defensa del Consumidor",
+      "severity": "MEDIUM",
+      "examples": [
+        "Publicidad engañosa de servicios médicos",
+        "Falta de información clara sobre costos",
+        "Incumplimiento de garantías en prestaciones",
+        "Cláusulas abusivas en contratos"
+      ],
+      "order": 5,
+      "businessTypes": [
+        "HEALTHCARE"
+      ]
+    },
+    {
+      "code": "obligaciones_tributarias",
+      "label": "Obligaciones Tributarias",
+      "description": "Riesgos fiscales y contables ante AFIP y organismos recaudadores",
+      "severity": "MEDIUM",
+      "examples": [
+        "Errores en facturación a obras sociales",
+        "Incumplimiento en retenciones y percepciones",
+        "Omisión de declaraciones juradas",
+        "Problemas con monotributo de profesionales"
+      ],
+      "order": 6,
+      "businessTypes": [
+        "HEALTHCARE"
+      ]
+    },
+    {
+      "code": "riesgos_laborales",
+      "label": "Riesgos Laborales",
+      "description": "Exposición a conflictos laborales y sanciones por incumplimiento de la Ley de Contrato de Trabajo",
+      "severity": "HIGH",
+      "examples": [
+        "Falta de registración de horarios",
+        "Incumplimiento en el pago de horas extras",
+        "Falta de ART vigente",
+        "Accidentes laborales sin cobertura"
+      ],
+      "order": 1,
+      "businessTypes": [
+        "CONSTRUCTION"
+      ]
+    },
+    {
+      "code": "riesgos_fiscales",
+      "label": "Riesgos Fiscales",
+      "description": "Exposición a sanciones y multas por incumplimientos ante AFIP y organismos fiscales",
+      "severity": "HIGH",
+      "examples": [
+        "Facturación irregular",
+        "Subfacturación de obras",
+        "Incumplimiento en retenciones",
+        "Mala clasificación de monotributo/IVA"
+      ],
+      "order": 2,
+      "businessTypes": [
+        "CONSTRUCTION"
+      ]
+    },
+    {
+      "code": "riesgos_contratacion",
+      "label": "Riesgos de Contratación",
+      "description": "Problemas legales derivados de contratos mal elaborados o incumplimientos contractuales",
+      "severity": "HIGH",
+      "examples": [
+        "Cláusulas abusivas en contratos",
+        "Incumplimiento de plazos de entrega",
+        "Vicios ocultos en construcciones",
+        "Reclamos por Ley de Defensa del Consumidor"
+      ],
+      "order": 3,
+      "businessTypes": [
+        "CONSTRUCTION"
+      ]
+    },
+    {
+      "code": "riesgos_operativos",
+      "label": "Riesgos Operativos",
+      "description": "Problemas en la ejecución de obras que generan pérdidas económicas o daños",
+      "severity": "MEDIUM",
+      "examples": [
+        "Retrasos en cronogramas",
+        "Deficiencias en calidad de materiales",
+        "Daños a propiedad de terceros",
+        "Interrupciones por falta de permisos"
+      ],
+      "order": 4,
+      "businessTypes": [
+        "CONSTRUCTION"
+      ]
+    },
+    {
+      "code": "riesgos_ambientales",
+      "label": "Riesgos Ambientales",
+      "description": "Sanciones por incumplimiento de normativas ambientales y de seguridad",
+      "severity": "MEDIUM",
+      "examples": [
+        "Manejo incorrecto de residuos",
+        "Contaminación por materiales",
+        "Falta de estudios de impacto ambiental",
+        "Incumplimiento de normas de seguridad en obra"
+      ],
+      "order": 5,
+      "businessTypes": [
+        "CONSTRUCTION"
+      ]
+    },
+    {
+      "code": "riesgos_proteccion_datos",
+      "label": "Riesgos de Protección de Datos",
+      "description": "Incumplimiento de la Ley de Protección de Datos Personales en el manejo de información",
+      "severity": "LOW",
+      "examples": [
+        "Falta de registro en base de datos",
+        "Compartir datos de clientes sin autorización",
+        "Falta de políticas de privacidad",
+        "Almacenamiento inseguro de información personal"
+      ],
+      "order": 6,
+      "businessTypes": [
+        "CONSTRUCTION"
+      ]
+    },
+    {
+      "code": "riesgo_crediticio_incobrabilidad",
+      "label": "Riesgo Crediticio e Incobrabilidad",
+      "description": "Pérdidas por morosidad e incapacidad de pago de clientes",
+      "severity": "HIGH",
+      "examples": [
+        "Clientes con historial crediticio negativo",
+        "Falta de verificación documental adecuada",
+        "Cambios en situación económica de deudores",
+        "Concentración de cartera en sectores vulnerables"
+      ],
+      "order": 1,
+      "businessTypes": [
+        "FINANCE"
+      ]
+    },
+    {
+      "code": "cumplimiento_regulatorio_afip",
+      "label": "Cumplimiento Regulatorio AFIP",
+      "description": "Sanciones y multas por incumplimiento de obligaciones fiscales",
+      "severity": "HIGH",
+      "examples": [
+        "Presentación tardía de declaraciones juradas",
+        "Errores en cálculo de impuestos",
+        "Falta de registración contable adecuada",
+        "Incumplimiento de retenciones y percepciones"
+      ],
+      "order": 2,
+      "businessTypes": [
+        "FINANCE"
+      ]
+    },
+    {
+      "code": "proteccion_datos_personales",
+      "label": "Protección de Datos Personales",
+      "description": "Violación de normativa de protección de datos de clientes",
+      "severity": "HIGH",
+      "examples": [
+        "Fuga de información sensible de clientes",
+        "Falta de consentimiento informado para uso de datos",
+        "Almacenamiento inseguro de información crediticia",
+        "Transferencia no autorizada de bases de datos"
+      ],
+      "order": 3,
+      "businessTypes": [
+        "FINANCE"
+      ]
+    },
+    {
+      "code": "defensa_consumidor_financiero",
+      "label": "Defensa del Consumidor Financiero",
+      "description": "Reclamos y sanciones por prácticas comerciales abusivas",
+      "severity": "MEDIUM",
+      "examples": [
+        "Cláusulas abusivas en contratos de adhesión",
+        "Publicidad engañosa en tasas de interés",
+        "Falta de transparencia en costos y comisiones",
+        "Prácticas de cobranza coercitivas"
+      ],
+      "order": 4,
+      "businessTypes": [
+        "FINANCE"
+      ]
+    },
+    {
+      "code": "fraude_interno_externo",
+      "label": "Fraude Interno y Externo",
+      "description": "Pérdidas por actos dolosos de empleados o terceros",
+      "severity": "MEDIUM",
+      "examples": [
+        "Apropiación indebida de fondos por empleados",
+        "Falsificación de documentación crediticia",
+        "Suplantación de identidad en solicitudes",
+        "Colusión con clientes para otorgamiento fraudulento"
+      ],
+      "order": 5,
+      "businessTypes": [
+        "FINANCE"
+      ]
+    },
+    {
+      "code": "riesgo_operacional_tecnologico",
+      "label": "Riesgo Operacional y Tecnológico",
+      "description": "Interrupciones en procesos críticos por fallas tecnológicas",
+      "severity": "MEDIUM",
+      "examples": [
+        "Caída de sistemas de scoring crediticio",
+        "Vulnerabilidades en plataformas de pago online",
+        "Pérdida de datos por fallas de backup",
+        "Ataques cibernéticos a sistemas financieros"
+      ],
+      "order": 6,
+      "businessTypes": [
+        "FINANCE"
+      ]
+    },
+    {
+      "code": "riesgo_laboral_contrataciones",
+      "label": "Riesgo Laboral en Contrataciones",
+      "description": "Conflictos y reclamos por incumplimiento de normativa laboral",
+      "severity": "LOW",
+      "examples": [
+        "Mal cálculo de horas extras y adicionales",
+        "Falta de registración de jornada laboral",
+        "Incumplimiento en aportes previsionales",
+        "Despidos sin causa justificada"
+      ],
+      "order": 7,
+      "businessTypes": [
+        "FINANCE"
+      ]
+    },
+    {
+      "code": "defensa_consumidor",
+      "label": "Defensa del Consumidor",
+      "description": "Riesgos por incumplimiento de la Ley 24.240 de Defensa del Consumidor",
+      "severity": "HIGH",
+      "examples": [
+        "Falta de información clara sobre productos",
+        "Incumplimiento de plazos de entrega",
+        "Dificultades en el ejercicio del derecho de arrepentimiento",
+        "Publicidad engañosa"
+      ],
+      "order": 1,
+      "businessTypes": [
+        "E_COMMERCE"
+      ]
+    },
+    {
+      "code": "proteccion_datos_personales",
+      "label": "Protección de Datos Personales",
+      "description": "Riesgos asociados al tratamiento de datos personales según Ley 25.326",
+      "severity": "HIGH",
+      "examples": [
+        "Falta de consentimiento válido para tratamiento de datos",
+        "Inseguridad en bases de datos de clientes",
+        "Transferencia internacional no autorizada de datos",
+        "Incumplimiento del deber de confidencialidad"
+      ],
+      "order": 2,
+      "businessTypes": [
+        "E_COMMERCE"
+      ]
+    },
+    {
+      "code": "obligaciones_fiscales",
+      "label": "Obligaciones Fiscales",
+      "description": "Riesgos por incumplimiento de obligaciones ante AFIP",
+      "severity": "HIGH",
+      "examples": [
+        "Facturación electrónica incorrecta",
+        "Retenciones y percepciones mal calculadas",
+        "Declaraciones juradas erróneas",
+        "Incumplimiento en registración de operaciones"
+      ],
+      "order": 3,
+      "businessTypes": [
+        "E_COMMERCE"
+      ]
+    },
+    {
+      "code": "seguridad_operativa",
+      "label": "Seguridad Operativa",
+      "description": "Riesgos en la operación del comercio electrónico",
+      "severity": "MEDIUM",
+      "examples": [
+        "Caídas del sitio web durante campañas",
+        "Problemas en la integración con medios de pago",
+        "Errores en el cálculo de costos de envío",
+        "Fallas en el sistema de gestión de inventarios"
+      ],
+      "order": 4,
+      "businessTypes": [
+        "E_COMMERCE"
+      ]
+    },
+    {
+      "code": "relacion_laboral",
+      "label": "Relación Laboral",
+      "description": "Riesgos en la gestión de recursos humanos según LCT",
+      "severity": "MEDIUM",
+      "examples": [
+        "Mal registro de jornada laboral",
+        "Incumplimiento en el pago de horas extras",
+        "Falta de capacitación en seguridad e higiene",
+        "Problemas en la contratación de monotributistas"
+      ],
+      "order": 5,
+      "businessTypes": [
+        "E_COMMERCE"
+      ]
+    },
+    {
+      "code": "fraude_digital",
+      "label": "Fraude Digital",
+      "description": "Riesgos de fraude en transacciones online",
+      "severity": "MEDIUM",
+      "examples": [
+        "Transacciones con tarjetas robadas",
+        "Cuentas de clientes comprometidas",
+        "Chargebacks fraudulentos",
+        "Suplantación de identidad en compras"
+      ],
+      "order": 6,
+      "businessTypes": [
+        "E_COMMERCE"
+      ]
+    },
+    {
+      "code": "cumplimiento_legal",
+      "label": "Cumplimiento Legal y Regulatorio",
+      "description": "Riesgos derivados del incumplimiento de normativas específicas del sector tecnológico",
+      "severity": "HIGH",
+      "examples": [
+        "Incumplimiento Ley 25.326 de Protección de Datos",
+        "Violación de derechos de autor en desarrollo de software",
+        "Falta de registro de propiedad intelectual",
+        "Incumplimiento de obligaciones ante AFIP"
+      ],
+      "order": 1,
+      "businessTypes": [
+        "TECHNOLOGY"
+      ]
+    },
+    {
+      "code": "seguridad_informatica",
+      "label": "Seguridad Informática",
+      "description": "Vulnerabilidades en sistemas y protección de datos sensibles",
+      "severity": "HIGH",
+      "examples": [
+        "Ataques de ransomware que paralizan operaciones",
+        "Filtración de datos personales de clientes",
+        "Vulnerabilidades en código que permiten acceso no autorizado",
+        "Pérdida de información crítica por falta de backups"
+      ],
+      "order": 2,
+      "businessTypes": [
+        "TECHNOLOGY"
+      ]
+    },
+    {
+      "code": "relaciones_laborales",
+      "label": "Relaciones Laborales",
+      "description": "Riesgos asociados a la gestión de recursos humanos bajo la Ley de Contrato de Trabajo",
+      "severity": "HIGH",
+      "examples": [
+        "Demandas por despido sin causa",
+        "Conflictos por trabajo en negro o mal registrado",
+        "Reclamos por horas extras no pagadas",
+        "Problemas con categorización de empleados como monotributistas"
+      ],
+      "order": 3,
+      "businessTypes": [
+        "TECHNOLOGY"
+      ]
+    },
+    {
+      "code": "defensa_consumidor",
+      "label": "Defensa del Consumidor",
+      "description": "Riesgos por incumplimiento de la Ley 24.240 de Defensa del Consumidor",
+      "severity": "MEDIUM",
+      "examples": [
+        "Reclamos por publicidad engañosa en plataformas digitales",
+        "Problemas con garantías de productos tecnológicos",
+        "Incumplimiento de plazos de entrega en servicios",
+        "Falta de información clara en términos y condiciones"
+      ],
+      "order": 4,
+      "businessTypes": [
+        "TECHNOLOGY"
+      ]
+    },
+    {
+      "code": "continuidad_operativa",
+      "label": "Continuidad Operativa",
+      "description": "Interrupciones en servicios tecnológicos que afectan al negocio",
+      "severity": "MEDIUM",
+      "examples": [
+        "Caídas prolongadas de servidores críticos",
+        "Problemas de conectividad que impiden ventas online",
+        "Fallas en sistemas de pago electrónico",
+        "Interrupciones por cortes de energía no mitigados"
+      ],
+      "order": 5,
+      "businessTypes": [
+        "TECHNOLOGY"
+      ]
+    },
+    {
+      "code": "fiscal_tributario",
+      "label": "Fiscal y Tributario",
+      "description": "Riesgos relacionados con obligaciones impositivas y contables",
+      "severity": "MEDIUM",
+      "examples": [
+        "Errores en facturación electrónica que generan multas AFIP",
+        "Omisión de impuestos por ventas digitales al exterior",
+        "Problemas en retenciones y percepciones",
+        "Incumplimiento de obligaciones de información"
+      ],
+      "order": 6,
+      "businessTypes": [
+        "TECHNOLOGY"
+      ]
+    },
+    {
+      "code": "riesgos_contractuales",
+      "label": "Riesgos Contractuales",
+      "description": "Vicios en la redacción o ejecución de contratos que generen responsabilidad civil",
+      "severity": "HIGH",
+      "examples": [
+        "Cláusulas abusivas en contratos de locación",
+        "Omisión de requisitos formales en boleto de compraventa",
+        "Falta de verificación de capacidad contractual de las partes",
+        "Incumplimiento de obligaciones de información al consumidor"
+      ],
+      "order": 1,
+      "businessTypes": [
+        "REAL_ESTATE"
+      ]
+    },
+    {
+      "code": "cumplimiento_ley_alquileres",
+      "label": "Cumplimiento Ley de Alquileres",
+      "description": "Incumplimiento de la Ley 27.551 y normativa complementaria",
+      "severity": "HIGH",
+      "examples": [
+        "Actualización de alquileres por índice no permitido",
+        "Cobro de comisiones excesivas",
+        "Falta de registro en AFIP de contratos",
+        "Incumplimiento de plazos de depósito de garantía"
+      ],
+      "order": 2,
+      "businessTypes": [
+        "REAL_ESTATE"
+      ]
+    },
+    {
+      "code": "riesgos_fiscales",
+      "label": "Riesgos Fiscales",
+      "description": "Incumplimientos ante AFIP y organismos fiscales provinciales",
+      "severity": "HIGH",
+      "examples": [
+        "Subfacturación en operaciones de compraventa",
+        "Omisión de retenciones de IVA e ingresos brutos",
+        "Declaración jurada incorrecta de bienes personales",
+        "Falta de emisión de facturas por servicios"
+      ],
+      "order": 3,
+      "businessTypes": [
+        "REAL_ESTATE"
+      ]
+    },
+    {
+      "code": "proteccion_datos_personales",
+      "label": "Protección de Datos Personales",
+      "description": "Manejo inadecuado de información personal de clientes y propietarios",
+      "severity": "MEDIUM",
+      "examples": [
+        "Falta de registro en base de datos ante AAIP",
+        "Compartir datos sin autorización expresa",
+        "Almacenamiento inseguro de documentación personal",
+        "Falta de política de privacidad en sitio web"
+      ],
+      "order": 4,
+      "businessTypes": [
+        "REAL_ESTATE"
+      ]
+    },
+    {
+      "code": "responsabilidad_profesional",
+      "label": "Responsabilidad Profesional",
+      "description": "Errores en asesoramiento técnico o valuaciones inmobiliarias",
+      "severity": "MEDIUM",
+      "examples": [
+        "Tasación incorrecta que afecta valor de garantía",
+        "Omisión de vicios ocultos en la propiedad",
+        "Asesoramiento erróneo sobre estado registral",
+        "Falta de verificación de cargas y gravámenes"
+      ],
+      "order": 5,
+      "businessTypes": [
+        "REAL_ESTATE"
+      ]
+    },
+    {
+      "code": "riesgos_laborales",
+      "label": "Riesgos Laborales",
+      "description": "Incumplimiento de la Ley de Contrato de Trabajo y convenios colectivos",
+      "severity": "MEDIUM",
+      "examples": [
+        "Relación laboral encubierta con martilleros",
+        "Falta de registración de horas extras",
+        "Incumplimiento en aportes y contribuciones",
+        "Despidos sin causa justificada"
+      ],
+      "order": 6,
+      "businessTypes": [
+        "REAL_ESTATE"
+      ]
+    },
+    {
+      "code": "seguridad_operativa",
+      "label": "Seguridad Operativa",
+      "description": "Riesgos en el acceso y exhibición de propiedades",
+      "severity": "LOW",
+      "examples": [
+        "Accidentes durante visitas a propiedades",
+        "Robo de documentación o llaves",
+        "Daños a propiedades durante exhibiciones",
+        "Falta de protocolos de seguridad para empleados"
+      ],
+      "order": 7,
+      "businessTypes": [
+        "REAL_ESTATE"
+      ]
+    },
+    {
+      "code": "riesgo_laboral",
+      "label": "Riesgo Laboral",
+      "description": "Conflictos con empleados y docentes por incumplimiento de la Ley de Contrato de Trabajo y convenios colectivos",
+      "severity": "HIGH",
+      "examples": [
+        "Despidos sin causa justificada",
+        "Incumplimiento de cargas sociales",
+        "Horas extras no pagadas",
+        "Discriminación en la contratación"
+      ],
+      "order": 1,
+      "businessTypes": [
+        "EDUCATION"
+      ]
+    },
+    {
+      "code": "defensa_consumidor",
+      "label": "Defensa del Consumidor",
+      "description": "Reclamos por incumplimiento de servicios educativos ofrecidos según Ley 24.240 de Defensa del Consumidor",
+      "severity": "HIGH",
+      "examples": [
+        "Cambios unilaterales en programas",
+        "Suspensión de clases sin reembolso",
+        "Publicidad engañosa en ofertas educativas",
+        "Falta de entrega de certificados"
+      ],
+      "order": 2,
+      "businessTypes": [
+        "EDUCATION"
+      ]
+    },
+    {
+      "code": "proteccion_datos",
+      "label": "Protección de Datos Personales",
+      "description": "Manejo de información sensible de estudiantes y empleados según Ley 25.326 de Protección de Datos Personales",
+      "severity": "HIGH",
+      "examples": [
+        "Filtración de datos académicos",
+        "Falta de consentimiento para uso de imágenes",
+        "Almacenamiento inseguro de legajos",
+        "Transferencia internacional de datos sin autorización"
+      ],
+      "order": 3,
+      "businessTypes": [
+        "EDUCATION"
+      ]
+    },
+    {
+      "code": "fiscal_contable",
+      "label": "Riesgo Fiscal y Contable",
+      "description": "Incumplimientos ante AFIP en materia de impuestos, facturación y registración contable",
+      "severity": "MEDIUM",
+      "examples": [
+        "Errores en liquidación de IVA",
+        "Facturación incorrecta de servicios educativos",
+        "Omisión de retenciones",
+        "Incumplimiento en presentación de DDJJ"
+      ],
+      "order": 4,
+      "businessTypes": [
+        "EDUCATION"
+      ]
+    },
+    {
+      "code": "seguridad_operacional",
+      "label": "Seguridad Operacional",
+      "description": "Riesgos de accidentes y responsabilidad civil por condiciones inseguras en instalaciones educativas",
+      "severity": "MEDIUM",
+      "examples": [
+        "Accidentes en espacios comunes",
+        "Falta de medidas de seguridad en laboratorios",
+        "Incendios por instalaciones eléctricas defectuosas",
+        "Caídas en áreas de recreo"
+      ],
+      "order": 5,
+      "businessTypes": [
+        "EDUCATION"
+      ]
+    },
+    {
+      "code": "propiedad_intelectual",
+      "label": "Propiedad Intelectual",
+      "description": "Uso no autorizado de material protegido por derechos de autor en actividades educativas",
+      "severity": "MEDIUM",
+      "examples": [
+        "Distribución ilegal de libros digitales",
+        "Uso no licenciado de software educativo",
+        "Copias no autorizadas de material didáctico",
+        "Plagio en contenidos académicos"
+      ],
+      "order": 6,
+      "businessTypes": [
+        "EDUCATION"
+      ]
+    },
+    {
+      "code": "riesgos_laborales",
+      "label": "Riesgos Laborales y Relaciones de Trabajo",
+      "description": "Exposición a conflictos laborales, accidentes de trabajo y reclamos por incumplimiento de la LCT",
+      "severity": "HIGH",
+      "examples": [
+        "Accidentes laborales en planta",
+        "Reclamos por horas extras no pagadas",
+        "Conflictos sindicales",
+        "Falta de registración adecuada de jornadas"
+      ],
+      "order": 1,
+      "businessTypes": [
+        "MANUFACTURING"
+      ]
+    },
+    {
+      "code": "cumplimiento_tributario_afip",
+      "label": "Cumplimiento Tributario AFIP",
+      "description": "Riesgos asociados al incumplimiento de obligaciones fiscales y contables ante AFIP",
+      "severity": "HIGH",
+      "examples": [
+        "Facturación irregular",
+        "Subdeclaración de ingresos",
+        "Incumplimiento en retenciones",
+        "Falta de presentación de declaraciones juradas"
+      ],
+      "order": 2,
+      "businessTypes": [
+        "MANUFACTURING"
+      ]
+    },
+    {
+      "code": "defensa_consumidor",
+      "label": "Defensa del Consumidor",
+      "description": "Riesgos por incumplimiento de la Ley de Defensa del Consumidor en productos manufacturados",
+      "severity": "HIGH",
+      "examples": [
+        "Productos con fallas de fabricación",
+        "Garantías no honradas",
+        "Publicidad engañosa",
+        "Falta de información clara sobre productos"
+      ],
+      "order": 3,
+      "businessTypes": [
+        "MANUFACTURING"
+      ]
+    },
+    {
+      "code": "interrupcion_operaciones",
+      "label": "Interrupción de Operaciones",
+      "description": "Riesgos que afectan la continuidad operativa del proceso productivo",
+      "severity": "MEDIUM",
+      "examples": [
+        "Cortes de energía eléctrica",
+        "Falta de materias primas",
+        "Rotura de maquinaria crítica",
+        "Problemas logísticos en distribución"
+      ],
+      "order": 4,
+      "businessTypes": [
+        "MANUFACTURING"
+      ]
+    },
+    {
+      "code": "calidad_productos",
+      "label": "Calidad de Productos",
+      "description": "Riesgos asociados a fallas en el control de calidad y estándares de fabricación",
+      "severity": "MEDIUM",
+      "examples": [
+        "Lotes de productos defectuosos",
+        "Incumplimiento de normas IRAM",
+        "Reclamos por mala calidad",
+        "Devoluciones masivas de productos"
+      ],
+      "order": 5,
+      "businessTypes": [
+        "MANUFACTURING"
+      ]
+    },
+    {
+      "code": "proteccion_datos",
+      "label": "Protección de Datos Personales",
+      "description": "Riesgos por incumplimiento de la Ley de Protección de Datos Personales",
+      "severity": "MEDIUM",
+      "examples": [
+        "Base de datos de clientes sin registro",
+        "Falta de consentimiento para marketing",
+        "Transferencia internacional de datos sin autorización",
+        "Falta de medidas de seguridad adecuadas"
+      ],
+      "order": 6,
+      "businessTypes": [
+        "MANUFACTURING"
+      ]
+    },
+    {
+      "code": "cumplimiento_tributario",
+      "label": "Cumplimiento Tributario",
+      "description": "Riesgos relacionados con obligaciones fiscales ante AFIP",
+      "severity": "HIGH",
+      "examples": [
+        "Facturación electrónica incorrecta",
+        "Declaraciones juradas fuera de término",
+        "Retenciones mal calculadas",
+        "IVA no declarado correctamente"
+      ],
+      "order": 1,
+      "businessTypes": [
+        "RETAIL"
+      ]
+    },
+    {
+      "code": "defensa_consumidor",
+      "label": "Defensa del Consumidor",
+      "description": "Riesgos por incumplimiento de Ley 24.240 de Defensa del Consumidor",
+      "severity": "HIGH",
+      "examples": [
+        "Publicidad engañosa",
+        "Garantías no cumplidas",
+        "Condiciones abusivas en contratos",
+        "Falta de información clara en precios"
+      ],
+      "order": 2,
+      "businessTypes": [
+        "RETAIL"
+      ]
+    },
+    {
+      "code": "relaciones_laborales",
+      "label": "Relaciones Laborales",
+      "description": "Riesgos en gestión de personal según Ley de Contrato de Trabajo",
+      "severity": "HIGH",
+      "examples": [
+        "Despidos sin causa justificada",
+        "Horas extras no pagadas",
+        "Falta de registración de jornada",
+        "Incumplimiento de convenio colectivo"
+      ],
+      "order": 3,
+      "businessTypes": [
+        "RETAIL"
+      ]
+    },
+    {
+      "code": "seguridad_operativa",
+      "label": "Seguridad Operativa",
+      "description": "Riesgos en la operación diaria del comercio",
+      "severity": "MEDIUM",
+      "examples": [
+        "Robo de mercadería",
+        "Daños a instalaciones",
+        "Accidentes de clientes en local",
+        "Fallas en sistemas de seguridad"
+      ],
+      "order": 4,
+      "businessTypes": [
+        "RETAIL"
+      ]
+    },
+    {
+      "code": "gestion_inventarios",
+      "label": "Gestión de Inventarios",
+      "description": "Riesgos en el control y administración de stock",
+      "severity": "MEDIUM",
+      "examples": [
+        "Merma no justificada",
+        "Stock obsoleto",
+        "Rotura de productos perecederos",
+        "Falta de control de vencimientos"
+      ],
+      "order": 5,
+      "businessTypes": [
+        "RETAIL"
+      ]
+    },
+    {
+      "code": "proteccion_datos",
+      "label": "Protección de Datos Personales",
+      "description": "Riesgos por manejo incorrecto de datos según Ley 25.326",
+      "severity": "MEDIUM",
+      "examples": [
+        "Base de datos de clientes sin inscripción",
+        "Cesión de datos sin consentimiento",
+        "Falta de políticas de privacidad",
+        "Almacenamiento inseguro de información"
+      ],
+      "order": 6,
+      "businessTypes": [
+        "RETAIL"
+      ]
+    },
+    {
+      "code": "competencia_desleal",
+      "label": "Competencia Desleal",
+      "description": "Riesgos por prácticas comerciales anticompetitivas",
+      "severity": "LOW",
+      "examples": [
+        "Publicidad comparativa engañosa",
+        "Imposición de precios mínimos",
+        "Acuerdos restrictivos con proveedores",
+        "Copias no autorizadas de productos"
+      ],
+      "order": 7,
+      "businessTypes": [
+        "RETAIL"
+      ]
+    },
+    {
+      "code": "riesgos_legales_contratos",
+      "label": "Riesgos Legales Contractuales",
+      "description": "Incumplimiento de obligaciones contractuales con clientes y proveedores",
+      "severity": "HIGH",
+      "examples": [
+        "Incumplimiento de reservas confirmadas",
+        "Cláusulas abusivas en contratos de servicios",
+        "Responsabilidad por servicios no prestados",
+        "Problemas con garantías de servicios"
+      ],
+      "order": 1,
+      "businessTypes": [
+        "HOSPITALITY"
+      ]
+    },
+    {
+      "code": "riesgos_laborales",
+      "label": "Riesgos Laborales",
+      "description": "Incumplimiento de normativa laboral argentina y relaciones con el personal",
+      "severity": "HIGH",
+      "examples": [
+        "Horas extras no registradas",
+        "Despidos sin causa justificada",
+        "Incumplimiento del convenio colectivo de hotelería",
+        "Falta de registración de empleados"
+      ],
+      "order": 2,
+      "businessTypes": [
+        "HOSPITALITY"
+      ]
+    },
+    {
+      "code": "riesgos_defensa_consumidor",
+      "label": "Riesgos Defensa del Consumidor",
+      "description": "Incumplimiento de la Ley 24.240 de Defensa del Consumidor",
+      "severity": "HIGH",
+      "examples": [
+        "Publicidad engañosa en paquetes turísticos",
+        "Cambios unilaterales en condiciones de servicio",
+        "Falta de información clara sobre precios",
+        "Negativa a reembolsos por servicios no prestados"
+      ],
+      "order": 3,
+      "businessTypes": [
+        "HOSPITALITY"
+      ]
+    },
+    {
+      "code": "riesgos_tributarios",
+      "label": "Riesgos Tributarios",
+      "description": "Incumplimiento de obligaciones fiscales ante AFIP y organismos tributarios",
+      "severity": "HIGH",
+      "examples": [
+        "Facturación no declarada",
+        "Errores en liquidación de IVA e ingresos brutos",
+        "Falta de emisión de facturas electrónicas",
+        "Incumplimiento en retenciones y percepciones"
+      ],
+      "order": 4,
+      "businessTypes": [
+        "HOSPITALITY"
+      ]
+    },
+    {
+      "code": "riesgos_seguridad_datos",
+      "label": "Riesgos de Seguridad de Datos",
+      "description": "Protección de datos personales de clientes según Ley 25.326",
+      "severity": "MEDIUM",
+      "examples": [
+        "Filtración de datos de tarjetas de crédito",
+        "Almacenamiento inseguro de documentación de huéspedes",
+        "Uso indebido de bases de datos de clientes",
+        "Falta de consentimiento para tratamiento de datos"
+      ],
+      "order": 5,
+      "businessTypes": [
+        "HOSPITALITY"
+      ]
+    },
+    {
+      "code": "riesgos_operativos_seguridad",
+      "label": "Riesgos Operativos de Seguridad",
+      "description": "Incidentes de seguridad que afecten a huéspedes y empleados",
+      "severity": "MEDIUM",
+      "examples": [
+        "Robos en habitaciones",
+        "Accidentes en áreas comunes",
+        "Falta de protocolos de emergencia",
+        "Problemas de seguridad en estacionamiento"
+      ],
+      "order": 6,
+      "businessTypes": [
+        "HOSPITALITY"
+      ]
+    },
+    {
+      "code": "riesgos_sanitarios_ambientales",
+      "label": "Riesgos Sanitarios y Ambientales",
+      "description": "Incumplimiento de normas sanitarias y ambientales aplicables",
+      "severity": "MEDIUM",
+      "examples": [
+        "Contaminación de piscinas",
+        "Manejo incorrecto de residuos",
+        "Falta de certificados de bromatología",
+        "Incumplimiento de normas de higiene en alimentos"
+      ],
+      "order": 7,
+      "businessTypes": [
+        "HOSPITALITY"
+      ]
+    },
+    {
+      "code": "riesgos_laborales",
+      "label": "Riesgos Laborales",
+      "description": "Exposición a conflictos laborales y reclamos por incumplimiento de la Ley de Contrato de Trabajo",
+      "severity": "HIGH",
+      "examples": [
+        "Horas extras no registradas",
+        "Falta de ART contratada",
+        "Despidos sin causa justificada",
+        "Incumplimiento en el pago de aportes"
+      ],
+      "order": 1,
+      "businessTypes": [
+        "TRANSPORTATION"
+      ]
+    },
+    {
+      "code": "responsabilidad_civil_transporte",
+      "label": "Responsabilidad Civil en el Transporte",
+      "description": "Riesgos por daños a terceros, mercadería o accidentes de tránsito",
+      "severity": "HIGH",
+      "examples": [
+        "Accidentes con lesionados",
+        "Pérdida o daño de mercadería transportada",
+        "Responsabilidad por carga indebida",
+        "Daños a propiedad de terceros"
+      ],
+      "order": 2,
+      "businessTypes": [
+        "TRANSPORTATION"
+      ]
+    },
+    {
+      "code": "incumplimiento_fiscal",
+      "label": "Incumplimiento Fiscal",
+      "description": "Riesgos por falta de cumplimiento de obligaciones ante AFIP y organismos fiscales",
+      "severity": "HIGH",
+      "examples": [
+        "Facturación no declarada",
+        "IVA no ingresado",
+        "Regímenes de información incumplidos",
+        "Falta de presentación de DDJJ"
+      ],
+      "order": 3,
+      "businessTypes": [
+        "TRANSPORTATION"
+      ]
+    },
+    {
+      "code": "defensa_consumidor",
+      "label": "Defensa del Consumidor",
+      "description": "Riesgos por incumplimiento de la Ley de Defensa del Consumidor en servicios de transporte",
+      "severity": "MEDIUM",
+      "examples": [
+        "Demoras injustificadas en entregas",
+        "Falta de información clara en contratos",
+        "Cobro de servicios no prestados",
+        "Incumplimiento de condiciones pactadas"
+      ],
+      "order": 4,
+      "businessTypes": [
+        "TRANSPORTATION"
+      ]
+    },
+    {
+      "code": "proteccion_datos_personales",
+      "label": "Protección de Datos Personales",
+      "description": "Riesgos por manejo inadecuado de datos personales de clientes y empleados",
+      "severity": "MEDIUM",
+      "examples": [
+        "Base de datos de clientes sin registro en AAIP",
+        "Falta de consentimiento para uso de datos",
+        "Transferencia de datos sin autorización",
+        "Falta de medidas de seguridad informática"
+      ],
+      "order": 5,
+      "businessTypes": [
+        "TRANSPORTATION"
+      ]
+    },
+    {
+      "code": "incumplimiento_regulatorio",
+      "label": "Incumplimiento Regulatorio",
+      "description": "Riesgos por falta de cumplimiento de normativas específicas del transporte",
+      "severity": "MEDIUM",
+      "examples": [
+        "Vehículos sin VTV al día",
+        "Falta de habilitaciones municipales",
+        "Incumplimiento de normas de carga",
+        "Documentación del vehículo vencida"
+      ],
+      "order": 6,
+      "businessTypes": [
+        "TRANSPORTATION"
+      ]
+    },
+    {
+      "code": "responsabilidad_profesional",
+      "label": "Responsabilidad Profesional",
+      "description": "Riesgos por errores u omisiones en los servicios de consultoría que generen perjuicios al cliente",
+      "severity": "HIGH",
+      "examples": [
+        "Asesoramiento incorrecto en reestructuración empresarial",
+        "Diagnóstico erróneo que cause pérdidas económicas al cliente",
+        "Recomendaciones que violen normativa local"
+      ],
+      "order": 1,
+      "businessTypes": [
+        "CONSULTING"
+      ]
+    },
+    {
+      "code": "incumplimiento_contractual",
+      "label": "Incumplimiento Contractual",
+      "description": "Riesgos por falta de cumplimiento de obligaciones establecidas en contratos con clientes",
+      "severity": "HIGH",
+      "examples": [
+        "No cumplimiento de plazos de entrega",
+        "Incumplimiento de alcance acordado",
+        "Falta de confidencialidad en información sensible"
+      ],
+      "order": 2,
+      "businessTypes": [
+        "CONSULTING"
+      ]
+    },
+    {
+      "code": "riesgos_fiscales",
+      "label": "Riesgos Fiscales",
+      "description": "Exposición a sanciones y multas por incumplimiento de obligaciones tributarias ante AFIP",
+      "severity": "HIGH",
+      "examples": [
+        "Facturación incorrecta o tardía",
+        "No registro de ingresos",
+        "Errores en liquidación de impuestos",
+        "Falta de presentación de declaraciones juradas"
+      ],
+      "order": 3,
+      "businessTypes": [
+        "CONSULTING"
+      ]
+    },
+    {
+      "code": "proteccion_datos_personales",
+      "label": "Protección de Datos Personales",
+      "description": "Riesgos por manejo inadecuado de datos personales de clientes y empleados según Ley 25.326",
+      "severity": "MEDIUM",
+      "examples": [
+        "Filtración de información confidencial de clientes",
+        "Falta de consentimiento para tratamiento de datos",
+        "Almacenamiento inseguro de bases de datos",
+        "Transferencia internacional no autorizada"
+      ],
+      "order": 4,
+      "businessTypes": [
+        "CONSULTING"
+      ]
+    },
+    {
+      "code": "relacion_laboral",
+      "label": "Relación Laboral",
+      "description": "Riesgos asociados a la contratación y gestión de colaboradores según Ley de Contrato de Trabajo",
+      "severity": "MEDIUM",
+      "examples": [
+        "Mal categorización de relación laboral",
+        "Incumplimiento de cargas sociales",
+        "Despidos sin causa justificada",
+        "Falta de registración de jornada laboral"
+      ],
+      "order": 5,
+      "businessTypes": [
+        "CONSULTING"
+      ]
+    },
+    {
+      "code": "defensa_consumidor",
+      "label": "Defensa del Consumidor",
+      "description": "Riesgos por incumplimiento de Ley 24.240 de Defensa del Consumidor en servicios profesionales",
+      "severity": "MEDIUM",
+      "examples": [
+        "Publicidad engañosa en servicios ofrecidos",
+        "Cláusulas abusivas en contratos",
+        "Falta de información clara sobre servicios",
+        "No cumplimiento de garantías implícitas"
+      ],
+      "order": 6,
+      "businessTypes": [
+        "CONSULTING"
+      ]
+    },
+    {
+      "code": "responsabilidad_contenidos",
+      "label": "Responsabilidad por Contenidos",
+      "description": "Riesgos legales por difamación, injurias, calumnias o violación de derechos de autor",
+      "severity": "HIGH",
+      "examples": [
+        "Demanda por difamación a figura pública",
+        "Reclamo por violación de derechos de imagen",
+        "Proceso por calumnias e injurias",
+        "Infracción a la Ley de Propiedad Intelectual"
+      ],
+      "order": 1,
+      "businessTypes": [
+        "MEDIA"
+      ]
+    },
+    {
+      "code": "cumplimiento_afip",
+      "label": "Cumplimiento AFIP",
+      "description": "Riesgos fiscales y tributarios ante la Administración Federal de Ingresos Públicos",
+      "severity": "HIGH",
+      "examples": [
+        "Fiscalización por facturación electrónica",
+        "Multas por mora en declaraciones juradas",
+        "Controles por retenciones y percepciones",
+        "Verificación de monotributo de colaboradores"
+      ],
+      "order": 2,
+      "businessTypes": [
+        "MEDIA"
+      ]
+    },
+    {
+      "code": "proteccion_datos_personales",
+      "label": "Protección de Datos Personales",
+      "description": "Riesgos por tratamiento de datos personales según Ley 25.326 y normativa local",
+      "severity": "HIGH",
+      "examples": [
+        "Sanciones por base de datos no registrada",
+        "Reclamos por tratamiento de datos sensibles",
+        "Filtración de información de suscriptores",
+        "Incumplimiento del deber de confidencialidad"
+      ],
+      "order": 3,
+      "businessTypes": [
+        "MEDIA"
+      ]
+    },
+    {
+      "code": "relaciones_laborales",
+      "label": "Relaciones Laborales",
+      "description": "Riesgos en materia laboral según Ley de Contrato de Trabajo y convenios colectivos",
+      "severity": "MEDIUM",
+      "examples": [
+        "Reclamos por horas extras no pagadas",
+        "Demandas por despido indirecto",
+        "Conflictos por trabajo en negro",
+        "Incumplimiento de convenio de prensa"
+      ],
+      "order": 4,
+      "businessTypes": [
+        "MEDIA"
+      ]
+    },
+    {
+      "code": "defensa_consumidor",
+      "label": "Defensa del Consumidor",
+      "description": "Riesgos por incumplimiento de la Ley 24.240 de Defensa del Consumidor",
+      "severity": "MEDIUM",
+      "examples": [
+        "Reclamos por publicidad engañosa",
+        "Multas por cláusulas abusivas en contratos",
+        "Sanciones por falta de información al consumidor",
+        "Procesos por ofertas no honoradas"
+      ],
+      "order": 5,
+      "businessTypes": [
+        "MEDIA"
+      ]
+    },
+    {
+      "code": "continuidad_operativa",
+      "label": "Continuidad Operativa",
+      "description": "Riesgos operativos que afectan la producción y transmisión de contenidos",
+      "severity": "MEDIUM",
+      "examples": [
+        "Corte de transmisión por falla técnica",
+        "Pérdida de contenidos por backup defectuoso",
+        "Interrupción por cortes de energía",
+        "Fallas en sistemas de streaming"
+      ],
+      "order": 6,
+      "businessTypes": [
+        "MEDIA"
+      ]
+    },
+    {
+      "code": "seguridad_informatica",
+      "label": "Seguridad Informática",
+      "description": "Riesgos de ciberseguridad y protección de infraestructura tecnológica",
+      "severity": "MEDIUM",
+      "examples": [
+        "Ataque ransomware a servidores de contenidos",
+        "Phishing a cuentas corporativas",
+        "Vulneración de plataformas de streaming",
+        "Robo de bases de datos de suscriptores"
+      ],
+      "order": 7,
+      "businessTypes": [
+        "MEDIA"
+      ]
+    },
+    {
+      "code": "riesgos_climaticos_ambientales",
+      "label": "Riesgos Climáticos y Ambientales",
+      "description": "Exposición a fenómenos meteorológicos adversos y regulaciones ambientales",
+      "severity": "HIGH",
+      "examples": [
+        "Sequías prolongadas que afectan rendimiento",
+        "Heladas tardías que dañan cultivos",
+        "Inundaciones que destruyen plantaciones",
+        "Sanciones por incumplimiento Ley de Bosques"
+      ],
+      "order": 1,
+      "businessTypes": [
+        "AGRICULTURE"
+      ]
+    },
+    {
+      "code": "riesgos_laborales",
+      "label": "Riesgos Laborales",
+      "description": "Exposición a conflictos laborales y sanciones por incumplimiento de normativa laboral",
+      "severity": "HIGH",
+      "examples": [
+        "Demandas por accidentes de trabajo rural",
+        "Sanciones por trabajo no registrado",
+        "Conflictos por condiciones de alojamiento",
+        "Incumplimiento del Estatuto del Peón Rural"
+      ],
+      "order": 2,
+      "businessTypes": [
+        "AGRICULTURE"
+      ]
+    },
+    {
+      "code": "riesgos_fiscales_tributarios",
+      "label": "Riesgos Fiscales y Tributarios",
+      "description": "Exposición a sanciones por incumplimiento de obligaciones fiscales y aduaneras",
+      "severity": "HIGH",
+      "examples": [
+        "Multas AFIP por declaraciones juradas incorrectas",
+        "Sanciones por subfacturación de exportaciones",
+        "Problemas con retenciones a las exportaciones",
+        "Incumplimiento en pagos de impuestos provinciales"
+      ],
+      "order": 3,
+      "businessTypes": [
+        "AGRICULTURE"
+      ]
+    },
+    {
+      "code": "riesgos_mercado_precios",
+      "label": "Riesgos de Mercado y Precios",
+      "description": "Volatilidad en precios de commodities y condiciones comerciales desfavorables",
+      "severity": "MEDIUM",
+      "examples": [
+        "Caída abrupta de precios internacionales",
+        "Incumplimiento de contratos de compra-venta",
+        "Fluctuaciones cambiarias que afectan rentabilidad",
+        "Competencia desleal en el mercado local"
+      ],
+      "order": 4,
+      "businessTypes": [
+        "AGRICULTURE"
+      ]
+    },
+    {
+      "code": "riesgos_sanitarios_fitosanitarios",
+      "label": "Riesgos Sanitarios y Fitosanitarios",
+      "description": "Exposición a plagas, enfermedades y regulaciones sanitarias",
+      "severity": "MEDIUM",
+      "examples": [
+        "Brotes de plagas que afectan cultivos",
+        "Rechazo de exportaciones por residuos químicos",
+        "Sanciones SENASA por incumplimiento normativas",
+        "Contaminación cruzada entre cultivos"
+      ],
+      "order": 5,
+      "businessTypes": [
+        "AGRICULTURE"
+      ]
+    },
+    {
+      "code": "riesgos_logistica_cadena_suministro",
+      "label": "Riesgos de Logística y Cadena de Suministro",
+      "description": "Interrupciones en la cadena de suministro y problemas de transporte",
+      "severity": "MEDIUM",
+      "examples": [
+        "Paros de transporte que impiden cosecha",
+        "Falta de disponibilidad de insumos críticos",
+        "Daños en productos durante transporte",
+        "Problemas en puertos para exportación"
+      ],
+      "order": 6,
+      "businessTypes": [
+        "AGRICULTURE"
+      ]
+    }
+  ]
+}
